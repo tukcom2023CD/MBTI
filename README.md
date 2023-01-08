@@ -1,4 +1,5 @@
-# MBTI (temp)
+# MBTI 팀
+## EVERYSEEING (
 
 시각장애인을 위한 제품 인식 앱
 
