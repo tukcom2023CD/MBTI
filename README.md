@@ -26,6 +26,9 @@ QR 인식 과정에 초기 설정된 알레르기가 존재하면 사용자에�
 
 <img src="https://img.shields.io/badge/Xcode-147EFB?style=flat-square&logo=Xcode&logoColor=white"/>
 
+<img src="https://img.shields.io/badge/Xcode-147EFB?style=flat-square&logo=JIRA&logoColor=white"/>
+
+
 ## Members
 
 김태민, 박세인, 이성배, 장지수
