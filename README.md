@@ -26,7 +26,10 @@ QR 인식 과정에 초기 설정된 알레르기가 존재하면 사용자에�
 
 <img src="https://img.shields.io/badge/Xcode-147EFB?style=flat-square&logo=Xcode&logoColor=white"/>
 
-<img src="https://img.shields.io/badge/Jira SoftWare-0052CC?style=flat-square&logo=Jira Software&logoColor=white"/>
+<a href="https://tukmbti.atlassian.net/jira/software/projects/MG/boards/2">
+    <img src="https://img.shields.io/badge/Jira SoftWare-0052CC?style=flat-square&logo=Jira Software&logoColor=white"/>
+</a>
+
 
 
 ## Members
