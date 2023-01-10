@@ -1,2 +1,5 @@
 .DS_Store
 ios/Pods/
+iOS/Podfile
+.lock
+.pbxproj
