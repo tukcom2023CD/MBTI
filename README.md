@@ -13,14 +13,8 @@ QR 코드 인식시 부가 기능 (진동, 화면전환, TTS)
 
 QR 인식 과정에 초기 설정된 알레르기가 존재하면 사용자에게 정보 제공 (TTS)
 
-
-## Studying 
-
-VoiceOver 사용법 : https://support.apple.com/ko-kr/guide/iphone/iph3e2e415f/ios
-
-장애인 접근성 : Document 파일 내부에 장애인 접근성 문서 
-
 ## Architecture
+
 
 
 ## Language
@@ -35,7 +29,11 @@ VoiceOver 사용법 : https://support.apple.com/ko-kr/guide/iphone/iph3e2e415f/i
     <img src="https://img.shields.io/badge/Jira SoftWare-0052CC?style=flat-square&logo=Jira Software&logoColor=white"/>
 </a> - link
 
+## Studying 
 
+VoiceOver 사용법 : https://support.apple.com/ko-kr/guide/iphone/iph3e2e415f/ios
+
+장애인 접근성 : Document 파일 내부에 장애인 접근성 문서 
 
 ## Members
 
