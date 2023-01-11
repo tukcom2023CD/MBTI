@@ -31,9 +31,12 @@ QR 인식 과정에 초기 설정된 알레르기가 존재하면 사용자에�
 
 ## Studying 
 
-VoiceOver 사용법 : https://support.apple.com/ko-kr/guide/iphone/iph3e2e415f/ios
-
-장애인 접근성 : https://github.com/tukcom2023CD/MBTI/blob/main/Document/%EB%AA%A8%EB%B0%94%EC%9D%BC%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%91%EA%B7%BC%EC%84%B1%20%EC%A7%80%EC%B9%A8%202.0.pdf 
+<a href="https://support.apple.com/ko-kr/guide/iphone/iph3e2e415f/ios">
+    VoiceOver 사용법
+</a><br>
+<a href="https://github.com/tukcom2023CD/MBTI/blob/main/Document/%EB%AA%A8%EB%B0%94%EC%9D%BC%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%91%EA%B7%BC%EC%84%B1%20%EC%A7%80%EC%B9%A8%202.0.pdf">
+    장애인 접근성 지침
+</a>
 
 ## Members
 
