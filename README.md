@@ -19,6 +19,7 @@ QR 코드 인식 후 설정한 알레르기 존재 시 사용자에게 알림 (T
 
 ## Architecture
 
+![image](https://user-images.githubusercontent.com/94372492/211723170-0825cf6a-a1b3-4eba-85cd-e22b84ad0783.png)
 
 
 ## Language
