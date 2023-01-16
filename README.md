@@ -31,7 +31,9 @@ QR 코드 인식 후 설정한 알레르기 존재 시 사용자에게 알림 (T
 
 <a href="https://tukmbti.atlassian.net/jira/software/projects/MG/boards/2">
     <img src="https://img.shields.io/badge/Jira SoftWare-0052CC?style=flat-square&logo=Jira Software&logoColor=white"/>
-</a> - link
+</a>
+
+Jira SoftWare를 누르면 해당 링크로 이동합니다.
 
 ## Reference
 
