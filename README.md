@@ -1,9 +1,9 @@
 # MBTI 팀
 ## Members
 
-|장지수|김태민|박세인|이성배|
+|김태민|박세인|이성배|장지수|
 |:---:|:---:|:---:|:---:|
-|App|Server/DB|App|Server/DB|
+|Server/DB|App|Server/DB|App|
 
 ## Subject
 
