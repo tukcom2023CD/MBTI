@@ -3,7 +3,7 @@
 
 |장지수|김태민|박세인|이성배|
 |:---:|:---:|:---:|:---:|
-|Ios|Server|Ios|Server|
+|App|Server/DB|App|Server/DB|
 
 ## Subject
 
@@ -21,7 +21,7 @@ QR 코드 인식 후 설정한 알레르기 존재 시 사용자에게 알림 (T
 
 ## Architecture
 
-<img src="https://user-images.githubusercontent.com/94372492/212522253-04a4c53f-c8a9-4f55-9777-5b0ed7e672bc.png" width="700" height="300"/>
+<img src="https://user-images.githubusercontent.com/94372492/213353466-35402c81-6c2c-4402-a766-b6b833a3ed0c.png" width="700" height="300"/>
 
 ## Language
 
