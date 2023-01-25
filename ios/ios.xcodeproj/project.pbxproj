@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21ED400B896F0DBD668A0C2A /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4DAC7D4DB4674B9932A0DB /* Pods_ios.framework */; };
+		9A1175752980C51C0056CE70 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1175742980C51C0056CE70 /* QRViewController.swift */; };
 		9A83B3D5296BD69800DB1945 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A83B3D4296BD69800DB1945 /* AppDelegate.swift */; };
 		9A83B3D7296BD69800DB1945 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A83B3D6296BD69800DB1945 /* SceneDelegate.swift */; };
 		9A83B3D9296BD69800DB1945 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A83B3D8296BD69800DB1945 /* MainViewController.swift */; };
@@ -20,6 +21,7 @@
 		572048CA7D3C4BF7E0278387 /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		5ADE5F6F382DA85143BCBAED /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 		5E4DAC7D4DB4674B9932A0DB /* Pods_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A1175742980C51C0056CE70 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		9A83B3D1296BD69800DB1945 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A83B3D4296BD69800DB1945 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A83B3D6296BD69800DB1945 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				9A83B3D4296BD69800DB1945 /* AppDelegate.swift */,
 				9A83B3D6296BD69800DB1945 /* SceneDelegate.swift */,
 				9A83B3D8296BD69800DB1945 /* MainViewController.swift */,
+				9A1175742980C51C0056CE70 /* QRViewController.swift */,
 				9A83B3DA296BD69800DB1945 /* Main.storyboard */,
 				9A83B3DD296BD69900DB1945 /* Assets.xcassets */,
 				9A83B3DF296BD69900DB1945 /* LaunchScreen.storyboard */,
@@ -209,6 +212,7 @@
 				9A83B3D9296BD69800DB1945 /* MainViewController.swift in Sources */,
 				9A83B3D5296BD69800DB1945 /* AppDelegate.swift in Sources */,
 				9A83B3D7296BD69800DB1945 /* SceneDelegate.swift in Sources */,
+				9A1175752980C51C0056CE70 /* QRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
