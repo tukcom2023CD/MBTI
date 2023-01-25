@@ -10,7 +10,7 @@ import AVFoundation
 
 class QRViewController: UIViewController {
 
-    // 1️⃣ 실시간 캡처를 수행하기 위해서 AVCaptureSession 개체르 인스턴스화.
+    // 1️⃣ 실시간 캡처를 수행하기 위해서 AVCaptureSession 개체를 인스턴스화.
     private let captureSession = AVCaptureSession()
 
     override func viewDidLoad() {
