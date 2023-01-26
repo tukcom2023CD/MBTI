@@ -15,5 +15,8 @@ class MainViewController: UIViewController {
     }
 
 
+    @IBAction func QRView(_ sender: Any) {
+        self.performSegue(withIdentifier: "QRShow", sender: self)
+    }
 }
 

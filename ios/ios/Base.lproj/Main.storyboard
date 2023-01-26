@@ -31,6 +31,7 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="QRView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1hr-jk-T5f"/>
                                     <segue destination="AiW-aE-xz1" kind="presentation" id="0nT-zJ-Bpg"/>
                                 </connections>
                             </button>
