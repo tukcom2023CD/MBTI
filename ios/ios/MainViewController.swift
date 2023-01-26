@@ -9,18 +9,10 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-    @IBAction func moveQR(_ sender: UIButton) {
-        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "QRViewC") else {
-            return
-        }
-        
-        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        
-        self.present(svc, animated: true)
     }
 }
 
