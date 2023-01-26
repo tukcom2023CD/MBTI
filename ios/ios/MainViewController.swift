@@ -13,10 +13,14 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
-    @IBAction func QRView(_ sender: Any) {
-        self.performSegue(withIdentifier: "QRShow", sender: self)
+    @IBAction func moveQR(_ sender: UIButton) {
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "QRViewC") else {
+            return
+        }
+        
+        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        
+        self.present(svc, animated: true)
     }
 }
 

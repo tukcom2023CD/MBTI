@@ -18,6 +18,9 @@ class QRViewController: UIViewController {
 
         basicSetting()
     }
+    @IBAction func back(_ sender: Any){
+        self.presentingViewController?.dismiss(animated: true)
+    }
 
 }
 extension QRViewController {

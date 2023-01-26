@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "메인화면"; ObjectID = "0Wy-H4-HwM"; */
+"0Wy-H4-HwM.text" = "메인화면";
+
+/* Class = "UILabel"; text = "QRView"; ObjectID = "dhF-aP-5gw"; */
+"dhF-aP-5gw.text" = "QRView";
+
+/* Class = "UIButton"; configuration.title = "QR 읽기"; ObjectID = "ku4-qx-Ng5"; */
+"ku4-qx-Ng5.configuration.title" = "QR 읽기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ku4-qx-Ng5"; */
+"ku4-qx-Ng5.normalTitle" = "Button";
