@@ -31,7 +31,8 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="AiW-aE-xz1" kind="presentation" id="0nT-zJ-Bpg"/>
+                                    <action selector="QR:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7yR-0H-hrw"/>
+                                    <segue destination="AiW-aE-xz1" kind="showDetail" id="ik7-q7-rAl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,6 +63,7 @@
                         <viewLayoutGuide key="safeArea" id="NpC-98-Wvp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="V1X-FJ-GBh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ab2-Y3-GCt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

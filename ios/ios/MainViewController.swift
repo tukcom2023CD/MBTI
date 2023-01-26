@@ -13,6 +13,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+        @IBAction func QR(_ sender: Any) {
+            self.performSegue(withIdentifier: "QRShow", sender: self)
+        }
 
 
 }
