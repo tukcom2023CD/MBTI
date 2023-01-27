@@ -19,6 +19,24 @@ QR 코드 인식 시 편의 기능 (진동, 화면전환, TTS)
 
 QR 코드 인식 후 설정한 알레르기 존재 시 사용자에게 알림 (TTS)
 
+## 규칙
+
+FEAT : 새로운 기능의 추가.
+
+FIX: 버그 수정
+
+DOCS: 문서 수정.
+
+STYLE: 스타일 관련 기능(코드 포맷팅, 세미콜론 누락, 코드 자체의 변경이 없는 경우).
+
+REFACTOR: 코드 리펙토링
+
+TEST: 테스트 코트, 리펙토링 테스트 코드 추가
+
+CHORE: 빌드 업무 수정, 패키지 매니저 수정(ex .gitignore 수정 같은 경우)
+
+COMMENT: 주석 변경
+
 ## Architecture
 
 <img src="https://user-images.githubusercontent.com/94372492/213353466-35402c81-6c2c-4402-a766-b6b833a3ed0c.png" width="700" height="300"/>
