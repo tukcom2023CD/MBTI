@@ -105,6 +105,7 @@ extension QRViewController {
 // ✅ 즉, 이 프로토콜을 통해서 metadata 를 수신해서 반응할 수 있다.
 extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
 
+    
     // ✅ caputure output object 가 새로운 metadata objects 를 보냈을 때 알린다.
     func metadataOutput(_ captureOutput: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
@@ -129,6 +130,10 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 // ✅ input 에서 output 으로의 흐름 중지
                 self.captureSession.stopRunning()
                 self.dismiss(animated: true, completion: nil)
+            }
+            
+            else {
+                print("QR Code error!")
             }
         }
     }
