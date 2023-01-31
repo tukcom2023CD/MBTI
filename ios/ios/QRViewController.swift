@@ -9,16 +9,10 @@ import UIKit
 import AVFoundation
 
 class QRViewController: UIViewController {
-    let spaceFactor: CGFloat = 16.0
-   
+
     // 1️⃣ 실시간 캡처를 수행하기 위해서 AVCaptureSession 개체를 인스턴스화.
     private let captureSession = AVCaptureSession()
-    lazy var videoPreviewLayer: AVCaptureVideoPreviewLayer = {
-            let layer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-            layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            layer.cornerRadius = 10.0
-            return layer
-        }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,6 +62,7 @@ extension QRViewController {
             // ✅ 카메라 영상이 나오는 layer 와 + 모양 가이드 라인을 뷰에 추가하는 함수 호출.
             setVideoLayer()
             setGuideCrossLineView()
+            setGuideLabelView()
 
             // 4️⃣ startRunning() 과 stopRunning() 로 흐름 통제
             // ✅ input 에서 output 으로의 데이터 흐름을 시작
@@ -96,33 +91,26 @@ extension QRViewController {
         guideCrossLine.tintColor = .green
         guideCrossLine.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(guideCrossLine)
+        
         NSLayoutConstraint.activate([
             guideCrossLine.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             guideCrossLine.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             guideCrossLine.widthAnchor.constraint(equalToConstant: 30),
-            guideCrossLine.heightAnchor.constraint(equalToConstant: 30)
+            guideCrossLine.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
-    
-    private func setMaskLayerAddText(rect: CGRect){
-        let maskLayer = CAShapeLayer()
-                maskLayer.frame = view.bounds
-                maskLayer.fillColor = UIColor(white: 0.0, alpha: 0.5).cgColor
-                let path = UIBezierPath(rect: rect)
-                path.append(UIBezierPath(rect: view.bounds))
-                maskLayer.path = path.cgPath
-        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
-                
-                view.layer.insertSublayer(maskLayer, above: videoPreviewLayer)
-                
-                let noteText = CATextLayer()
-                noteText.fontSize = 18.0
-                noteText.string = "Align QR code within frame to scan"
-        noteText.alignmentMode = CATextLayerAlignmentMode.center
-                noteText.contentsScale = UIScreen.main.scale
-                noteText.frame = CGRect(x: spaceFactor, y: rect.origin.y + rect.size.height + 30, width: view.frame.size.width - (2.0 * spaceFactor), height: 22)
-                noteText.foregroundColor = UIColor.white.cgColor
-                view.layer.insertSublayer(noteText, above: maskLayer)
+    private func setGuideLabelView(){
+        let textView = UILabel()
+        textView.text = "QR Code 인식이 되지 않았습니다."
+        textView.backgroundColor = .systemBlue
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(textView)
+        NSLayoutConstraint.activate([
+            textView.widthAnchor.constraint(equalToConstant: 300),
+            textView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
         
         
     }
