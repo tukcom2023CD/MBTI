@@ -3,3 +3,6 @@ ios/Pods/
 iOS/Podfile
 .lock
 .pbxproj
+xcshememanagement.plist
+IDEWorkspaceChecks.plist
+UserInterfaceState.xcuserstate
