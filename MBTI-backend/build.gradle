@@ -15,7 +15,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.seleniumhq.selenium:selenium-java:4.6.0'
+	implementation 'org.jsoup:jsoup:1.14.2'
+
 }
 
 
