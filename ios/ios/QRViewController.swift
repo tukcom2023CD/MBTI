@@ -102,7 +102,7 @@ extension QRViewController {
     private func setGuideLabelView(){
         let textView = UILabel()
         textView.text = "QR Code 인식이 되지 않았습니다."
-        textView.backgroundColor = .systemBlue
+        textView.backgroundColor = .systemGreen
         textView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(textView)
