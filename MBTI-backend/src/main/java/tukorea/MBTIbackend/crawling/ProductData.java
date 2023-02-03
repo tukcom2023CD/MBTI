@@ -1,8 +1,12 @@
 package tukorea.MBTIbackend.crawling;
 
-//@ToString
-//@Builder
-//@Getter
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
+
+@ToString
+@Builder
+@Getter
 public class ProductData {
 
     private String allergy;

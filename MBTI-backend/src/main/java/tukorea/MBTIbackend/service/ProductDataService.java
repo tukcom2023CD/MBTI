@@ -2,9 +2,12 @@ package tukorea.MBTIbackend.service;
 
 import jakarta.annotation.PostConstruct;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.Document;
+
 import java.io.IOException;
 
 @Service
@@ -15,7 +18,8 @@ public class ProductDataService {
     public void getProductDatas() throws IOException {
 
         Document doc = (Document) Jsoup.connect(PRODUCT_DATA_URL).get();
-        System.out.println(doc);
+        Elements myin = doc.getElementsByClass("flt alleRight");
+        System.out.println(myin);
 
     }
 }
