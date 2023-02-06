@@ -149,10 +149,6 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 self.captureSession.stopRunning()
                 self.dismiss(animated: true, completion: nil)
             }
-            
-            else {
-                print("QR Code error!")
-            }
         }
     }
 }
