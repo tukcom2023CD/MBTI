@@ -107,8 +107,8 @@ extension QRViewController {
         
         view.addSubview(textView)
         NSLayoutConstraint.activate([
-            textView.widthAnchor.constraint(equalToConstant: 300),
-            textView.heightAnchor.constraint(equalToConstant: 100)
+            textView.widthAnchor.constraint(equalToConstant:  UIScreen.main.bounds.width * 1.0),
+            textView.heightAnchor.constraint(equalToConstant:  UIScreen.main.bounds.height * 0.1)
         ])
         
         
