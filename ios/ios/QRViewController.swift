@@ -144,6 +144,9 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             if stringValue.hasPrefix("http://www.foodqr.kr") || stringValue.hasPrefix("https://www.foodqr.kr/foodqr?")  {
                 UIApplication.shared.open(URL(string:stringValue)!,options: [:])
 
+                let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
+                let range = startIndex...
+                print(stringValue[range])
                 // 4️⃣ startRunning() 과 stopRunning() 로 흐름 통제
                 // ✅ input 에서 output 으로의 흐름 중지
                 self.captureSession.stopRunning()
