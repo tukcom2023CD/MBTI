@@ -104,6 +104,7 @@ extension QRViewController {
         textView.text = "QR Code 인식이 되지 않았습니다."
         textView.backgroundColor = .systemGreen
         textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.textAlignment = .center
         
         view.addSubview(textView)
         NSLayoutConstraint.activate([
