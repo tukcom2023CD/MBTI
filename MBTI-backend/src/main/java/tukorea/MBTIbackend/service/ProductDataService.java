@@ -19,6 +19,8 @@ public class ProductDataService {
 
         Document doc = (Document) Jsoup.connect(PRODUCT_DATA_URL).get();
         Elements myin = doc.getElementsByClass("flt alleRight");
+        Elements subs = myin.first().getElementsByTag("PRI_ALLERGEN");
+
         System.out.println(myin);
 
     }
