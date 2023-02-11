@@ -11,20 +11,20 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Main View Controller" customClass="ViewController" customModule="ios" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" userLabel="Main View Controller" customClass="ViewController" customModule="ios" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시각장애인을 위한 제품 인식 앱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-H4-HwM">
-                                <rect key="frame" x="60" y="91" width="272" height="62"/>
+                                <rect key="frame" x="60" y="56" width="272" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-IB-68l">
-                                <rect key="frame" x="53" y="198" width="286" height="456"/>
+                                <rect key="frame" x="53" y="172" width="286" height="456"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="QRButton">
@@ -35,6 +35,15 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="AiW-aE-xz1" kind="presentation" id="Ks9-wS-fik"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-St-m6U">
+                                <rect key="frame" x="60" y="658" width="272" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <segue destination="Jtg-U5-wYe" kind="show" id="lf5-PH-Qbz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,6 +79,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ab2-Y3-GCt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="778" y="1"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="bId-O1-Ciu">
+            <objects>
+                <tableViewController modalPresentationStyle="fullScreen" id="paK-gx-lUg" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cam-Fs-qeb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9kf-Ld-53i">
+                            <rect key="frame" x="0.0" y="130" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="main 화면으로 돌아가기"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="Rmq-fA-616"/>
+                            </connections>
+                        </button>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="52" id="ycx-A8-G0A">
+                                <rect key="frame" x="0.0" y="50" width="393" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ycx-A8-G0A" id="EJY-XD-jRo">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="52"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="paK-gx-lUg" id="PDD-nM-Adz"/>
+                            <outlet property="delegate" destination="paK-gx-lUg" id="ZWv-dU-cTW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="eRu-PR-rvS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAw-JO-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881.67938931297704" y="742.95774647887333"/>
+        </scene>
+        <!--Allergy View Controller-->
+        <scene sceneID="zGg-fT-g0X">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="Jtg-U5-wYe" customClass="AllergyViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xlX-dz-lrJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rt8-h5-FTS">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="paK-gx-lUg" kind="relationship" relationship="rootViewController" id="3hg-sk-bcu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VG-lO-f2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationItem id="kAD-V8-Ket"/>
+                <navigationItem id="OZa-o8-lQN"/>
+            </objects>
+            <point key="canvasLocation" x="-45" y="743"/>
         </scene>
     </scenes>
     <resources>
