@@ -7,8 +7,9 @@
 
 import UIKit
 
-class AllergyViewController: UINavigationController {
-
+class AllergyViewController: UITableViewController {
+    
+    @IBOutlet weak var TestSwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
