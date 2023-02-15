@@ -47,8 +47,8 @@ class AllergyViewController: UITableViewController {
     @IBAction func switchAction5(_ sender: Any) {
         UserDefaults.standard.set(PeanutSwitch.isOn, forKey: "peanutSwitchState")
     }
-    func UserDefaultState(_ a: UISwitch, _ b: String) {
-        a.isOn = UserDefaults.standard.bool(forKey: b)
+    func UserDefaultState(_ switchname: UISwitch, _ switchkeyname: String) {
+        switchname.isOn = UserDefaults.standard.bool(forKey: switchkeyname)
     }
 }
 
