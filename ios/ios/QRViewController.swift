@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class QRViewController: UIViewController {
 
@@ -143,15 +144,38 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             // ✅ qr코드가 가진 문자열이 URL 형태를 띈다면 출력.(아무런 qr코드나 찍는다고 출력시키면 안되니까 여기서 분기처리 가능. )
             if stringValue.hasPrefix("http://www.foodqr.kr") || stringValue.hasPrefix("https://www.foodqr.kr/foodqr?")  {
                 UIApplication.shared.open(URL(string:stringValue)!,options: [:])
-
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
-                print(stringValue[range])
+                let PRO_NO = stringValue[range]
+                postTest(String(PRO_NO))
+                print(PRO_NO)
                 // 4️⃣ startRunning() 과 stopRunning() 로 흐름 통제
                 // ✅ input 에서 output 으로의 흐름 중지
                 self.captureSession.stopRunning()
                 self.dismiss(animated: true, completion: nil)
             }
         }
+    }
+    func postTest(_ PRO_NO:String) {
+        let url = "https://httpbin.org/post"
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 10
+        
+        let params = ["PRD_NO" : PRO_NO] as Dictionary
+        do {
+            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+                print("http Body Error")
+        }
+                AF.request(request).responseString { (response) in
+                    switch response.result {
+                    case .success:
+                        print("POST 성공")
+                    case .failure(let error):
+                        print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+                    }
+                }
     }
 }
