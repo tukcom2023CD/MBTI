@@ -15,6 +15,8 @@ class AllergyViewController: UITableViewController {
     @IBOutlet weak var CrabSwitch: UISwitch!
     @IBOutlet weak var ShrimpSwitch: UISwitch!
     @IBOutlet weak var PeanutSwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaultState(EggSwitch, "eggSwitchState")
@@ -25,10 +27,11 @@ class AllergyViewController: UITableViewController {
         UserDefaultState(PeanutSwitch, "peanutSwitchState")
         // Do any additional setup after loading the view.
     }
+    
+    
     @IBAction func switchAction(_ sender: Any) {
         UserDefaults.standard.set(EggSwitch.isOn, forKey: "eggSwitchState")
     }
-    
     @IBAction func switchAction1(_ sender: Any) {
         UserDefaults.standard.set(MilkSwitch.isOn, forKey: "milkSwitchState")
     }
