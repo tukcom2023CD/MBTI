@@ -29,22 +29,12 @@ class AllergyViewController: UITableViewController {
     }
     
     
-    @IBAction func switchAction(_ sender: Any) {
+    @IBAction func switchAction(_ sender: UISwitch) {
         UserDefaults.standard.set(EggSwitch.isOn, forKey: "eggSwitchState")
-    }
-    @IBAction func switchAction1(_ sender: Any) {
         UserDefaults.standard.set(MilkSwitch.isOn, forKey: "milkSwitchState")
-    }
-    @IBAction func switchAction2(_ sender: Any) {
         UserDefaults.standard.set(CerealSwitch.isOn, forKey: "cerealSwitchState")
-    }
-    @IBAction func switchAction3(_ sender: Any) {
         UserDefaults.standard.set(CrabSwitch.isOn, forKey: "crabSwitchState")
-    }
-    @IBAction func switchAction4(_ sender: Any) {
         UserDefaults.standard.set(ShrimpSwitch.isOn, forKey: "shrimpSwitchState")
-    }
-    @IBAction func switchAction5(_ sender: Any) {
         UserDefaults.standard.set(PeanutSwitch.isOn, forKey: "peanutSwitchState")
     }
     func UserDefaultState(_ switchname: UISwitch, _ switchkeyname: String) {

@@ -112,7 +112,7 @@
                                                     <rect key="frame" x="326" y="10" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchAction:" destination="paK-gx-lUg" eventType="valueChanged" id="Bhq-bG-n49"/>
+                                                        <action selector="switchAction:" destination="paK-gx-lUg" eventType="valueChanged" id="7cg-ku-2a1"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="난류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMD-gy-WOb">
@@ -136,7 +136,7 @@
                                                     <rect key="frame" x="326" y="10" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchAction1:" destination="paK-gx-lUg" eventType="valueChanged" id="8j6-xQ-Fdz"/>
+                                                        <action selector="switchAction:" destination="paK-gx-lUg" eventType="valueChanged" id="UDs-ao-7V9"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="우유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzg-7I-8Ml">
@@ -160,8 +160,7 @@
                                                     <rect key="frame" x="326" y="10" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchAction1:" destination="paK-gx-lUg" eventType="valueChanged" id="RfD-lw-VZM"/>
-                                                        <action selector="switchAction2:" destination="paK-gx-lUg" eventType="valueChanged" id="sN4-fJ-P4f"/>
+                                                        <action selector="switchAction:" destination="paK-gx-lUg" eventType="valueChanged" id="vsk-RS-vRl"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="곡류(대두,메밀,밀)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lh-9g-uoV">
@@ -185,7 +184,7 @@
                                                     <rect key="frame" x="326" y="10" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchAction3:" destination="paK-gx-lUg" eventType="valueChanged" id="ldd-Lf-KuG"/>
+                                                        <action selector="switchAction:" destination="paK-gx-lUg" eventType="valueChanged" id="guq-06-nYV"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="게" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AO-H9-UDW">
@@ -209,7 +208,7 @@
                                                     <rect key="frame" x="326" y="10" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchAction4:" destination="paK-gx-lUg" eventType="valueChanged" id="mIh-32-Doi"/>
+                                                        <action selector="switchAction:" destination="paK-gx-lUg" eventType="valueChanged" id="wdZ-8Y-xLp"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="새우" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WC9-ED-OpK">
@@ -233,7 +232,7 @@
                                                     <rect key="frame" x="326" y="10" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchAction5:" destination="paK-gx-lUg" eventType="valueChanged" id="qYm-MA-3sC"/>
+                                                        <action selector="switchAction:" destination="paK-gx-lUg" eventType="valueChanged" id="Nje-CC-e6H"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="땅콩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMn-U7-dJM">
@@ -256,12 +255,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="eRu-PR-rvS"/>
                     <connections>
-                        <outlet property="CerealSwitch" destination="C6z-1L-svf" id="vPC-Ji-n2W"/>
-                        <outlet property="CrabSwitch" destination="kxr-cg-rKW" id="9En-aW-OH5"/>
-                        <outlet property="EggSwitch" destination="vYj-i8-4Vb" id="iXb-RT-wO7"/>
-                        <outlet property="MilkSwitch" destination="Xr5-M3-PaU" id="I5g-fY-Nj7"/>
-                        <outlet property="PeanutSwitch" destination="Sse-wf-5l2" id="QW5-g3-jgR"/>
-                        <outlet property="ShrimpSwitch" destination="UAn-q6-if2" id="Iop-AO-g58"/>
+                        <outlet property="CerealSwitch" destination="C6z-1L-svf" id="1jN-4Q-Wp8"/>
+                        <outlet property="CrabSwitch" destination="kxr-cg-rKW" id="sBn-Hb-3AX"/>
+                        <outlet property="EggSwitch" destination="vYj-i8-4Vb" id="HZg-fa-pGi"/>
+                        <outlet property="MilkSwitch" destination="Xr5-M3-PaU" id="j8s-yn-ISF"/>
+                        <outlet property="PeanutSwitch" destination="Sse-wf-5l2" id="3H8-ht-7Od"/>
+                        <outlet property="ShrimpSwitch" destination="UAn-q6-if2" id="jWp-fw-5yy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAw-JO-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
