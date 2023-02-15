@@ -17,7 +17,12 @@ class AllergyViewController: UITableViewController {
     @IBOutlet weak var PeanutSwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaultState()
+        UserDefaultState(EggSwitch, "eggSwitchState")
+        UserDefaultState(MilkSwitch, "milkSwitchState")
+        UserDefaultState(CerealSwitch, "cerealSwitchState")
+        UserDefaultState(CrabSwitch, "crabSwitchState")
+        UserDefaultState(ShrimpSwitch, "shrimpSwitchState")
+        UserDefaultState(PeanutSwitch, "peanutSwitchState")
         // Do any additional setup after loading the view.
     }
     @IBAction func switchAction(_ sender: Any) {
@@ -39,12 +44,16 @@ class AllergyViewController: UITableViewController {
     @IBAction func switchAction5(_ sender: Any) {
         UserDefaults.standard.set(PeanutSwitch.isOn, forKey: "peanutSwitchState")
     }
-    func UserDefaultState() {
-        EggSwitch.isOn =  UserDefaults.standard.bool(forKey: "eggSwitchState")
-        MilkSwitch.isOn =  UserDefaults.standard.bool(forKey: "milkSwitchState")
-        CerealSwitch.isOn =  UserDefaults.standard.bool(forKey: "cerealSwitchState")
-        CrabSwitch.isOn =  UserDefaults.standard.bool(forKey: "crabSwitchState")
-        ShrimpSwitch.isOn =  UserDefaults.standard.bool(forKey: "shrimpSwitchState")
-        PeanutSwitch.isOn =  UserDefaults.standard.bool(forKey: "peanutSwitchState")
+    func UserDefaultState(_ a: UISwitch, _ b: String) {
+        a.isOn = UserDefaults.standard.bool(forKey: b)
     }
 }
+
+/*
+ EggSwitch.isOn =  UserDefaults.standard.bool(forKey: "eggSwitchState")
+ MilkSwitch.isOn =  UserDefaults.standard.bool(forKey: "milkSwitchState")
+ CerealSwitch.isOn =  UserDefaults.standard.bool(forKey: "cerealSwitchState")
+ CrabSwitch.isOn =  UserDefaults.standard.bool(forKey: "crabSwitchState")
+ ShrimpSwitch.isOn =  UserDefaults.standard.bool(forKey: "shrimpSwitchState")
+ PeanutSwitch.isOn =  UserDefaults.standard.bool(forKey: "peanutSwitchState")
+ */
