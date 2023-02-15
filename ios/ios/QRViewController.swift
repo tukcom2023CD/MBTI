@@ -146,9 +146,9 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 UIApplication.shared.open(URL(string:stringValue)!,options: [:])
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
-                let PRO_NO = stringValue[range]
-                postTest(String(PRO_NO))
-                print(PRO_NO)
+                let Prdno = stringValue[range]
+                postTest(String(Prdno))
+                print(Prdno)
                 // 4️⃣ startRunning() 과 stopRunning() 로 흐름 통제
                 // ✅ input 에서 output 으로의 흐름 중지
                 self.captureSession.stopRunning()
@@ -156,26 +156,26 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             }
         }
     }
-    func postTest(_ PRO_NO:String) {
+    func postTest(_ Prdno:String) {
         let url = "https://httpbin.org/post"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 10
         
-        let params = ["PRD_NO" : PRO_NO] as Dictionary
+        let params = ["PRD_NO":Prdno] as Dictionary
         do {
             try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
         } catch {
                 print("http Body Error")
         }
-                AF.request(request).responseString { (response) in
-                    switch response.result {
-                    case .success:
-                        print("POST 성공")
-                    case .failure(let error):
-                        print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
-                    }
-                }
+        AF.request(request).responseString { (response) in
+            switch response.result {
+                case .success:
+                    print("POST 성공")
+                case .failure(let error):
+                    print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+            }
+        }
     }
 }
