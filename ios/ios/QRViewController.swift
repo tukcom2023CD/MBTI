@@ -157,13 +157,14 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     func postTest(_ Prdno:String) {
-        let url = "https://e5604732-27a0-49d8-a142-83088a72ada2.mock.pstmn.io/list"
+//        let url = "https://e5604732-27a0-49d8-a142-83088a72ada2.mock.pstmn.io/list" 테스트.. ( post 성공도 되지 않음. )
+        let url = "https://httpbin.org/post" // 테스트 용도 ( 이 url은 post 성공이 되지만, 해당 데이터가 들어가는지 의문 )
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 10
         
-        let params = ["PRD_NO":Prdno] as Dictionary
+        let params = ["args":Prdno] as Dictionary
         do {
             try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
         } catch {
