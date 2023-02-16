@@ -157,7 +157,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     func postTest(_ Prdno:String) {
-        let url = "https://httpbin.org/post"
+        let url = "https://e5604732-27a0-49d8-a142-83088a72ada2.mock.pstmn.io/list"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
