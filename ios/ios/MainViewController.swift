@@ -11,23 +11,26 @@ import Speech
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
 
     
-    @IBOutlet weak var SpeechButton: UIButton!
-    @IBOutlet weak var SpeechText: UITextView!
+
+    @IBOutlet weak var speechButton: UIButton!
     
+    @IBOutlet weak var speechText: UITextView!
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
-    @IBAction func speechToText(_ sender: Any) {
+
+    @IBAction func SpeechToText(_ sender: Any) {
         if audioEngine.isRunning {
-                audioEngine.stop()
-                recognitionRequest?.endAudio()
-                SpeechButton.isEnabled = false
-                SpeechButton.setTitle("Start Recording", for: .normal)
-            } else {
-                SpeechButton.setTitle("Stop Recording", for: .normal)
-            }
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+            speechButton.isEnabled = false
+            speechButton.setTitle("Start Recording", for: .normal)
+        } else {
+            //startRecording()
+            speechButton.setTitle("Stop Recording", for: .normal)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
