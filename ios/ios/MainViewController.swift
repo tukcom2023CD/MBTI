@@ -13,7 +13,6 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
     
 
     @IBOutlet weak var speechButton: UIButton!
-    
     @IBOutlet weak var speechText: UITextView!
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
