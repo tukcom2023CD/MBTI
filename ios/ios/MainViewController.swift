@@ -13,6 +13,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
     
     @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var speechText: UITextView!
+    var text : String = ""
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -25,7 +26,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
             speechButton.setTitle("Start Recording", for: .normal)
-            print(String(speechText.text))
+            print(text.contains("알레"))
         } else {
             startRecording()
             speechButton.setTitle("Stop Recording", for: .normal)
@@ -72,7 +73,8 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
                 
                 self.speechText.text = result?.bestTranscription.formattedString
                 
-//                self.text = self.speechText.text
+                self.text = self.speechText.text
+                
                 
                 isFinal = (result?.isFinal)!
             }
