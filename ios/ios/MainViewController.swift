@@ -11,15 +11,15 @@ import Speech
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
 
     
-
     @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var speechText: UITextView!
+    var text : String = ""
+    
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ko-KR"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
-
     @IBAction func SpeechToText(_ sender: Any) {
         if audioEngine.isRunning {
             audioEngine.stop()
@@ -31,11 +31,13 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             speechButton.setTitle("Stop Recording", for: .normal)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         speechRecognizer?.delegate = self
         // Do any additional setup after loading the view.
     }
+    
     func startRecording() {
         
         if recognitionTask != nil {
@@ -69,6 +71,11 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             if result != nil {
                 
                 self.speechText.text = result?.bestTranscription.formattedString
+                
+                self.text = self.speechText.text
+                
+                print(self.text)
+                
                 isFinal = (result?.isFinal)!
             }
             
@@ -97,6 +104,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         }
         
         speechText.text = "Say something, I'm listening!"
+        
         
     }
 }
