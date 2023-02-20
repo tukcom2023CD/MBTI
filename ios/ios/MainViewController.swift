@@ -26,11 +26,14 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
             speechButton.setTitle("Start Recording", for: .normal)
-            print(text.contains("알레"))
+            TextCheck(text)
         } else {
             startRecording()
             speechButton.setTitle("Stop Recording", for: .normal)
         }
+    }
+    func TextCheck(_ text : String) {
+        print(text.contains("알레"))
     }
     
     override func viewDidLoad() {
