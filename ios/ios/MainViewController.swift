@@ -26,6 +26,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
             speechButton.setTitle("Start Recording", for: .normal)
+            print(text)
         } else {
             startRecording()
             speechButton.setTitle("Stop Recording", for: .normal)
@@ -73,8 +74,6 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
                 self.speechText.text = result?.bestTranscription.formattedString
                 
                 self.text = self.speechText.text
-                
-                print(self.text)
                 
                 isFinal = (result?.isFinal)!
             }
