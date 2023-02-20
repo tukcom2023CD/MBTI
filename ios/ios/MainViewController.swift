@@ -32,8 +32,20 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             speechButton.setTitle("Stop Recording", for: .normal)
         }
     }
+    @IBAction func moveAllergySetting(_ sender: Any){
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "allergySetting") else{
+            return
+        }
+        
+        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        
+        self.present(svc, animated: true)
+    }
     func TextCheck(_ text : String) {
         print(text.contains("알레"))
+        if (text.contains("알레")){
+            moveAllergySetting((Any).self)
+        }
     }
     
     override func viewDidLoad() {

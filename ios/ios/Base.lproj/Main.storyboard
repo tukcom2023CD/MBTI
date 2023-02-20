@@ -108,7 +108,7 @@
         <!--Root View Controller-->
         <scene sceneID="bId-O1-Ciu">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="paK-gx-lUg" customClass="AllergyViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="allergySetting" modalPresentationStyle="fullScreen" id="paK-gx-lUg" customClass="AllergyViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cam-Fs-qeb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
