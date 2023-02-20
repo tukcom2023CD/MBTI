@@ -4,7 +4,7 @@ public class Url {
 
     private String url;
 
-    public Url(String Url) {
+    public Url() {
         this.url = url;
     }
 
