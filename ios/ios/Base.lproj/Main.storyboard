@@ -19,7 +19,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUF-58-tOs">
                                 <rect key="frame" x="60" y="296" width="272" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">아래의 버튼을 눌러 QR 리더기를
+                                <string key="text">아래의 버튼을 누르면 QR 리더기를
 이용할 수 있습니다.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -68,7 +68,7 @@
                                     <action selector="SpeechToText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddr-c5-imQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아래의 버튼을 눌러 자신의 알레르기 유무를 선택할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ry-5W-Lza">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아래의 버튼을 누르면 자신의 알레르기 유무를 선택할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ry-5W-Lza">
                                 <rect key="frame" x="53" y="611" width="272" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -78,8 +78,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-H4-HwM">
                                 <rect key="frame" x="56" y="38" width="272" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">아래의 버튼을 눌러 음성을 통해
-화면을 바꿀 수 있습니다.</string>
+                                <string key="text">음성으로 화면 전환을 하려면
+아래의 버튼을 눌러주세요</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,7 +141,7 @@
                             </connections>
                         </button>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="azn-qi-q8n">
+                            <tableViewSection id="azn-qi-q8n">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="257" id="ycx-A8-G0A">
                                         <rect key="frame" x="0.0" y="50" width="393" height="257"/>
@@ -161,26 +161,30 @@
                                                     <rect key="frame" x="26" y="71" width="340" height="87"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                    <buttonConfiguration key="configuration" style="plain" title="Start Recoding">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" systemColor="linkColor"/>
                                                         </backgroundConfiguration>
                                                         <color key="baseForegroundColor" systemColor="labelColor"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="speechToText:" destination="paK-gx-lUg" eventType="touchUpInside" id="Jmg-bu-89m"/>
+                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEt-ZB-MCP">
-                                                    <rect key="frame" x="26" y="166" width="340" height="82"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-jg-fzt">
+                                                    <rect key="frame" x="20" y="166" width="346" height="91"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="dNF-DR-g1M">
+                            <tableViewSection id="dNF-DR-g1M">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="cfb-F3-Dct">
                                         <rect key="frame" x="0.0" y="385" width="393" height="60"/>
@@ -342,6 +346,8 @@
                         <outlet property="MilkSwitch" destination="FNV-WV-ZCI" id="9nx-AF-o7W"/>
                         <outlet property="PeanutSwitch" destination="ssU-am-XzJ" id="O5N-le-7g3"/>
                         <outlet property="ShrimpSwitch" destination="r2p-5O-7Ad" id="Sxx-VQ-dCm"/>
+                        <outlet property="speechButton" destination="sVs-Ej-DDZ" id="aEe-AS-z4F"/>
+                        <outlet property="speechText" destination="e6S-jg-fzt" id="OcY-GP-pTk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAw-JO-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
