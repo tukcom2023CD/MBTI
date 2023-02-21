@@ -1,4 +1,4 @@
-package tukorea.MBTIbackend.domain;
+package tukorea.MBTIbackend.crawling.domain;
 
 public class Url {
 

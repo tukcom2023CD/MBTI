@@ -1,10 +1,10 @@
-package tukorea.MBTIbackend.controller;
+package tukorea.MBTIbackend.crawling.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.*;
-import tukorea.MBTIbackend.domain.Url;
-import tukorea.MBTIbackend.service.ProductDataService;
+import tukorea.MBTIbackend.crawling.domain.Url;
+import tukorea.MBTIbackend.crawling.service.ProductDataService;
 
 import java.io.IOException;
 

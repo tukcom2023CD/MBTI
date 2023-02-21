@@ -1,11 +1,11 @@
-package tukorea.MBTIbackend.service;
+package tukorea.MBTIbackend.crawling.service;
 
 import jakarta.annotation.PostConstruct;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
-import tukorea.MBTIbackend.domain.Url;
+import tukorea.MBTIbackend.crawling.domain.Url;
 
 import java.io.IOException;
 
