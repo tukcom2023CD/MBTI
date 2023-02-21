@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct  APIConstants {
+class Products : Object {
+    @objc dynamic var productNumber: Int = 0
     
-//    struct let baseURL = ""
 }
