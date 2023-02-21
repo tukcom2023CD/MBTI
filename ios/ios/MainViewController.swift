@@ -32,7 +32,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             speechButton.setTitle("Stop Recording", for: .normal)
         }
     }
-    @IBAction func moveAllergySetting(_ sender: Any){
+    func moveAllergySetting(_ sender: Any){
         guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "allergySetting") else{
             return
         }
@@ -41,7 +41,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         
         self.present(svc, animated: true)
     }
-    @IBAction func moveQRReaderView(_ sender: Any) {
+    func moveQRReaderView(_ sender: Any) {
         guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView")
         else {
             return
