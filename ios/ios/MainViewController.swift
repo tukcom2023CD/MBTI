@@ -32,8 +32,8 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             speechButton.setTitle("Stop Recording", for: .normal)
         }
     }
-    func moveAllergySetting(_ sender: Any){
-        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "allergySetting") else{
+    func moveSpeechView(_ sender: Any, _ identifier : String){
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: identifier) else{
             return
         }
         
@@ -41,21 +41,12 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         
         self.present(svc, animated: true)
     }
-    func moveQRReaderView(_ sender: Any) {
-        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView")
-        else {
-            return
-        }
-        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        
-        self.present(svc,animated: true)
-    }
     func TextCheck(_ text : String) {
         if text.contains("알레") || text.contains("알러") {
-            moveAllergySetting((Any).self)
+            moveSpeechView((Any).self,"allergySetting")
         }
         else if text.contains("QR") || text.contains("큐알") {
-            moveQRReaderView((Any).self)
+            moveSpeechView((Any).self,"QRReaderView")
         }
     }
     
