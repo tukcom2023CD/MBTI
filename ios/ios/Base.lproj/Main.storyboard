@@ -335,6 +335,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="eRu-PR-rvS"/>
+                    <connections>
+                        <outlet property="CerealSwitch" destination="19P-xJ-5aH" id="PTi-xV-Jeg"/>
+                        <outlet property="CrabSwitch" destination="NQe-Qs-mzb" id="0LK-Kb-Gri"/>
+                        <outlet property="EggSwitch" destination="4CI-qk-yhk" id="55K-da-Toq"/>
+                        <outlet property="MilkSwitch" destination="FNV-WV-ZCI" id="9nx-AF-o7W"/>
+                        <outlet property="PeanutSwitch" destination="ssU-am-XzJ" id="O5N-le-7g3"/>
+                        <outlet property="ShrimpSwitch" destination="r2p-5O-7Ad" id="Sxx-VQ-dCm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAw-JO-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
