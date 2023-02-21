@@ -41,10 +41,21 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         
         self.present(svc, animated: true)
     }
+    @IBAction func moveQRReaderView(_ sender: Any) {
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView")
+        else {
+            return
+        }
+        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        
+        self.present(svc,animated: true)
+    }
     func TextCheck(_ text : String) {
-        print(text.contains("알레"))
-        if (text.contains("알레")){
+        if text.contains("알레") || text.contains("알러") {
             moveAllergySetting((Any).self)
+        }
+        else if text.contains("QR") || text.contains("큐알") {
+            moveQRReaderView((Any).self)
         }
     }
     

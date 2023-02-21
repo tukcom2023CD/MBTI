@@ -83,7 +83,7 @@
         <!--QR View Controller-->
         <scene sceneID="DaI-ws-Hwz">
             <objects>
-                <viewController storyboardIdentifier="QRViewC" id="AiW-aE-xz1" userLabel="QR View Controller" customClass="QRViewController" customModule="ios" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRReaderView" id="AiW-aE-xz1" userLabel="QR View Controller" customClass="QRViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bWA-oX-u2m">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
