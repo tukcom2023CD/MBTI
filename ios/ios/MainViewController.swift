@@ -7,6 +7,7 @@
 
 import UIKit
 import Speech
+import AVFoundation
 
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
 
@@ -42,7 +43,10 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         self.present(svc, animated: true)
     }
     func TextCheck(_ text : String) {
-        if text.contains("알레") || text.contains("알러") {
+        if (text.contains("알레") || text.contains("알러")) && (text.contains("QR") || text.contains("큐알")) {
+            textToSpeech("화면 이동 키워드가 중복되었습니다. 다시 시도해주세요")
+        }
+        else if text.contains("알레") || text.contains("알러") {
             moveSpeechView((Any).self,"allergySetting")
         }
         else if text.contains("QR") || text.contains("큐알") {
@@ -123,6 +127,13 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         speechText.text = "Say something, I'm listening!"
         
         
+    }
+    func textToSpeech(_ errorText:String) {
+        let synthesizer = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: errorText)
+        utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+        utterance.rate = 0.4
+        synthesizer.speak(utterance)
     }
 }
 
