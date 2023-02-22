@@ -109,6 +109,9 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
                 changeTrue(PeanutSwitch, "peanutSwitchState")
             }
         }
+        else{
+            textToSpeech("해당 알레르기가 존재하지 않습니다.")
+        }
     }
     func changeTrue(_ SwitchName : UISwitch, _ SwitchKeyName : String) {
         SwitchName.isOn = true
