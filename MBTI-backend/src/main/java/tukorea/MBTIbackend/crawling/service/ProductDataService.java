@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tukorea.MBTIbackend.crawling.domain.Url;
 
@@ -15,7 +16,8 @@ public class ProductDataService {
 
    // private static String PRODUCT_DATA_URL = "http://www.foodqr.kr/foodqr?PRD_NO=1986030901810";
 
-    @PostConstruct
+   // @PostConstruct
+    @Autowired
     public static Elements getProductDatas(Url url) throws IOException {
 
         String a = url.getUrl();

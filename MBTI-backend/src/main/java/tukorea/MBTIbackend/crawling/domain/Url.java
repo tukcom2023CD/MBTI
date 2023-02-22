@@ -1,5 +1,6 @@
 package tukorea.MBTIbackend.crawling.domain;
 
+
 public class Url {
 
     private String url;

@@ -1,4 +1,12 @@
-# MYSQL ?? ??
+# 로킹 레벨 설정
+logging:
+  level:
+    org:
+      springframework:
+        nodeValue: debug
+        web: debug
+
+# MYSQL 설정
 server:
   port: 8080
 
@@ -8,4 +16,7 @@ spring:
     url: jdbc:mysql://127.0.0.1/mbtidb?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
     username: jspbook
     password: 3410
+
+mybatis:
+  mapper-locations: classpath:mapper/ProductMapper.xml
 

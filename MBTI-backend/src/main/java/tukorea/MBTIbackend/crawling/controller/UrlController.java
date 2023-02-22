@@ -16,5 +16,6 @@ public class UrlController {
     public Elements Url(@ModelAttribute Url url) throws IOException {
      //   log.info("url = {}", url.getUrl());
         return ProductDataService.getProductDatas(url);
+
     }
 }
