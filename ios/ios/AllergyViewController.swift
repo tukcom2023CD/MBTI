@@ -62,66 +62,39 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     }
     func TextCheck(_ text : String) {
         if text.contains("계란") {
-            if EggSwitch.isOn == true {
-                changeFalse(EggSwitch, "eggSwitchState")
-            }
-            else {
-                changeTrue(EggSwitch, "eggSwitchState")
-            }
+            changeState(EggSwitch, "eggSwitchState")
         }
         if text.contains("우유") {
-            if MilkSwitch.isOn == true {
-                changeFalse(MilkSwitch, "milkSwitchState")
-            }
-            else {
-                changeTrue(MilkSwitch, "milkSwitchState")
-            }
+            changeState(MilkSwitch, "milkSwitchState")
         }
         if text.contains("곡류") {
-            if CerealSwitch.isOn == true {
-                changeFalse(CerealSwitch, "cerealSwitchState")
-            }
-            else {
-                changeTrue(CerealSwitch, "cerealSwitchState")
-            }
+            changeState(CerealSwitch, "cerealSwitchState")
         }
         if text.contains("게") {
-            if CrabSwitch.isOn == true {
-                changeFalse(CrabSwitch, "CrabSwitchState")
-            }
-            else {
-                changeTrue(CrabSwitch, "CrabSwitchState")
-            }
+            changeState(CrabSwitch, "crabSwitchState")
         }
         if text.contains("새우") {
-            if ShrimpSwitch.isOn == true {
-                changeFalse(ShrimpSwitch, "shrimpSwitchState")
-            }
-            else {
-                changeTrue(ShrimpSwitch, "shrimpSwitchState")
-            }
+            changeState(ShrimpSwitch, "shrimpSwitchState")
         }
+
         if text.contains("땅콩") {
-            if PeanutSwitch.isOn == true {
-                changeFalse(PeanutSwitch, "peanutSwitchState")
-            }
-            else {
-                changeTrue(PeanutSwitch, "peanutSwitchState")
-            }
+            changeState(PeanutSwitch, "peanutSwitchState")
         }
         else{
             textToSpeech("해당 알레르기가 존재하지 않습니다.")
         }
     }
-    func changeTrue(_ SwitchName : UISwitch, _ SwitchKeyName : String) {
-        SwitchName.isOn = true
-        UserDefaults.standard.set(SwitchName.isOn, forKey: SwitchKeyName)
-        SwitchName.isOn = UserDefaults.standard.bool(forKey: SwitchKeyName)
-    }
-    func changeFalse(_ SwitchName : UISwitch, _ SwitchKeyName : String) {
-        SwitchName.isOn = false
-        UserDefaults.standard.set(SwitchName.isOn, forKey: SwitchKeyName)
-        SwitchName.isOn = UserDefaults.standard.bool(forKey: SwitchKeyName)
+    func changeState(_ SwitchName : UISwitch, _ SwitchKeyName : String) {
+        if SwitchName.isOn == true{
+            SwitchName.isOn = false
+            SwitchSetting(SwitchName, SwitchKeyName)
+            UserDefaultState(SwitchName, SwitchKeyName)
+        }
+        else{
+            SwitchName.isOn = true
+            SwitchSetting(SwitchName, SwitchKeyName)
+            UserDefaultState(SwitchName, SwitchKeyName)
+        }
     }
     func startRecording() {
         
@@ -193,12 +166,15 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
-        UserDefaults.standard.set(EggSwitch.isOn, forKey: "eggSwitchState")
-        UserDefaults.standard.set(MilkSwitch.isOn, forKey: "milkSwitchState")
-        UserDefaults.standard.set(CerealSwitch.isOn, forKey: "cerealSwitchState")
-        UserDefaults.standard.set(CrabSwitch.isOn, forKey: "crabSwitchState")
-        UserDefaults.standard.set(ShrimpSwitch.isOn, forKey: "shrimpSwitchState")
-        UserDefaults.standard.set(PeanutSwitch.isOn, forKey: "peanutSwitchState")
+        SwitchSetting(EggSwitch, "eggSwitchState")
+        SwitchSetting(MilkSwitch, "milkSwitchState")
+        SwitchSetting(CerealSwitch, "cerealSwitchState")
+        SwitchSetting(CrabSwitch, "crabSwitchState")
+        SwitchSetting(ShrimpSwitch, "shrimpSwitchState")
+        SwitchSetting(PeanutSwitch, "peanutSwitchState")
+    }
+    func SwitchSetting(_ switchname: UISwitch, _ switchkeyname: String){
+        UserDefaults.standard.set(switchname.isOn, forKey: switchkeyname)
     }
     func UserDefaultState(_ switchname: UISwitch, _ switchkeyname: String) {
         switchname.isOn = UserDefaults.standard.bool(forKey: switchkeyname)
