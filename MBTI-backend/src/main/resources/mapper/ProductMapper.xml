@@ -4,11 +4,11 @@
 <mapper namespace="tukorea.MBTIbackend.comparison.mapper.ProductMapper">
 
     <select id="getProductList" resultType="tukorea.MBTIbackend.comparison.dto.ProductDto">
-        SELECT * FROM mbtidb.mbti_product
+        SELECT * FROM mbti_product
     </select>
 
     <select id="getById" parameterType="int" resultType="tukorea.MBTIbackend.comparison.dto.ProductDto">
-        SELECT * FROM mbtidb.mbti_product WHERE ID = #{id}
+        SELECT * FROM mbti_product WHERE ID = #{id}
     </select>
 
 </mapper>
