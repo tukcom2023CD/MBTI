@@ -11,6 +11,7 @@ import AVFoundation
 
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
 
+    let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var speechText: UITextView!
     var text : String = ""
@@ -129,13 +130,11 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         speechText.text = "Say something, I'm listening!"
         
     }
-}
-
-func textToSpeech(_ errorText:String) {
-    let synthesizer = AVSpeechSynthesizer()
-    let utterance = AVSpeechUtterance(string: errorText)
-    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-    utterance.rate = 0.4
-    synthesizer.speak(utterance)
+    func textToSpeech(_ errorText:String) {
+        let utterance = AVSpeechUtterance(string: errorText)
+        utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+        utterance.rate = 0.4
+        synthesizer.speak(utterance)
+    }
 }
 

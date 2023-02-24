@@ -10,6 +10,7 @@ import Speech
 
 class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     
+    let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var MilkSwitch: UISwitch!
     @IBOutlet weak var EggSwitch: UISwitch!
     @IBOutlet weak var CerealSwitch: UISwitch!
@@ -178,6 +179,12 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     }
     func UserDefaultState(_ switchname: UISwitch, _ switchkeyname: String) {
         switchname.isOn = UserDefaults.standard.bool(forKey: switchkeyname)
+    }
+    func textToSpeech(_ errorText:String) {
+        let utterance = AVSpeechUtterance(string: errorText)
+        utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+        utterance.rate = 0.4
+        synthesizer.speak(utterance)
     }
 }
 
