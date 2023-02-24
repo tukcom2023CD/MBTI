@@ -82,7 +82,7 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
             changeState(PeanutSwitch, "peanutSwitchState")
         }
         else{
-            textToSpeech("해당 알레르기가 존재하지 않습니다.")
+            textToSpeech("해당 알레르기가 존재하지 않습니다.",synthesizer)
         }
     }
     func changeState(_ SwitchName : UISwitch, _ SwitchKeyName : String) {
@@ -179,12 +179,6 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     }
     func UserDefaultState(_ switchname: UISwitch, _ switchkeyname: String) {
         switchname.isOn = UserDefaults.standard.bool(forKey: switchkeyname)
-    }
-    func textToSpeech(_ errorText:String) {
-        let utterance = AVSpeechUtterance(string: errorText)
-        utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-        utterance.rate = 0.4
-        synthesizer.speak(utterance)
     }
 }
 

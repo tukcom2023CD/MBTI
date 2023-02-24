@@ -44,7 +44,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
     }
     func TextCheck(_ text : String) {
         if (text.contains("알레") || text.contains("알러")) && (text.contains("QR") || text.contains("큐알")) {
-            textToSpeech("화면 이동 키워드가 중복되었습니다. 다시 시도해주세요")
+            textToSpeech("화면 이동 키워드가 중복되었습니다. 다시 시도해주세요",synthesizer)
         }
         else if text.contains("알레") || text.contains("알러") {
             moveSpeechView((Any).self,"allergySetting")
@@ -53,7 +53,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             moveSpeechView((Any).self,"QRReaderView")
         }
         else{
-            textToSpeech("화면 이동 키워드가 입력되지 않았습니다")
+            textToSpeech("화면 이동 키워드가 입력되지 않았습니다",synthesizer)
         }
     }
     
@@ -130,11 +130,11 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         speechText.text = "Say something, I'm listening!"
         
     }
-    func textToSpeech(_ errorText:String) {
-        let utterance = AVSpeechUtterance(string: errorText)
-        utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-        utterance.rate = 0.4
-        synthesizer.speak(utterance)
-    }
 }
 
+func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
+    let utterance = AVSpeechUtterance(string: errorText)
+    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+    utterance.rate = 0.4
+    synthesizer.speak(utterance)
+}
