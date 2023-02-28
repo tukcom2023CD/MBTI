@@ -11,11 +11,9 @@ import java.io.IOException;
 @Slf4j
 @RestController
 public class UrlController {
-
     @PostMapping("/url")
-    public Elements Url(@ModelAttribute Url url) throws IOException {
-     //   log.info("url = {}", url.getUrl());
-        return ProductDataService.getProductDatas(url);
+    public Url responsUrl(@RequestBody Url url) throws IOException {
 
+        return url;
     }
 }

@@ -13,7 +13,6 @@ import java.io.IOException;
 @Service
 public class ProductDataService {
 
-
    // private static String PRODUCT_DATA_URL = "http://www.foodqr.kr/foodqr?PRD_NO=1986030901810";
 
    // @PostConstruct
@@ -24,7 +23,6 @@ public class ProductDataService {
 
         Document doc = (Document) Jsoup.connect(a).get();
         Elements myin = doc.getElementsByClass("flt alleRight");
-        Elements subs = myin.first().getElementsByTag("PRI_ALLERGEN");
 
         return myin;
 

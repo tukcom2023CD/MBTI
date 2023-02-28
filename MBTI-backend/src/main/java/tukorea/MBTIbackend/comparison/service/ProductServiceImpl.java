@@ -4,7 +4,6 @@ import tukorea.MBTIbackend.comparison.dto.ProductDto;
 import tukorea.MBTIbackend.comparison.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -16,11 +15,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDto> getProductList() {
         return productMapper.getProductList();
-    }
-
-    @Override
-    public ProductDto getById() {
-        return productMapper.getById();
     }
 
 }

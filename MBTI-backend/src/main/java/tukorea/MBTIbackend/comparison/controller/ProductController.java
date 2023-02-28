@@ -26,8 +26,4 @@ public class ProductController {
         return productService.getProductList();
     }
 
-    @RequestMapping(value = "/api/product/{id}", method = RequestMethod.GET)
-    public ProductDto getById(@PathVariable("id") int id) {
-        return productMapper.getById();
-    }
 }

@@ -19,9 +19,6 @@ dependencies {
 	implementation 'org.projectlombok:lombok'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
 	runtimeOnly 'mysql:mysql-connector-java'
-	//	implementation "com.fasterxml.jackson.core:jackson-core:2.9.9"    // json
-	//	implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.9" //json
-
 }
 
 
