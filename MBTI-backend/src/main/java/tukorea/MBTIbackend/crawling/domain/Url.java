@@ -14,5 +14,6 @@ public class Url {
 
     private String url;
     private int Pidno;
+    private String allegy;
 
 }
