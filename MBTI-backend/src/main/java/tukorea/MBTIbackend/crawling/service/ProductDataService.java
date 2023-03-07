@@ -1,5 +1,8 @@
 package tukorea.MBTIbackend.crawling.service;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -19,7 +22,7 @@ public class ProductDataService {
 
     // @PostConstruct
     @Autowired
-    public static String getProductDatas(Url url) throws IOException {
+    public static String getProductDatas(String url) throws IOException, ParseException {
 
         String pre_allergen = null;
         Document doc = Jsoup.connect(PRODUCT_DATA_URL).get();
@@ -38,7 +41,16 @@ public class ProductDataService {
                 break;
             }
         }
-        System.out.println(pre_allergen);
-        return pre_allergen;
+        JSONParser parser = new JSONParser();
+        JSONObject jsonObject = (JSONObject) parser.parse("{"+pre_allergen+"}");
+        //System.out.println(jsonObject.get("PRI_ALLERGEN"));
+        return jsonObject.get("PRI_ALLERGEN").toString();
     }
+
+    /*
+    public static void main(String[] args) throws IOException, ParseException {
+        var temp = getProductDatas(PRODUCT_DATA_URL);
+        System.out.println(temp);
+    }
+     */
 }
