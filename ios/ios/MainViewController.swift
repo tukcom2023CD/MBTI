@@ -8,8 +8,10 @@
 import UIKit
 import Speech
 import AVFoundation
+import RealmSwift
 
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
+    
 
     let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var speechButton: UIButton!
