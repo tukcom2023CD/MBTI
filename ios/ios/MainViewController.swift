@@ -13,15 +13,23 @@ import RealmSwift
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
     
     let realmInstance = try! Realm()
-    
     @IBOutlet weak var allergyRead: UILabel!
-    
+    let testState = UserDefaults.standard.bool(forKey: "eggSwitchState")
     func read(){
         let rappers = realmInstance.objects(Product.self)
+
         var rappersallergy = String()
         for i in 0..<rappers.count{
             rappersallergy += "\(rappers[i].allergy)"
             self.allergyRead.text = rappersallergy
+            
+        }
+        if testState == true {
+            print("X")
+        }
+        else{
+            print("O")
+            self.allergyRead.text! += "O"
         }
     }
     let synthesizer = AVSpeechSynthesizer()
