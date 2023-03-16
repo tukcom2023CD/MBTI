@@ -15,6 +15,7 @@
 		9A83B3DC296BD69800DB1945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A83B3DA296BD69800DB1945 /* Main.storyboard */; };
 		9A83B3DE296BD69900DB1945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A83B3DD296BD69900DB1945 /* Assets.xcassets */; };
 		9A83B3E1296BD69900DB1945 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A83B3DF296BD69900DB1945 /* LaunchScreen.storyboard */; };
+		9AF9970A2998D9400089523A /* AllergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF997092998D9400089523A /* AllergyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9A83B3DD296BD69900DB1945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A83B3E0296BD69900DB1945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A83B3E2296BD69900DB1945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AF997092998D9400089523A /* AllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				9A83B3DD296BD69900DB1945 /* Assets.xcassets */,
 				9A83B3DF296BD69900DB1945 /* LaunchScreen.storyboard */,
 				9A83B3E2296BD69900DB1945 /* Info.plist */,
+				9AF997092998D9400089523A /* AllergyViewController.swift */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF9970A2998D9400089523A /* AllergyViewController.swift in Sources */,
 				9A83B3D9296BD69800DB1945 /* MainViewController.swift in Sources */,
 				9A83B3D5296BD69800DB1945 /* AppDelegate.swift in Sources */,
 				9A83B3D7296BD69800DB1945 /* SceneDelegate.swift in Sources */,
@@ -360,6 +364,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HSL8PA34KB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -388,6 +393,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HSL8PA34KB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
