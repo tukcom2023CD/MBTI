@@ -12,7 +12,18 @@ import RealmSwift
 
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
     
-
+    let realmInstance = try! Realm()
+    
+    @IBOutlet weak var allergyRead: UILabel!
+    
+    func read(){
+        let rappers = realmInstance.objects(Product.self)
+        var rappersallergy = String()
+        for i in 0..<rappers.count{
+            rappersallergy += "\(rappers[i].allergy)"
+            self.allergyRead.text = rappersallergy
+        }
+    }
     let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var speechText: UITextView!
@@ -62,6 +73,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         speechRecognizer?.delegate = self
+        read()
         // Do any additional setup after loading the view.
     }
     

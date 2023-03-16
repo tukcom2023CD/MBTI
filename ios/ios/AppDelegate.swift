@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
         let product = Product()
-        product.allergy = "allergy"
+        product.allergy = "계란"
         product.num  = 1
         product.prdno = 11
         

@@ -90,6 +90,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1EB-BR-Jsz"/>
                     <connections>
+                        <outlet property="allergyRead" destination="0Wy-H4-HwM" id="aqN-dQ-TMg"/>
                         <outlet property="speechButton" destination="KgA-mK-mZ2" id="BlB-d4-LQR"/>
                         <outlet property="speechText" destination="BWl-Qs-wP9" id="Q7d-MM-e6Z"/>
                     </connections>
