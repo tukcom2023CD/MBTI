@@ -9,7 +9,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tukorea.MBTIbackend.crawling.domain.Url;
 
 import java.io.IOException;
 import java.util.regex.Matcher;

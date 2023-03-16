@@ -13,7 +13,7 @@ import lombok.ToString;
 public class Url {
 
     private String url;
-    private int Pidno;
+    private int pidno;
     private String allegy;
 
 }
