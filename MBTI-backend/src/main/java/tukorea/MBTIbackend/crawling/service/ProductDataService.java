@@ -9,6 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tukorea.MBTIbackend.crawling.controller.UrlController;
 
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -17,14 +18,16 @@ import java.util.regex.Pattern;
 @Service
 public class ProductDataService {
 
-    private static String PRODUCT_DATA_URL = "http://www.foodqr.kr/foodqr?PRD_NO=1986030901810";
+    private static String PRODUCT_DATA_URL = "http://www.foodqr.kr/foodqr?PRD_NO=";
 
     // @PostConstruct
     @Autowired
-    public static String getProductDatas(String url) throws IOException, ParseException {
+    public static String getProductDatas(String prd_no) throws IOException, ParseException {
+
+
 
         String pre_allergen = null;
-        Document doc = Jsoup.connect(PRODUCT_DATA_URL).get();
+        Document doc = Jsoup.connect(PRODUCT_DATA_URL+prd_no).get();
         Elements scriptElements = doc.getElementsByTag("script");
         for (Element element : scriptElements) {
             if (element.data().contains("foodLab")) {

@@ -12,8 +12,8 @@ import lombok.ToString;
 @ToString
 public class Url {
 
-    private String url;
-    private int pidno;
+    //private String url;
+    private String pidno;
     private String allegy;
 
 }
