@@ -16,7 +16,7 @@ import static tukorea.MBTIbackend.crawling.service.ProductDataService.getProduct
 public class UrlController {
     @PostMapping("/url")
     public String requestUrl(@RequestBody Url url) throws IOException, ParseException {
-        return getProductDatas(url.getPidno());
+        return getProductDatas(url.getPrdno());
 
     }
 }

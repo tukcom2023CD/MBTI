@@ -22,12 +22,10 @@ public class ProductDataService {
 
     // @PostConstruct
     @Autowired
-    public static String getProductDatas(String prd_no) throws IOException, ParseException {
-
-
+    public static String getProductDatas(String prdno) throws IOException, ParseException {
 
         String pre_allergen = null;
-        Document doc = Jsoup.connect(PRODUCT_DATA_URL+prd_no).get();
+        Document doc = Jsoup.connect(PRODUCT_DATA_URL+prdno).get();
         Elements scriptElements = doc.getElementsByTag("script");
         for (Element element : scriptElements) {
             if (element.data().contains("foodLab")) {
@@ -48,11 +46,4 @@ public class ProductDataService {
         //System.out.println(jsonObject.get("PRI_ALLERGEN"));
         return jsonObject.get("PRI_ALLERGEN").toString();
     }
-
-    /*
-    public static void main(String[] args) throws IOException, ParseException {
-        var temp = getProductDatas(PRODUCT_DATA_URL);
-        System.out.println(temp);
-    }
-     */
 }
