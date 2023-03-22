@@ -13,7 +13,8 @@ class QRViewController: UIViewController {
 
     //실시간 캡처를 수행하기 위해서 AVCaptureSession 개체를 인스턴스화.
     private let captureSession = AVCaptureSession()
-
+    var timeTrigger = true
+    var realTime = Timer()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,16 +22,18 @@ class QRViewController: UIViewController {
     }
     @IBAction func back(_ sender: Any){
         self.presentingViewController?.dismiss(animated: true)
+        stopAction()
     }
 
 }
+
 extension QRViewController {
 
     private func basicSetting() {
 
         // AVCaptureDevice : capture sessions 에 대한 입력(audio or video)과 하드웨어별 캡처 기능에 대한 제어를 제공하는 장치.
         guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
-
+            
         // 시뮬레이터에서는 카메라를 사용할 수 없기 때문에 시뮬레이터에서 실행하면 에러가 발생한다.
         fatalError("No video device found")
         }
@@ -63,7 +66,8 @@ extension QRViewController {
             setVideoLayer()
             setGuideCrossLineView()
             setGuideLabelView()
-
+            startAction()
+            
             // startRunning() 과 stopRunning() 로 흐름 통제
             // input 에서 output 으로의 데이터 흐름을 시작
             captureSession.startRunning()
@@ -71,6 +75,23 @@ extension QRViewController {
         catch {
             print("error")
         }
+    }
+    private func startAction() {
+        if(timeTrigger) {
+            checkTimeTrigger()
+        }
+    }
+    private func checkTimeTrigger() {
+        realTime = Timer.scheduledTimer(timeInterval: 5, target: self,
+                selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        timeTrigger = false
+    }
+    @objc func updateCounter() {
+        UIDevice.vibrate()
+    }
+    private func stopAction() {
+        timeTrigger = true
+        realTime.invalidate()
     }
 
     private func setVideoLayer() {
@@ -137,15 +158,17 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             // qr코드가 가진 문자열이 URL 형태를 띈다면 출력.(아무런 qr코드나 찍는다고 출력시키면 안되니까 여기서 분기처리 가능. )
             if stringValue.hasPrefix("http://www.foodqr.kr") || stringValue.hasPrefix("https://www.foodqr.kr/foodqr?")  {
                 UIApplication.shared.open(URL(string:stringValue)!,options: [:])
+                stopAction()
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
                 let Prdno = stringValue[range]
-                postTest(String(Prdno),stringValue)
+                //postTest(String(Prdno),stringValue)
                 print(Prdno)
+                print("1")
                 // startRunning() 과 stopRunning() 로 흐름 통제
                 // input 에서 output 으로의 흐름 중지
-                self.captureSession.stopRunning()
-                self.dismiss(animated: true, completion: nil)
+//                self.captureSession.stopRunning()
+//                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -174,4 +197,9 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             }
         }
     }
+}
+extension UIDevice {
+    static func vibrate() {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        }
 }
