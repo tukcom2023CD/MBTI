@@ -1,22 +1,25 @@
 package tukorea.MBTIbackend.dbconnect.controller;
 
+import org.apache.catalina.User;  // 오류나면 얘
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import tukorea.MBTIbackend.dbconnect.entity.DbEntity;
 import tukorea.MBTIbackend.dbconnect.repository.DbEntityRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/db")
 public class DbController {
 
+    @Autowired
     private final DbEntityRepository dbEntityRepository;
 
     @PersistenceContext
@@ -28,16 +31,23 @@ public class DbController {
     }
 
     @GetMapping("searchParam")
-    public String searchParamProduct(@RequestParam(value = "allergy") String allergy) {
-        List resultList = entityManager.createQuery("select prdno from mbti_product where allergy > :allergy")
-                .setParameter("allergy", allergy)
+    public String searchParamProduct(@RequestParam(value = "prdno") String prdno) {
+        List resultList = entityManager.createQuery("select allergy from mbti_product where prdno = :prdno")
+                .setParameter("prdno", prdno)
                 .getResultList();
         return resultList.toString();
     }
 
     @GetMapping("searchParamRepo")
     public String searchParamRepoProduct(@RequestParam(value = "prdno") String prdno) {
-        return dbEntityRepository.searchParamRepo(prdno).toString();
+            return dbEntityRepository.searchParamRepo(prdno).toString();
     }
 
+    @PostMapping("/users")
+    public User getProductByPrdno(@RequestBody Map<String, Object> payload) {
+        String prdno = (String) payload.get("prdno"); // payload에서 prdno 추출
+
+        Optional<DbEntity> dbEntity = dbEntityRepository.findById(prdno);
+        return (User) dbEntity.orElse(null);
+    }
 }
