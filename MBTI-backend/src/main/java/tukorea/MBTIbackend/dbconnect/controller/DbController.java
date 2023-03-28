@@ -1,6 +1,6 @@
 package tukorea.MBTIbackend.dbconnect.controller;
 
-import org.apache.catalina.User;  // 오류나면 얘
+// import org.apache.catalina.User;  // 오류나면 얘
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -44,10 +44,18 @@ public class DbController {
     }
 
     @PostMapping("/users")
-    public User getProductByPrdno(@RequestBody Map<String, Object> payload) {
+    public DbEntity getProductByPrdno(@RequestBody Map<String, Object> payload) {
         String prdno = (String) payload.get("prdno"); // payload에서 prdno 추출
 
-        Optional<DbEntity> dbEntity = dbEntityRepository.findById(prdno);
-        return (User) dbEntity.orElse(null);
+        Optional<DbEntity> dbEntity = dbEntityRepository.findById(prdno);  // prdno에 해당하는 엔티티 객체를 조회
+
+        if (dbEntity.isPresent()) {    // db에 prdno에 해당하는 엔티티 객체가 있으면
+            DbEntity entity = dbEntity.get();
+            return entity;
+            //처리할 로직 -> 객체를 그대로 반환
+        } else {    // db에 prdno에 해당하는 엔티티 객체가 존재하지 않으면
+            //처리할 로직 -> 크롤링하기
+        }
+        return (DbEntity) dbEntity.orElse(null);
     }
 }
