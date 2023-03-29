@@ -104,7 +104,7 @@
             <objects>
                 <viewController storyboardIdentifier="QRReaderView" id="AiW-aE-xz1" userLabel="QR View Controller" customClass="QRViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bWA-oX-u2m">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QRView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-aP-5gw">
@@ -362,7 +362,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAw-JO-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881.67938931297704" y="742.95774647887333"/>
+            <point key="canvasLocation" x="471" y="724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zGg-fT-g0X">
@@ -380,7 +380,7 @@
                 <navigationItem id="kAD-V8-Ket"/>
                 <navigationItem id="OZa-o8-lQN"/>
             </objects>
-            <point key="canvasLocation" x="471" y="36"/>
+            <point key="canvasLocation" x="471" y="1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zp5-Px-OzK">
@@ -398,7 +398,7 @@
                 <navigationItem id="aGK-V2-dK6"/>
                 <navigationItem id="o0f-jb-Jjt"/>
             </objects>
-            <point key="canvasLocation" x="-127" y="719"/>
+            <point key="canvasLocation" x="-437" y="724"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
