@@ -116,19 +116,17 @@ extension QRViewController {
         ])
     }
     private func setGuideLabelView(){
-        let textView = UILabel()
-        textView.text = "QR Code 인식이 되지 않았습니다."
+        let textView = UIButton()
+        textView.setTitle("메인 화면으로 이동하기", for: .normal)
         textView.backgroundColor = .systemGreen
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.textAlignment = .center
-        
+    
+
         view.addSubview(textView)
         NSLayoutConstraint.activate([
             textView.widthAnchor.constraint(equalToConstant:  UIScreen.main.bounds.width * 1.0),
             textView.heightAnchor.constraint(equalToConstant:  UIScreen.main.bounds.height * 0.1)
         ])
-        
-        
         
     }
 }

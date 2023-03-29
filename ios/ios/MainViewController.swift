@@ -21,7 +21,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
         var rappersallergy = String()
         for i in 0..<rappers.count{
             rappersallergy += "\(rappers[i].allergy)"
-            self.allergyRead.text = rappersallergy
+           // self.allergyRead.text = rappersallergy
             
         }
         if testState == true {
