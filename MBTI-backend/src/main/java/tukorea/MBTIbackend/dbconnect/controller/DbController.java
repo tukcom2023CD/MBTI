@@ -1,6 +1,6 @@
 package tukorea.MBTIbackend.dbconnect.controller;
 
-// import org.apache.catalina.User;  // 오류나면 얘
+import org.apache.catalina.User;  // 오류나면 얘
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
