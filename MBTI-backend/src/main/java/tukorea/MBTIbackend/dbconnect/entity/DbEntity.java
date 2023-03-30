@@ -26,5 +26,5 @@ public class DbEntity {
     private String prdno;
 
     @Column(nullable = false)
-    private String allegy ;
+    private String allergy ;
 }

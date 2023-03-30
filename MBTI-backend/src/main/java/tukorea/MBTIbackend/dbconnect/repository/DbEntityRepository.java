@@ -13,4 +13,6 @@ public interface DbEntityRepository extends JpaRepository<DbEntity, String>{
 
     @Query(value = "select prdno, allergy from mbti_product where prdno = :prdno", nativeQuery=true)
     List<DbEntity> searchParamRepo(@Param("prdno") String prdno);
+
+    
 }

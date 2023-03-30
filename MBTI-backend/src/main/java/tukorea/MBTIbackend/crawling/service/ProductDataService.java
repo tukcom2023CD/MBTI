@@ -31,7 +31,7 @@ public class ProductDataService {
             if (element.data().contains("foodLab")) {
                 Pattern pattern = Pattern.compile("\"PRI_ALLERGEN\":.*함유\"");
                 Matcher matcher = pattern.matcher(element.data());
-                // we only expect a single match here so there's no need to loop through the matcher's groups
+
                 if (matcher.find()) {
                     pre_allergen = matcher.group(0);
                     break;
@@ -45,5 +45,6 @@ public class ProductDataService {
         JSONObject jsonObject = (JSONObject) parser.parse("{"+pre_allergen+"}");
         //System.out.println(jsonObject.get("PRI_ALLERGEN"));
         return jsonObject.get("PRI_ALLERGEN").toString();
+
     }
 }

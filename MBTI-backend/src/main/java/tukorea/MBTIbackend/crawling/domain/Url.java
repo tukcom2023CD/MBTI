@@ -1,6 +1,5 @@
 package tukorea.MBTIbackend.crawling.domain;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,8 +11,7 @@ import lombok.ToString;
 @ToString
 public class Url {
 
-    //private String url;
     private String prdno;
-    private String allegy;
+    private String allergy;
 
 }
