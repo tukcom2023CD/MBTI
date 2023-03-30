@@ -14,3 +14,8 @@
 				-response
 			-entity
 			-exception
+
+# 호출 순서
+
+ProductController -> ProductService     -> ProductRepository        -> Product
+(findProductById) -> (findProductByPID) -> (findProductByProductId)

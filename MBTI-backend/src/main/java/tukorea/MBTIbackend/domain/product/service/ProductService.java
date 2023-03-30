@@ -13,7 +13,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     @Transactional
-    public ProductResponseDto findProductByPID(Integer productId) {
+    public ProductResponseDto findProductByPID(Long productId) {
         Product product = productRepository.findProductByProductId(productId).orElseThrow();
 
         return new ProductResponseDto(product);

@@ -14,7 +14,7 @@ public class ProductController {
 
 
     @GetMapping("/api/product/{productId}")
-    public ProductResponseDto findProductById(@PathVariable Integer productId) {
+    public ProductResponseDto findProductById(@PathVariable Long productId) {
         return productService.findProductByPID(productId);
     }
 }

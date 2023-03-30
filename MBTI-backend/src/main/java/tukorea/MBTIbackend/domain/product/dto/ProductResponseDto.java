@@ -5,11 +5,11 @@ import tukorea.MBTIbackend.domain.product.entity.Product;
 
 @Getter
 public class ProductResponseDto {
-    private Integer productId;
+//    private Long productId;
     private String allergy;
 
     public ProductResponseDto(Product product) {
-        productId = product.getProductId();
+//        productId = product.getProductId();
         allergy = product.getAllergy();
     }
 }

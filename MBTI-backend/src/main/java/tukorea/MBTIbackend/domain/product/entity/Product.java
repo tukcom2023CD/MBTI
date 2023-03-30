@@ -12,7 +12,7 @@ public class Product {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private Integer productId;
+    private Long productId;
 
     @Column
     private String allergy;
