@@ -65,7 +65,6 @@ extension QRViewController {
             // 카메라 영상이 나오는 layer 와 + 모양 가이드 라인을 뷰에 추가하는 함수 호출.
             setVideoLayer()
             setGuideCrossLineView()
-            setGuideLabelView()
             startAction()
             
             // startRunning() 과 stopRunning() 로 흐름 통제
@@ -96,9 +95,14 @@ extension QRViewController {
 
     private func setVideoLayer() {
         let videoLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoLayer.frame = view.layer.bounds
-        videoLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+//        videoLayer.frame = view.layer.bounds
+//        videoLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        let previewView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height * 0.9))
+        videoLayer.frame = previewView.bounds
+//        view.addSubview(previewView)
         view.layer.addSublayer(videoLayer)
+//        view.layer.addSublayer(videoLayer)
+        
     }
 
     private func setGuideCrossLineView() {
@@ -114,20 +118,6 @@ extension QRViewController {
             guideCrossLine.widthAnchor.constraint(equalToConstant: 30),
             guideCrossLine.heightAnchor.constraint(equalToConstant: 30),
         ])
-    }
-    private func setGuideLabelView(){
-        let textView = UIButton()
-        textView.setTitle("메인 화면으로 이동하기", for: .normal)
-        textView.backgroundColor = .systemGreen
-        textView.translatesAutoresizingMaskIntoConstraints = false
-    
-
-        view.addSubview(textView)
-        NSLayoutConstraint.activate([
-            textView.widthAnchor.constraint(equalToConstant:  UIScreen.main.bounds.width * 1.0),
-            textView.heightAnchor.constraint(equalToConstant:  UIScreen.main.bounds.height * 0.1)
-        ])
-        
     }
 }
 
