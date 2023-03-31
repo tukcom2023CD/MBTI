@@ -8,7 +8,7 @@ import Foundation
 import RealmSwift
 
 class Product: Object {
-    @objc dynamic var prdno:Int = 0
+    @objc dynamic var prdno:String = "0"
     @objc dynamic var allergy:String = ""
     @objc dynamic var num:Int = 0
     

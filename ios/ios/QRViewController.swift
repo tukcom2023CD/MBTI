@@ -8,11 +8,13 @@
 import UIKit
 import AVFoundation
 import Alamofire
+import RealmSwift
 
 class QRViewController: UIViewController {
 
     //실시간 캡처를 수행하기 위해서 AVCaptureSession 개체를 인스턴스화.
     private let captureSession = AVCaptureSession()
+    let realm = try! Realm()
     var timeTrigger = true
     var realTime = Timer()
     override func viewDidLoad() {
@@ -153,6 +155,15 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 //postTest(String(Prdno),stringValue)
                 print(Prdno)
                 print("1")
+                
+                let DBdata = realm.objects(Product.self).filter("prdno == %@",Prdno)
+                
+                if DBdata.isEmpty {
+                    print("데이터 DB에 존재하지 않음.")
+                }
+                else {
+                    getTest()
+                }
                 // startRunning() 과 stopRunning() 로 흐름 통제
                 // input 에서 output 으로의 흐름 중지
 //                self.captureSession.stopRunning()
@@ -160,31 +171,44 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             }
         }
     }
-    func postTest(_ Prdno:String,_ stringValue:String) {
-//        let url = "https://e5604732-27a0-49d8-a142-83088a72ada2.mock.pstmn.io/list" 테스트.. ( post 성공도 되지 않음. )
-//        let url = "https://httpbin.org/post" // 테스트 용도 ( 이 url은 post 성공이 되지만, 해당 데이터가 들어가는지 의문 )
-        let url = "https://9551865c-5b5d-4474-b7b8-61e173a29b95.mock.pstmn.io"
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 10
-        
-        let params = ["Prdno":Prdno, "URL":stringValue] as Dictionary
-        do {
-            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
-        } catch {
-                print("http Body Error")
-        }
-        AF.request(request).responseString { (response) in
-            switch response.result {
-                case .success:
-                    print("POST 성공")
-                    print(response)
-                case .failure(let error):
-                    print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+//    func postTest(_ Prdno:String,_ stringValue:String) {
+////        let url = "https://e5604732-27a0-49d8-a142-83088a72ada2.mock.pstmn.io/list" 테스트.. ( post 성공도 되지 않음. )
+////        let url = "https://httpbin.org/post" // 테스트 용도 ( 이 url은 post 성공이 되지만, 해당 데이터가 들어가는지 의문 )
+//        let url = "https://9551865c-5b5d-4474-b7b8-61e173a29b95.mock.pstmn.io"
+//        var request = URLRequest(url: URL(string: url)!)
+//        request.httpMethod = "POST"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.timeoutInterval = 10
+//
+//        let params = ["Prdno":Prdno, "URL":stringValue] as Dictionary
+//        do {
+//            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+//        } catch {
+//                print("http Body Error")
+//        }
+//        AF.request(request).responseString { (response) in
+//            switch response.result {
+//                case .success:
+//                    print("POST 성공")
+//                    print(response)
+//                case .failure(let error):
+//                    print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+//            }
+//        }
+//    }
+    func getTest() {
+            let url = "https://jsonplaceholder.typicode.com/todos/1"
+            AF.request(url,
+                       method: .get,
+                       parameters: nil,
+                       encoding: URLEncoding.default,
+                       headers: ["Content-Type":"application/json", "Accept":"application/json"])
+                .validate(statusCode: 200..<300)
+                .responseJSON { (json) in
+                    //여기서 가져온 데이터를 자유롭게 활용하세요.
+                    print(json)
             }
         }
-    }
 }
 extension UIDevice {
     static func vibrate() {
