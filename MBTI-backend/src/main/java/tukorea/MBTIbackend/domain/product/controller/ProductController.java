@@ -1,6 +1,7 @@
 package tukorea.MBTIbackend.domain.product.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,9 @@ public class ProductController {
 
 
     @GetMapping("/api/product/{productId}")
-    public ProductResponseDto findProductById(@PathVariable Integer productId) {
+    public ProductResponseDto findProductById(@PathVariable Long productId) {
+
         return productService.findProductByPID(productId);
     }
+
 }

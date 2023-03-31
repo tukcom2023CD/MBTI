@@ -2,9 +2,11 @@ package tukorea.MBTIbackend.domain.product.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Table(name = "product")
 @Getter
+@Setter
 @Entity
 public class Product {
     @Id
@@ -12,7 +14,7 @@ public class Product {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private Integer productId;
+    private Long productId;
 
     @Column
     private String allergy;
