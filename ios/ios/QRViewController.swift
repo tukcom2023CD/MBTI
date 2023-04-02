@@ -14,6 +14,7 @@ class QRViewController: UIViewController {
 
     //실시간 캡처를 수행하기 위해서 AVCaptureSession 개체를 인스턴스화.
     private let captureSession = AVCaptureSession()
+    let synthesizer = AVSpeechSynthesizer()
     let realm = try! Realm()
     var timeTrigger = true
     var realTime = Timer()
@@ -89,6 +90,7 @@ extension QRViewController {
     }
     @objc func updateCounter() {
         UIDevice.vibrate()
+        textToSpeech("QR 코드가 인식되지 않았습니다.", synthesizer)
     }
     private func stopAction() {
         timeTrigger = true
@@ -162,6 +164,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                     print("데이터 DB에 존재하지 않음.")
                 }
                 else {
+                    
                     getTest()
                 }
                 // startRunning() 과 stopRunning() 로 흐름 통제
