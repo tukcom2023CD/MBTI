@@ -16,18 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUF-58-tOs">
-                                <rect key="frame" x="60" y="296" width="272" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUF-58-tOs">
+                                <rect key="frame" x="20" y="296" width="353" height="54"/>
                                 <string key="text">아래의 버튼을 누르면 QR 리더기를
 이용할 수 있습니다.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-IB-68l">
-                                <rect key="frame" x="53" y="358" width="286" height="245"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-IB-68l">
+                                <rect key="frame" x="20" y="358" width="353" height="245"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="QRButton">
                                     <backgroundConfiguration key="background">
@@ -39,26 +37,23 @@
                                     <segue destination="Jtg-U5-wYe" kind="show" id="RbO-ev-vSJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-St-m6U">
-                                <rect key="frame" x="53" y="673" width="286" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-St-m6U">
+                                <rect key="frame" x="20" y="673" width="353" height="79"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
                                     <segue destination="Hsh-c4-Ihz" kind="show" id="S0E-QI-rCE"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BWl-Qs-wP9">
-                                <rect key="frame" x="53" y="204" width="279" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BWl-Qs-wP9">
+                                <rect key="frame" x="20" y="204" width="353" height="84"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgA-mK-mZ2">
-                                <rect key="frame" x="53" y="114" width="286" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgA-mK-mZ2">
+                                <rect key="frame" x="20" y="114" width="353" height="82"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start Recoding">
@@ -68,16 +63,14 @@
                                     <action selector="SpeechToText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddr-c5-imQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아래의 버튼을 누르면 자신의 알레르기 유무를 선택할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ry-5W-Lza">
-                                <rect key="frame" x="53" y="611" width="272" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="아래의 버튼을 누르면 자신의 알레르기 유무를 선택할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ry-5W-Lza">
+                                <rect key="frame" x="20" y="611" width="353" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-H4-HwM">
-                                <rect key="frame" x="56" y="38" width="272" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-H4-HwM">
+                                <rect key="frame" x="20" y="38" width="353" height="68"/>
                                 <string key="text">음성으로 화면 전환을 하려면
 아래의 버튼을 눌러주세요</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -87,6 +80,22 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KgA-mK-mZ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CX6-WM-CMo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2ry-5W-Lza" secondAttribute="trailing" constant="20" id="DMR-J4-7ZE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Wy-H4-HwM" secondAttribute="trailing" constant="20" id="E8E-RU-gm8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BWl-Qs-wP9" secondAttribute="trailing" constant="20" id="GDU-dg-nDG"/>
+                            <constraint firstItem="2ry-5W-Lza" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ien-e0-a2G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kBy-St-m6U" secondAttribute="trailing" constant="20" id="Pwu-JN-9R0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QUF-58-tOs" secondAttribute="trailing" constant="20" id="UbF-xx-uoP"/>
+                            <constraint firstItem="0Wy-H4-HwM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aGe-ba-ogA"/>
+                            <constraint firstItem="kBy-St-m6U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aPL-qs-Nzo"/>
+                            <constraint firstItem="QUF-58-tOs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="c8T-cV-XJ5"/>
+                            <constraint firstItem="GXk-IB-68l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kVA-pK-V2I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KgA-mK-mZ2" secondAttribute="trailing" constant="20" id="qOy-67-iCa"/>
+                            <constraint firstItem="BWl-Qs-wP9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="whr-fn-5Pm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GXk-IB-68l" secondAttribute="trailing" constant="20" id="y9K-nw-BBx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1EB-BR-Jsz"/>
                     <connections>
@@ -104,7 +113,7 @@
             <objects>
                 <viewController storyboardIdentifier="QRReaderView" id="AiW-aE-xz1" userLabel="QR View Controller" customClass="QRViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bWA-oX-u2m">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QRView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-aP-5gw">
@@ -162,16 +171,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="257"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="음성으로 알레르기 설정 시 아래 버튼을 눌러 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze4-Hu-s63">
-                                                    <rect key="frame" x="70" y="11" width="296" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="음성으로 알레르기 설정 시 아래 버튼을 눌러 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze4-Hu-s63">
+                                                    <rect key="frame" x="26" y="11" width="340" height="52"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVs-Ej-DDZ">
-                                                    <rect key="frame" x="26" y="71" width="340" height="87"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVs-Ej-DDZ">
+                                                    <rect key="frame" x="25" y="71" width="343" height="87"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Start Recoding">
                                                         <backgroundConfiguration key="background">
@@ -183,24 +190,28 @@
                                                         <action selector="speechToText:" destination="paK-gx-lUg" eventType="touchUpInside" id="Jmg-bu-89m"/>
                                                     </connections>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-jg-fzt">
-                                                    <rect key="frame" x="20" y="166" width="346" height="91"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-jg-fzt">
+                                                    <rect key="frame" x="5" y="166" width="383" height="91"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="div-wh-vFV">
-                                                    <rect key="frame" x="0.0" y="20" width="75" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                    <connections>
-                                                        <segue destination="BYZ-38-t0r" kind="show" id="g3S-uh-qbT"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="e6S-jg-fzt" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leading" constant="5" id="4J4-hn-rl3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sVs-Ej-DDZ" secondAttribute="trailing" constant="5" id="6h6-Zq-DFE"/>
+                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="GrI-GI-ayR"/>
+                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="Iqa-B9-yHS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="5" id="MjO-WG-jge"/>
+                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="20" id="VeT-ea-wgi"/>
+                                                <constraint firstItem="sVs-Ej-DDZ" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="YA4-It-fdp"/>
+                                                <constraint firstAttribute="trailing" secondItem="e6S-jg-fzt" secondAttribute="trailing" constant="5" id="YDr-KF-meF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="7" id="Zuk-iH-Ldb"/>
+                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="6" id="adU-YQ-QLg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="5" id="i7u-KU-iBR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="20" id="php-DN-XyC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -373,7 +384,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAw-JO-ymf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="724"/>
+            <point key="canvasLocation" x="470.9923664122137" y="723.94366197183103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zGg-fT-g0X">
@@ -412,9 +423,6 @@
             <point key="canvasLocation" x="-437" y="724"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ncd-He-FVg"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

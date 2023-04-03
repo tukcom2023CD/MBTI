@@ -157,6 +157,6 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
 func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
     let utterance = AVSpeechUtterance(string: errorText)
     utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-    utterance.rate = 0.4
+    utterance.rate = 0.8
     synthesizer.speak(utterance)
 }

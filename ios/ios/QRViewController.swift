@@ -154,6 +154,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
                 let Prdno = stringValue[range]
+                
                 //postTest(String(Prdno),stringValue)
                 print(Prdno)
                 print("1")
