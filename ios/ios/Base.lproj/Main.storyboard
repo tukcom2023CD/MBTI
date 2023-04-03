@@ -16,16 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUF-58-tOs">
-                                <rect key="frame" x="20" y="296" width="353" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUF-58-tOs">
+                                <rect key="frame" x="20" y="339" width="353" height="40.666666666666686"/>
                                 <string key="text">아래의 버튼을 누르면 QR 리더기를
 이용할 수 있습니다.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-IB-68l">
-                                <rect key="frame" x="20" y="358" width="353" height="245"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-IB-68l">
+                                <rect key="frame" x="20" y="399.66666666666669" width="353" height="200.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="VJ7-Gq-PGk"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="QRButton">
                                     <backgroundConfiguration key="background">
@@ -37,24 +40,30 @@
                                     <segue destination="Jtg-U5-wYe" kind="show" id="RbO-ev-vSJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-St-m6U">
-                                <rect key="frame" x="20" y="673" width="353" height="79"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-St-m6U">
+                                <rect key="frame" x="20" y="680.33333333333337" width="353" height="71.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
                                     <segue destination="Hsh-c4-Ihz" kind="show" id="S0E-QI-rCE"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BWl-Qs-wP9">
-                                <rect key="frame" x="20" y="204" width="353" height="84"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BWl-Qs-wP9">
+                                <rect key="frame" x="20" y="219" width="353" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="o2t-M0-tK3"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgA-mK-mZ2">
-                                <rect key="frame" x="20" y="114" width="353" height="82"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgA-mK-mZ2">
+                                <rect key="frame" x="20" y="92" width="353" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="LRI-pj-pFd"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start Recoding">
                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
@@ -63,14 +72,14 @@
                                     <action selector="SpeechToText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddr-c5-imQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="아래의 버튼을 누르면 자신의 알레르기 유무를 선택할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ry-5W-Lza">
-                                <rect key="frame" x="20" y="611" width="353" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아래의 버튼을 누르면 자신의 알레르기 유무를 선택할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ry-5W-Lza">
+                                <rect key="frame" x="20" y="619.66666666666663" width="353" height="40.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-H4-HwM">
-                                <rect key="frame" x="20" y="38" width="353" height="68"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-H4-HwM">
+                                <rect key="frame" x="20" y="19.999999999999996" width="353" height="40.666666666666657"/>
                                 <string key="text">음성으로 화면 전환을 하려면
 아래의 버튼을 눌러주세요</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -81,20 +90,28 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KgA-mK-mZ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CX6-WM-CMo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2ry-5W-Lza" secondAttribute="trailing" constant="20" id="DMR-J4-7ZE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Wy-H4-HwM" secondAttribute="trailing" constant="20" id="E8E-RU-gm8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BWl-Qs-wP9" secondAttribute="trailing" constant="20" id="GDU-dg-nDG"/>
-                            <constraint firstItem="2ry-5W-Lza" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ien-e0-a2G"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kBy-St-m6U" secondAttribute="trailing" constant="20" id="Pwu-JN-9R0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QUF-58-tOs" secondAttribute="trailing" constant="20" id="UbF-xx-uoP"/>
-                            <constraint firstItem="0Wy-H4-HwM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aGe-ba-ogA"/>
-                            <constraint firstItem="kBy-St-m6U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aPL-qs-Nzo"/>
-                            <constraint firstItem="QUF-58-tOs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="c8T-cV-XJ5"/>
-                            <constraint firstItem="GXk-IB-68l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kVA-pK-V2I"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KgA-mK-mZ2" secondAttribute="trailing" constant="20" id="qOy-67-iCa"/>
-                            <constraint firstItem="BWl-Qs-wP9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="whr-fn-5Pm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GXk-IB-68l" secondAttribute="trailing" constant="20" id="y9K-nw-BBx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GXk-IB-68l" secondAttribute="trailing" constant="20" id="2uI-pS-F9E"/>
+                            <constraint firstItem="BWl-Qs-wP9" firstAttribute="top" secondItem="KgA-mK-mZ2" secondAttribute="bottom" constant="27" id="BlV-xh-1bU"/>
+                            <constraint firstItem="KgA-mK-mZ2" firstAttribute="top" secondItem="0Wy-H4-HwM" secondAttribute="bottom" constant="31.329999999999998" id="Ekj-NO-c58"/>
+                            <constraint firstItem="GXk-IB-68l" firstAttribute="top" secondItem="QUF-58-tOs" secondAttribute="bottom" constant="20" id="F2L-Ji-bwg"/>
+                            <constraint firstItem="KgA-mK-mZ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="FaV-WP-mQZ"/>
+                            <constraint firstAttribute="trailing" secondItem="2ry-5W-Lza" secondAttribute="trailing" constant="20" id="Fp2-Rh-Tg6"/>
+                            <constraint firstItem="kBy-St-m6U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="G1Q-BI-3o6"/>
+                            <constraint firstItem="0Wy-H4-HwM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IVd-FD-3et"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KgA-mK-mZ2" secondAttribute="trailing" constant="20" id="L8I-lm-Ykx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kBy-St-m6U" secondAttribute="bottom" constant="31" id="RiI-vN-vlH"/>
+                            <constraint firstItem="0Wy-H4-HwM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="RzR-mp-5Dg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kBy-St-m6U" secondAttribute="trailing" constant="20" id="Skm-dL-asv"/>
+                            <constraint firstItem="2ry-5W-Lza" firstAttribute="top" secondItem="GXk-IB-68l" secondAttribute="bottom" constant="20" id="Stg-9x-hnA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Wy-H4-HwM" secondAttribute="trailing" constant="20" id="URZ-KE-tKn"/>
+                            <constraint firstItem="kBy-St-m6U" firstAttribute="top" secondItem="2ry-5W-Lza" secondAttribute="bottom" constant="20" id="UcH-Yz-UWv"/>
+                            <constraint firstItem="QUF-58-tOs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Xda-RT-uRc"/>
+                            <constraint firstItem="2ry-5W-Lza" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Y5b-aS-wtH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BWl-Qs-wP9" secondAttribute="trailing" constant="20" id="h4B-3Q-zBa"/>
+                            <constraint firstItem="BWl-Qs-wP9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hHi-2T-csI"/>
+                            <constraint firstItem="QUF-58-tOs" firstAttribute="top" secondItem="BWl-Qs-wP9" secondAttribute="bottom" constant="20" id="k67-eV-vuM"/>
+                            <constraint firstItem="GXk-IB-68l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mgH-Cn-rfO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QUF-58-tOs" secondAttribute="trailing" constant="20" id="w8G-uv-IUq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1EB-BR-Jsz"/>
@@ -106,14 +123,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-436" y="1"/>
+            <point key="canvasLocation" x="-437.40458015267171" y="0.70422535211267612"/>
         </scene>
         <!--QR View Controller-->
         <scene sceneID="DaI-ws-Hwz">
             <objects>
                 <viewController storyboardIdentifier="QRReaderView" id="AiW-aE-xz1" userLabel="QR View Controller" customClass="QRViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bWA-oX-u2m">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QRView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-aP-5gw">
@@ -153,7 +170,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9kf-Ld-53i">
-                            <rect key="frame" x="0.0" y="1245" width="393" height="64"/>
+                            <rect key="frame" x="0.0" y="1229" width="393" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="main 화면으로 돌아가기"/>
@@ -172,13 +189,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="음성으로 알레르기 설정 시 아래 버튼을 눌러 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ze4-Hu-s63">
-                                                    <rect key="frame" x="26" y="11" width="340" height="52"/>
+                                                    <rect key="frame" x="25" y="31" width="343" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVs-Ej-DDZ">
-                                                    <rect key="frame" x="25" y="71" width="343" height="87"/>
+                                                    <rect key="frame" x="25" y="71.333333333333314" width="343" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="zB3-pU-4M0"/>
+                                                    </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Start Recoding">
                                                         <backgroundConfiguration key="background">
@@ -191,7 +211,7 @@
                                                     </connections>
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-jg-fzt">
-                                                    <rect key="frame" x="5" y="166" width="383" height="91"/>
+                                                    <rect key="frame" x="5" y="179" width="383" height="91"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -199,18 +219,13 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="e6S-jg-fzt" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leading" constant="5" id="4J4-hn-rl3"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="sVs-Ej-DDZ" secondAttribute="trailing" constant="5" id="6h6-Zq-DFE"/>
-                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="GrI-GI-ayR"/>
-                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="Iqa-B9-yHS"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="5" id="MjO-WG-jge"/>
-                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="20" id="VeT-ea-wgi"/>
-                                                <constraint firstItem="sVs-Ej-DDZ" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="YA4-It-fdp"/>
-                                                <constraint firstAttribute="trailing" secondItem="e6S-jg-fzt" secondAttribute="trailing" constant="5" id="YDr-KF-meF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="7" id="Zuk-iH-Ldb"/>
-                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="6" id="adU-YQ-QLg"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="5" id="i7u-KU-iBR"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="20" id="php-DN-XyC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sVs-Ej-DDZ" secondAttribute="trailing" constant="5" id="19e-ow-g1h"/>
+                                                <constraint firstItem="e6S-jg-fzt" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leading" constant="5" id="28t-yY-AYh"/>
+                                                <constraint firstAttribute="trailing" secondItem="e6S-jg-fzt" secondAttribute="trailing" constant="5" id="5vh-eh-oiO"/>
+                                                <constraint firstItem="sVs-Ej-DDZ" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="DMh-K8-JFq"/>
+                                                <constraint firstItem="ze4-Hu-s63" firstAttribute="leading" secondItem="EJY-XD-jRo" secondAttribute="leadingMargin" constant="5" id="N5U-L9-ijY"/>
+                                                <constraint firstItem="sVs-Ej-DDZ" firstAttribute="top" secondItem="ze4-Hu-s63" secondAttribute="bottom" constant="20" id="PSX-CC-Atq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ze4-Hu-s63" secondAttribute="trailing" constant="5" id="VKh-Fx-qJw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
