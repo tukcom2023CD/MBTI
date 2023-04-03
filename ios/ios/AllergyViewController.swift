@@ -18,6 +18,17 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     @IBOutlet weak var ShrimpSwitch: UISwitch!
     @IBOutlet weak var PeanutSwitch: UISwitch!
     
+    @IBOutlet weak var WalnutSwitch: UISwitch!
+    @IBOutlet weak var MackerelSwitch: UISwitch!
+    @IBOutlet weak var ShellfishSwitch: UISwitch!
+    @IBOutlet weak var SulfiteSwitch: UISwitch!
+    @IBOutlet weak var SquidSwitch: UISwitch!
+    @IBOutlet weak var PorkSwitch: UISwitch!
+    @IBOutlet weak var ChickenSwitch: UISwitch!
+    @IBOutlet weak var BeefSwitch: UISwitch!
+    @IBOutlet weak var TomatoSwitch: UISwitch!
+    @IBOutlet weak var PinenutSwitch: UISwitch!
+    
     @IBOutlet weak var speechText: UITextView!
     @IBOutlet weak var speechButton: UIButton!
     
@@ -37,7 +48,16 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
         UserDefaultState(CrabSwitch, "crabSwitchState")
         UserDefaultState(ShrimpSwitch, "shrimpSwitchState")
         UserDefaultState(PeanutSwitch, "peanutSwitchState")
-        // Do any additional setup after loading the view.
+        UserDefaultState(WalnutSwitch, "walnutSwitchState")
+        UserDefaultState(MackerelSwitch, "mackerelSwitchState")
+        UserDefaultState(ShellfishSwitch, "shellfishSwitchState")
+        UserDefaultState(SulfiteSwitch, "sulfiteSwitchState")
+        UserDefaultState(SquidSwitch, "squidSwitchState")
+        UserDefaultState(PorkSwitch, "porkSwitchState")
+        UserDefaultState(ChickenSwitch, "chickenSwitchState")
+        UserDefaultState(BeefSwitch, "beefSwitchState")
+        UserDefaultState(TomatoSwitch, "tomatoSwitchState")
+        UserDefaultState(PinenutSwitch, "pinenutSwitchState")
     }
     
     @IBAction func speechToText(_ sender: Any) {
@@ -81,9 +101,40 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
         if text.contains("땅콩") {
             changeState(PeanutSwitch, "peanutSwitchState")
         }
+        if text.contains("호두") {
+            changeState(WalnutSwitch, "walnutSwitchState")
+        }
+        if text.contains("고등어") {
+            changeState(MackerelSwitch, "mackerelSwitchState")
+        }
+        if text.contains("조개류") {
+            changeState(ShellfishSwitch, "shellfishSwitchState")
+        }
+        if text.contains("아산황류") {
+            changeState(SulfiteSwitch, "sulfiteSwitchState")
+        }
+        if text.contains("오징어") {
+            changeState(SquidSwitch, "squidSwitchState")
+        }
+        if text.contains("돼지고기") {
+            changeState(PorkSwitch, "porkSwitchState")
+        }
+        if text.contains("닭고기") {
+            changeState(ChickenSwitch, "chickenSwitchState")
+        }
+        if text.contains("쇠고기") {
+            changeState(BeefSwitch, "beefSwitchState")
+        }
+        if text.contains("토마토") {
+            changeState(TomatoSwitch, "tomatoSwitchState")
+        }
+        if text.contains("잣") {
+            changeState(PinenutSwitch, "pinenutSwitchState")
+        }
         else{
             textToSpeech("해당 알레르기가 존재하지 않습니다.",synthesizer)
         }
+        
     }
     func changeState(_ SwitchName : UISwitch, _ SwitchKeyName : String) {
         if SwitchName.isOn == true{
@@ -173,6 +224,16 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
         SwitchSetting(CrabSwitch, "crabSwitchState")
         SwitchSetting(ShrimpSwitch, "shrimpSwitchState")
         SwitchSetting(PeanutSwitch, "peanutSwitchState")
+        SwitchSetting(WalnutSwitch, "walnutSwitchState")
+        SwitchSetting(MackerelSwitch, "mackerelSwitchState")
+        SwitchSetting(ShellfishSwitch, "shellfishSwitchState")
+        SwitchSetting(SulfiteSwitch, "sulfiteSwitchState")
+        SwitchSetting(SquidSwitch, "squidSwitchState")
+        SwitchSetting(PorkSwitch, "porkSwitchState")
+        SwitchSetting(ChickenSwitch, "chickenSwitchState")
+        SwitchSetting(BeefSwitch, "beefSwitchState")
+        SwitchSetting(TomatoSwitch, "tomatoSwitchState")
+        SwitchSetting(PinenutSwitch, "pinenutSwitchState")
     }
     func SwitchSetting(_ switchname: UISwitch, _ switchkeyname: String){
         UserDefaults.standard.set(switchname.isOn, forKey: switchkeyname)
@@ -182,11 +243,3 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     }
 }
 
-/*
- EggSwitch.isOn =  UserDefaults.standard.bool(forKey: "eggSwitchState")
- MilkSwitch.isOn =  UserDefaults.standard.bool(forKey: "milkSwitchState")
- CerealSwitch.isOn =  UserDefaults.standard.bool(forKey: "cerealSwitchState")
- CrabSwitch.isOn =  UserDefaults.standard.bool(forKey: "crabSwitchState")
- ShrimpSwitch.isOn =  UserDefaults.standard.bool(forKey: "shrimpSwitchState")
- PeanutSwitch.isOn =  UserDefaults.standard.bool(forKey: "peanutSwitchState")
- */
