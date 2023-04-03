@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -140,10 +141,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXU-SQ-Csp">
-                                <rect key="frame" x="16" y="681" width="361" height="68"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXU-SQ-Csp">
+                                <rect key="frame" x="16" y="713" width="361" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FaO-45-GzR"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="메인 화면으로 이동하기"/>
+                                <buttonConfiguration key="configuration" style="plain" title="메인 화면으로 이동하기">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="back:" destination="AiW-aE-xz1" eventType="touchUpInside" id="NWc-7F-jOl"/>
                                 </connections>
@@ -152,7 +159,9 @@
                         <viewLayoutGuide key="safeArea" id="NpC-98-Wvp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="OXU-SQ-Csp" firstAttribute="bottom" secondItem="NpC-98-Wvp" secondAttribute="bottom" constant="10" id="FT9-Sc-cS4"/>
+                            <constraint firstItem="NpC-98-Wvp" firstAttribute="bottom" secondItem="OXU-SQ-Csp" secondAttribute="bottom" constant="20" id="FWI-PF-ksn"/>
+                            <constraint firstItem="NpC-98-Wvp" firstAttribute="trailing" secondItem="OXU-SQ-Csp" secondAttribute="trailing" constant="16" id="LAR-zW-MZn"/>
+                            <constraint firstItem="OXU-SQ-Csp" firstAttribute="leading" secondItem="NpC-98-Wvp" secondAttribute="leading" constant="16" id="NRr-Ke-WaR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oZF-LO-gur"/>
@@ -672,7 +681,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Zp5-Px-OzK">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" navigationBarHidden="YES" hidesBarsOnSwipe="YES" id="Hsh-c4-Ihz" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="Hsh-c4-Ihz" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="f1T-C9-Iz6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7W2-WU-SPc">
                         <autoresizingMask key="autoresizingMask"/>
@@ -689,6 +698,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
