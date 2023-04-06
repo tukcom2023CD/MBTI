@@ -660,6 +660,21 @@
             </objects>
             <point key="canvasLocation" x="470.9923664122137" y="723.94366197183103"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="CT4-Py-BQh">
+            <objects>
+                <viewController storyboardIdentifier="QRCresult" id="VLl-PV-OwB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rb7-Xd-qNH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DWo-f6-l1w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6M-iV-uJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2295" y="1"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="zGg-fT-g0X">
             <objects>
