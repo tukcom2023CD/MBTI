@@ -660,11 +660,11 @@
             </objects>
             <point key="canvasLocation" x="470.9923664122137" y="723.94366197183103"/>
         </scene>
-        <!--View Controller-->
+        <!--Select View Controller-->
         <scene sceneID="CT4-Py-BQh">
             <objects>
-                <viewController storyboardIdentifier="QRCresult" id="VLl-PV-OwB" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Rb7-Xd-qNH">
+                <viewController restorationIdentifier="QRCresult" storyboardIdentifier="QRCresult" id="VLl-PV-OwB" customClass="SelectViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="QRCresult" id="Rb7-Xd-qNH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="DWo-f6-l1w"/>

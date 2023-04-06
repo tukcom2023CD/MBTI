@@ -18,7 +18,7 @@ class QRViewController: UIViewController {
     let realm = try! Realm()
     var timeTrigger = true
     var realTime = Timer()
-    @IBAction func moveresult(_ sender: Any){
+    func moveresult(){
         let resultview = self.storyboard?.instantiateViewController(withIdentifier: "QRCresult")
         resultview?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         self.present(resultview!, animated: true, completion: nil)
@@ -155,8 +155,8 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
 
             // qr코드가 가진 문자열이 URL 형태를 띈다면 출력.(아무런 qr코드나 찍는다고 출력시키면 안되니까 여기서 분기처리 가능. )
             if stringValue.hasPrefix("http://www.foodqr.kr") || stringValue.hasPrefix("https://www.foodqr.kr/foodqr?")  {
-                UIApplication.shared.open(URL(string:stringValue)!,options: [:])
-                moveresult(<#Any#>)
+//                UIApplication.shared.open(URL(string:stringValue)!,options: [:])
+                moveresult()
                 stopAction()
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
