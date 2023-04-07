@@ -69,11 +69,15 @@ public class ProductService {
 
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse("{"+pre_allergen+"}");
-        String allergy = jsonObject.toJSONString();
+        String allergy = (String)jsonObject.get("PRI_ALLERGEN");
+        int length = allergy.length();
+        StringBuilder sb = new StringBuilder(allergy);
+        sb.delete(length - 2, length);
+        String allergen = sb.toString();
 
         Product product = Product.builder()
                 .productId(productId)
-                .allergy(allergy)
+                .allergy(allergen)
                 .build();
 
         return productRepository.save(product);
