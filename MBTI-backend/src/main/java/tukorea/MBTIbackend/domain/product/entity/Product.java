@@ -20,4 +20,7 @@ public class Product {
 
     @Column
     private String allergy;
+
+    @Column
+    private String productname;
 }
