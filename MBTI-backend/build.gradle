@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.1'
 	id 'io.spring.dependency-management' version '1.1.0'
+
 }
 
 group = 'tukorea'
@@ -14,8 +15,24 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//jsoup
+	implementation 'org.jsoup:jsoup:1.15.4'
+	//lombok
+	implementation 'org.projectlombok:lombok'
+	//json
+	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+	//mybatis
+	//implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+	//sql
+	implementation 'mysql:mysql-connector-java'
+	//jpa
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.jetbrains:annotations:20.1.0'
+	//jpa test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()

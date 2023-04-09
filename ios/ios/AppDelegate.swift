@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,25 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print(Realm.Configuration.defaultConfiguration.fileURL)
-        
-        let product = Product()
-        product.allergy = "계란"
-        product.num  = 1
-        product.prdno = 11
-        
-        do {
-            let realm = try! Realm()
-            try! realm.write {
-                realm.add(product)
-            }
-            } catch {
-                print("Error initialising new realm \(error)")
-                
-                
-            }
-                
-            return true
+        return true
     }
 
     // MARK: UISceneSession Lifecycle

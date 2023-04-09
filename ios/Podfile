@@ -7,5 +7,4 @@ target 'ios' do
 
   # Pods for ios
   pod 'RealmSwift'
-  pod 'Alamofire', '~> 5.2'
 end
