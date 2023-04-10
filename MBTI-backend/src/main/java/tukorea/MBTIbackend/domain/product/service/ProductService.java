@@ -46,6 +46,7 @@ public class ProductService {
         String PRODUCT_DATA_URL = "http://www.foodqr.kr/foodqr?PRD_NO=";
         String pre_allergen = null;
         String prdlst_nm = null;
+        String bssh_nm = null;
 
         Document doc = Jsoup.connect(PRODUCT_DATA_URL+productId).get();
         Elements scriptElements = doc.getElementsByTag("script");
@@ -71,12 +72,27 @@ public class ProductService {
                     System.err.println("No math found!");
                 }
 
+                Pattern pattern_bssh = Pattern.compile("\"BSSH_NM\":\"\\(주\\)풀무원녹즙\",\\s*\"S[^\"]*\"");
+                Matcher matcher_bssh = pattern_bssh.matcher(element.data());
+
+                if (matcher_bssh.find()) {
+                    bssh_nm = matcher_bssh.group(0);
+                } else {
+                    System.err.println("No math found!");
+                }
+
                 break;
             }
         }
 
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse("{"+pre_allergen+"}");
+
+        String allergy = (String)jsonObject.get("PRI_ALLERGEN");
+        int palength = allergy.length();
+        StringBuilder pasb = new StringBuilder(allergy);
+        pasb.delete(palength - 3, palength);
+        String allergen = pasb.toString();
 
         int pnlength = prdlst_nm.length();
         StringBuilder pnsb = new StringBuilder(prdlst_nm);
@@ -85,16 +101,18 @@ public class ProductService {
         JSONObject pnjsonObject = (JSONObject) parser.parse("{"+jsonproductname+"}");
         String productname = (String)pnjsonObject.get("PRDLST_NM");
 
-        String allergy = (String)jsonObject.get("PRI_ALLERGEN");
-        int palength = allergy.length();
-        StringBuilder pasb = new StringBuilder(allergy);
-        pasb.delete(palength - 3, palength);
-        String allergen = pasb.toString();
+        int bnlength = bssh_nm.length();
+        StringBuilder bnsb = new StringBuilder(bssh_nm);
+        bnsb.delete(bnlength - 12, bnlength);
+        String jsonmanufacturer = bnsb.toString();
+        JSONObject bnjsonObject = (JSONObject) parser.parse("{"+jsonmanufacturer+"}");
+        String manufacturer = (String)bnjsonObject.get("BSSH_NM");
 
         Product product = Product.builder()
                 .productId(productId)
                 .allergy(allergen)
                 .productname(productname)
+                .manufacturer(manufacturer)
                 .build();
 
         return productRepository.save(product);
