@@ -28,6 +28,13 @@ import java.util.Optional;
 @Service
 public class ProductService {
     private ProductRepository productRepository;
+    @Transactional
+    public ProductResponseDto TestfindProductByPID(Long productId) {
+        Product product = productRepository.findProductAllergyByProductId(productId).orElseThrow();
+        return new ProductResponseDto(product);
+    }
+
+
 
     @SneakyThrows
     @Transactional
