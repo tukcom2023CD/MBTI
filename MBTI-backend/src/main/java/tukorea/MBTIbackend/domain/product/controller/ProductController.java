@@ -12,9 +12,15 @@ import tukorea.MBTIbackend.domain.product.service.ProductService;
 public class ProductController {
     private final ProductService productService;
 
-
     @GetMapping("/api/product/{productId}")
     public ProductResponseDto findProductById(@PathVariable Long productId) {
         return productService.findProductByPID(productId);
+
+    }
+
+
+    @GetMapping("/api/{productId}")
+    public ProductResponseDto TestfindProductById(@PathVariable Long productId) {
+        return productService.TestfindProductByPID(productId);
     }
 }
