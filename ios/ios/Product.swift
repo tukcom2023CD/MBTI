@@ -8,11 +8,12 @@ import Foundation
 import RealmSwift
 
 class Product: Object {
-    @objc dynamic var prdno:String = "0"
+    @objc dynamic var productId:Int = 0
     @objc dynamic var allergy:String = ""
-    @objc dynamic var num:Int = 0
+    @objc dynamic var productname:String = ""
+    @objc dynamic var manufacturer:String = ""
     
     override static func primaryKey() -> String? {
-         return "num"
+         return "productId"
        }
 }

@@ -170,10 +170,11 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 
                 if DBdata.isEmpty {
                     print("데이터 DB에 존재하지 않음.")
+                    getTest()
                 }
                 else {
-                    
-                    getTest()
+                    print(DBdata)
+                    //getTest()
                 }
                 // startRunning() 과 stopRunning() 로 흐름 통제
                 // input 에서 output 으로의 흐름 중지
