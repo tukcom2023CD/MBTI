@@ -166,11 +166,11 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 print(Prdno)
                 print("1")
                 
-                let DBdata = realm.objects(Product.self).filter("prdno == %@",Prdno)
+                let DBdata = realm.objects(Product.self).filter("productId == %@",Prdno)
                 
                 if DBdata.isEmpty {
                     print("데이터 DB에 존재하지 않음.")
-                    getTest()
+                    getTest(prdno: String(Prdno))
                 }
                 else {
                     print(DBdata)
@@ -208,18 +208,52 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
 //            }
 //        }
 //    }
-    func getTest() {
-            let url = "https://jsonplaceholder.typicode.com/todos/1"
-            AF.request(url,
-                       method: .get,
-                       parameters: nil,
-                       encoding: URLEncoding.default,
-                       headers: ["Content-Type":"application/json", "Accept":"application/json"])
-                .validate(statusCode: 200..<300)
-                .responseJSON { (json) in
-                    //여기서 가져온 데이터를 자유롭게 활용하세요.
-                    print(json)
-            }
+    func getTest(prdno : String) {
+        //                let url = "http://localhost:8080/api/product/1986030901810"
+        //                AF.request(url,
+        //                           method: .get,
+        //                           parameters: nil,
+        //                           encoding: URLEncoding.default,
+        //                           headers: ["Content-Type":"application/json", "Accept":"application/json"])
+        //                .validate(statusCode: 200..<300)
+        //                .responseJSON { (json) in
+        //                    //여기서 가져온 데이터를 자유롭게 활용하세요.
+        //                    S
+        //                }
+        //            }
+//        위 코드에서 http://localhost:8080/api/product/1986030901810는 로컬 서버의 URL 주소를 나타냅니다. 해당 서버의 포트 번호와 경로를 올바르게 지정해야 합니다. 이 코드에서는 URLSession의 dataTask(with:) 메서드를 사용하여 데이터를 가져오고, 가져온 데이터를 처리하는 클로저를 작성하고, 작성한 클로저를 URLSession의 dataTask 메서드의 인자로 전달하여 HTTP GET 요청을 보냅니다.
+
+//
+//        if let url = URL(string: "http://localhost:8080/api/product/1986030901810") {
+//            URLSession.shared.dataTask(with: url) { data, response, error in
+//                guard let data = data, error == nil else {
+//                    print(error?.localizedDescription ?? "Unknown error")
+//                    return
+//                }
+//                let responseString = String(data: data, encoding: .utf8)
+//                print(responseString)
+//            }.resume()
+//        }
+        var components = URLComponents(string: "https://1e7cd63b-50a6-42ee-98b4-84991cb7b775.mock.pstmn.io")
+                //도메인 뒤에 API 주소 삽입
+                components?.path = "/api/product/\(prdno)"
+                //파라미터 추가할거 있으면 작성
+                //URL 생성
+                guard let url = components?.url else { return }
+                print(url)
+                //리퀘스트 생성
+                var request: URLRequest = URLRequest(url: url)
+                //통신 방법 지정
+                request.httpMethod = "GET"
+                //태스크 생성
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    //여기서 에러 체크 및 받은 데이터 가공하여 사용
+                    guard let data,
+                          let str = String(data: data, encoding:.utf8) else { return }
+                    print(str)
+                }
+                //실행
+                task.resume()
         }
 }
 extension UIDevice {
