@@ -16,7 +16,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
     @IBOutlet weak var allergyRead: UILabel!
     let testState = UserDefaults.standard.bool(forKey: "eggSwitchState")
     func read(){
-        let rappers = realmInstance.objects(Product.self)
+        let rappers = realmInstance.objects(DBProduct.self)
 
         var rappersallergy = String()
         for i in 0..<rappers.count{
