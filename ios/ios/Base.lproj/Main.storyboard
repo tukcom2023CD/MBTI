@@ -15,7 +15,7 @@
             <objects>
                 <viewController wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" userLabel="Main View Controller" customClass="MainViewController" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUF-58-tOs">
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-St-m6U">
-                                <rect key="frame" x="20" y="680.33333333333337" width="353" height="140.66666666666663"/>
+                                <rect key="frame" x="20" y="680.33333333333337" width="353" height="130.66666666666663"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
@@ -688,7 +688,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="메인 화면으로 이동"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="yvz-pT-sdQ"/>
+                                    <action selector="mainButton:" destination="VLl-PV-OwB" eventType="touchUpInside" id="Nd5-kD-qlY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08M-Wq-gWJ">
@@ -704,11 +704,11 @@
                                     <segue destination="AiW-aE-xz1" kind="show" id="S6A-sU-0vQ"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="qXs-gy-aj6">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="qXs-gy-aj6">
                                 <rect key="frame" x="20" y="169" width="353" height="20.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="상품 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfB-x2-VJ0">
-                                        <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="246.66666666666666" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -721,16 +721,16 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="CGG-Fh-VZR">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="CGG-Fh-VZR">
                                 <rect key="frame" x="20" y="229.33333333333334" width="353" height="20.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="제조원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOh-f9-Duy">
-                                        <rect key="frame" x="0.0" y="0.0" width="240.66666666666666" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="246.66666666666666" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9u-m2-oSm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9u-m2-oSm">
                                         <rect key="frame" x="311.66666666666669" y="0.0" width="41.333333333333314" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -747,7 +747,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-l1-P0j">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-l1-P0j">
                                         <rect key="frame" x="191.66666666666663" y="0.0" width="161.33333333333337" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -787,7 +787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6M-iV-uJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470.9923664122137" y="-739.43661971830988"/>
+            <point key="canvasLocation" x="471" y="-739"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zGg-fT-g0X">
@@ -828,7 +828,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="S6A-sU-0vQ"/>
-        <segue reference="yvz-pT-sdQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">

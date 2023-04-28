@@ -21,9 +21,15 @@ class SelectViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.frame = UIScreen.main.bounds
         // 선택된 제품의 이름을 productNameLabel에 표시
         productName.text = selectedProduct?.productName ?? "Unknown"
         manufacturer.text = selectedProduct?.manufacturer ?? "Unknown"
         allergy.text = selectedProduct?.allergy ?? "Unknown"
+    }
+    @IBAction func mainButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+        
     }
 }

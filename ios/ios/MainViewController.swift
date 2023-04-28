@@ -10,7 +10,7 @@ import Speech
 import AVFoundation
 import RealmSwift
 
-class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
+class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechSynthesizerDelegate {
     
     let realmInstance = try! Realm()
     @IBOutlet weak var allergyRead: UILabel!
@@ -59,9 +59,9 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
             return
         }
         
-        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        
-        self.present(svc, animated: true)
+//        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        svc.modalPresentationStyle = .fullScreen
+        self.present(svc, animated: true,completion: nil)
     }
     func TextCheck(_ text : String) {
         if (text.contains("알레") || text.contains("알러")) && (text.contains("QR") || text.contains("큐알")) {
@@ -155,6 +155,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate {
 }
 
 func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
+    
     let utterance = AVSpeechUtterance(string: errorText)
     utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
     utterance.rate = 0.8

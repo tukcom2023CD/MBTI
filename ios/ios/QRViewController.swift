@@ -179,10 +179,17 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                         guard let product = product else { return }
                         
                         DispatchQueue.main.async {
-                               let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
-                               selectViewController.selectedProduct = product
-                               let navigationController = UINavigationController(rootViewController: selectViewController)
-                               self.present(navigationController, animated: true, completion: nil)
+//                               let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+//                               selectViewController.selectedProduct = product
+//                               let navigationController = UINavigationController(rootViewController: selectViewController)
+//                               self.present(navigationController, animated: true, completion: nil)
+//
+                            let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+                            selectViewController.selectedProduct = product
+                            let navigationController = UINavigationController(rootViewController: selectViewController)
+                            navigationController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
+                            self.present(navigationController, animated: true, completion: nil)
+                            
                            }
                     }
                 }
@@ -258,7 +265,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
 //
 //    }
     func getTest(prdno : String, completion: @escaping (Product?) -> Void) {
-        var components = URLComponents(string: "https://1e7cd63b-50a6-42ee-98b4-84991cb7b775.mock.pstmn.io")
+        var components = URLComponents(string: "https://88d105cd-2761-4ece-a593-39b7760fc167.mock.pstmn.io")
         components?.path = "/api/product/\(prdno)"
         guard let url = components?.url else { return }
         var request: URLRequest = URLRequest(url: url)
