@@ -17,20 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         print(Realm.Configuration.defaultConfiguration.fileURL)
 //
-//        let product = Product()
-//        product.allergy = "계란"
-//        product.num  = 1
-//        product.prdno = "1986030901810"
-//
+//        let product = DBProduct()
+//        product.allergy = "밀, 대두, 우유, 계란, 돼지고기, 쇠고기, 닭고기"
+//        product.productId = 19760342001242
+//        product.manufacturer = "㈜농심"
+//        product.productname = "육개장사발면"
+//        let product1 = DBProduct()
+//        product.productId = 2009044204019
+//        product.allergy = "대두"
+//        product.manufacturer = "(주)풀무원녹즙"
+//        product.productname = "위러브플러스"
 //        do {
 //            let realm = try! Realm()
 //            try! realm.write {
 //                realm.add(product)
+//                realm.add(product1)
 //            }
 //            } catch {
 //                print("Error initialising new realm \(error)")
 //
-//                
+//
 //            }
                 
             return true

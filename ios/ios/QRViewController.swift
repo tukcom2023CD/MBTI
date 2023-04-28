@@ -165,37 +165,66 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
                 let Prdno = stringValue[range]
-                
+                let productId = Int(Prdno)!
                 //postTest(String(Prdno),stringValue)
-                print(Prdno)
-                print("1")
-                
-                let DBdata = realm.objects(DBProduct.self).filter("productId == %@",Prdno)
-                
+                let DBdata = realm.objects(DBProduct.self).filter("productId == %@",productId)
+
+
                 if DBdata.isEmpty {
                     print("데이터 DB에 존재하지 않음.")
                     getTest(prdno: String(Prdno)){ product in
                         // product를 다루는 코드 블록
                         guard let product = product else { return }
-                        
+                        let dbProduct = DBProduct()
+                        dbProduct.productId = product.productId
+                        dbProduct.allergy = product.allergy
+                        dbProduct.manufacturer = product.manufacturer
+                        dbProduct.productname = product.productName
+                        do {
+                            let realm = try! Realm()
+                            try! realm.write {
+                                realm.add(dbProduct)
+                            }
+                            } catch {
+                                print("Error initialising new realm \(error)")
+
+
+                            }
                         DispatchQueue.main.async {
-//                               let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
-//                               selectViewController.selectedProduct = product
-//                               let navigationController = UINavigationController(rootViewController: selectViewController)
-//                               self.present(navigationController, animated: true, completion: nil)
-//
                             let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
                             selectViewController.selectedProduct = product
                             let navigationController = UINavigationController(rootViewController: selectViewController)
-                            navigationController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
-                            self.present(navigationController, animated: true, completion: nil)
-                            
+                            navigationController.modalPresentationStyle = .fullScreen
+                            self.present(navigationController, animated: true, completion: {
+                                // QRViewController를 navigationController 스택에서 제거합니다.
+                                if let index = self.navigationController?.viewControllers.firstIndex(of: self) {
+                                    self.navigationController?.viewControllers.remove(at: index)
+                                }
+                            })
                            }
                     }
                 }
                 else {
-                    print(DBdata)
-                    //getTest()
+                    let products : [Product] = DBdata.compactMap { dbProduct in
+                        guard !dbProduct.allergy.isEmpty,
+                              !dbProduct.productname.isEmpty,
+                              !dbProduct.manufacturer.isEmpty
+                        else {
+                            return nil
+                        }
+                        return Product(productId: dbProduct.productId, allergy: dbProduct.allergy, productName: dbProduct.productname, manufacturer: dbProduct.manufacturer)
+                    }
+                    
+                    let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
+                    selectViewController.selectedDBProduct = products
+                    let navigationController = UINavigationController(rootViewController: selectViewController)
+                    navigationController.modalPresentationStyle = .fullScreen
+                    self.present(navigationController, animated: true, completion: {
+                        // QRViewController를 navigationController 스택에서 제거합니다.
+                        if let index = self.navigationController?.viewControllers.firstIndex(of: self) {
+                            self.navigationController?.viewControllers.remove(at: index)
+                        }
+                    })
                 }
                 
                 

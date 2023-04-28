@@ -17,11 +17,11 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
     let testState = UserDefaults.standard.bool(forKey: "eggSwitchState")
     func read(){
         let rappers = realmInstance.objects(DBProduct.self)
-
+        
         var rappersallergy = String()
         for i in 0..<rappers.count{
             rappersallergy += "\(rappers[i].allergy)"
-           // self.allergyRead.text = rappersallergy
+            // self.allergyRead.text = rappersallergy
             
         }
         if testState == true {
@@ -47,8 +47,8 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
             audioEngine.stop()
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
+            
             speechButton.setTitle("Start Recording", for: .normal)
-            TextCheck(text)
         } else {
             startRecording()
             speechButton.setTitle("Stop Recording", for: .normal)
@@ -59,7 +59,7 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
             return
         }
         
-//        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        //        svc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         svc.modalPresentationStyle = .fullScreen
         self.present(svc, animated: true,completion: nil)
     }
@@ -116,19 +116,31 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
             var isFinal = false
             
             if result != nil {
-                
                 self.speechText.text = result?.bestTranscription.formattedString
-                
                 self.text = self.speechText.text
-                
-                
                 isFinal = (result?.isFinal)!
+                
+                if self.text.contains("알레르기")||self.text.contains("QR") { // 특정 값이 인식되면
+                    self.audioEngine.stop() // 오디오 엔진 정지
+                    inputNode.removeTap(onBus: 0)
+                    
+                    self.recognitionRequest?.endAudio() // 인식 요청 종료
+                    self.recognitionRequest = nil
+                    self.recognitionTask = nil
+                    
+                    self.speechButton.isEnabled = true // 녹음 버튼 활성화
+                    
+                    if isFinal {
+                                self.TextCheck(self.text) // recognitionTask가 취소되는 시점에 TextCheck 함수 호출
+                            }
+                }
             }
             
             if error != nil || isFinal {
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
                 
+                self.recognitionRequest?.endAudio()
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
                 
@@ -150,7 +162,6 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
         }
         
         speechText.text = "Say something, I'm listening!"
-        
     }
 }
 
@@ -158,6 +169,6 @@ func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
     
     let utterance = AVSpeechUtterance(string: errorText)
     utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-    utterance.rate = 0.8
+    utterance.rate = 0.6
     synthesizer.speak(utterance)
 }

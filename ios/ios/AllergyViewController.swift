@@ -66,7 +66,9 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
             speechButton.setTitle("Start Recording", for: .normal)
-            TextCheck(text)
+            if !text.contains("QR") && !text.contains("알레르기"){
+                TextCheck(text)
+            }
         } else {
             startRecording()
             speechButton.setTitle("Stop Recording", for: .normal)
@@ -82,56 +84,73 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
         self.present(svc, animated: true)
     }
     func TextCheck(_ text : String) {
+        var state = false
         if text.contains("계란") {
+            state = true
             changeState(EggSwitch, "eggSwitchState")
         }
         if text.contains("우유") {
+            state = true
             changeState(MilkSwitch, "milkSwitchState")
         }
         if text.contains("곡류") {
+            state = true
             changeState(CerealSwitch, "cerealSwitchState")
         }
         if text.contains("게") {
+            state = true
             changeState(CrabSwitch, "crabSwitchState")
         }
         if text.contains("새우") {
+            state = true
             changeState(ShrimpSwitch, "shrimpSwitchState")
         }
-
+        
         if text.contains("땅콩") {
+            state = true
             changeState(PeanutSwitch, "peanutSwitchState")
         }
         if text.contains("호두") {
+            state = true
             changeState(WalnutSwitch, "walnutSwitchState")
         }
         if text.contains("고등어") {
+            state = true
             changeState(MackerelSwitch, "mackerelSwitchState")
         }
         if text.contains("조개류") {
+            state = true
             changeState(ShellfishSwitch, "shellfishSwitchState")
         }
         if text.contains("아산황류") {
+            state = true
             changeState(SulfiteSwitch, "sulfiteSwitchState")
         }
         if text.contains("오징어") {
+            state = true
             changeState(SquidSwitch, "squidSwitchState")
         }
         if text.contains("돼지고기") {
+            state = true
             changeState(PorkSwitch, "porkSwitchState")
         }
         if text.contains("닭고기") {
+            state = true
             changeState(ChickenSwitch, "chickenSwitchState")
         }
         if text.contains("쇠고기") {
+            state = true
             changeState(BeefSwitch, "beefSwitchState")
         }
         if text.contains("토마토") {
+            state = true
             changeState(TomatoSwitch, "tomatoSwitchState")
         }
         if text.contains("잣") {
+            state = true
             changeState(PinenutSwitch, "pinenutSwitchState")
         }
-        else{
+        if state == false {
             textToSpeech("해당 알레르기가 존재하지 않습니다.",synthesizer)
         }
         
