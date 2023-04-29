@@ -15,9 +15,9 @@ import RealmSwift
 class QRViewController: UIViewController {
     
     //실시간 캡처를 수행하기 위해서 AVCaptureSession 개체를 인스턴스화.
-    private let captureSession = AVCaptureSession()
-    let synthesizer = AVSpeechSynthesizer()
-    let realm = try! Realm()
+    private var captureSession = AVCaptureSession()
+    var synthesizer = AVSpeechSynthesizer()
+    var realm = try! Realm()
     var timeTrigger = true
     var realTime = Timer()
     //    func moveresult(){
@@ -28,12 +28,12 @@ class QRViewController: UIViewController {
     //        let navigationController = UINavigationController(rootViewController: selectViewController)
     //        self.present(navigationController, animated: true, completion: nil)
     //    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         basicSetting()
     }
+    
     @IBAction func back(_ sender: Any){
         self.presentingViewController?.dismiss(animated: true)
         stopAction()
@@ -52,7 +52,6 @@ extension QRViewController {
             fatalError("No video device found")
         }
         do {
-            
             // 적절한 inputs 설정
             // AVCaptureDeviceInput : capture device 에서 capture session 으로 media 를 제공하는 capture input.
             // 즉, 특정 device 를 사용해서 input 를 초기화.
@@ -101,7 +100,7 @@ extension QRViewController {
     }
     @objc func updateCounter() {
         UIDevice.vibrate()
-        textToSpeech("QR 코드가 인식되지 않았습니다.", synthesizer)
+        textToSpeech("QR 코드가 인식되지 않았습니다.",synthesizer)
     }
     private func stopAction() {
         timeTrigger = true

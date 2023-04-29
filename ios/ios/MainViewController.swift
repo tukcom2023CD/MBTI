@@ -12,26 +12,10 @@ import RealmSwift
 
 class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechSynthesizerDelegate {
     
+    
     let realmInstance = try! Realm()
     @IBOutlet weak var allergyRead: UILabel!
     let testState = UserDefaults.standard.bool(forKey: "eggSwitchState")
-    func read(){
-        let rappers = realmInstance.objects(DBProduct.self)
-        
-        var rappersallergy = String()
-        for i in 0..<rappers.count{
-            rappersallergy += "\(rappers[i].allergy)"
-            // self.allergyRead.text = rappersallergy
-            
-        }
-        if testState == true {
-            print("X")
-        }
-        else{
-            print("O")
-            self.allergyRead.text! += "O"
-        }
-    }
     let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var speechButton: UIButton!
     @IBOutlet weak var speechText: UITextView!
@@ -42,14 +26,39 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
+    @IBAction func QRButton(_ sender: UIButton) {
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+            speechButton.isEnabled = false
+            TextCheck(text)
+            speechButton.setTitle("Start Recording", for: .normal)
+        }
+        let QRViewController = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView") as! QRViewController
+        QRViewController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
+        self.present(QRViewController, animated: true, completion: nil)
+    }
+    @IBAction func AllergyButton(_ sender: UIButton) {
+        if audioEngine.isRunning {
+            audioEngine.stop()
+            recognitionRequest?.endAudio()
+            speechButton.isEnabled = false
+            TextCheck(text)
+            speechButton.setTitle("Start Recording", for: .normal)
+        }
+        let AllergyViewController = self.storyboard?.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+        AllergyViewController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
+        self.present(AllergyViewController, animated: true, completion: nil)
+    }
     @IBAction func SpeechToText(_ sender: Any) {
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
-            
+            TextCheck(text)
             speechButton.setTitle("Start Recording", for: .normal)
         } else {
+            synthesizer.stopSpeaking(at: .immediate)
             startRecording()
             speechButton.setTitle("Stop Recording", for: .normal)
         }
@@ -81,8 +90,9 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
     override func viewDidLoad() {
         super.viewDidLoad()
         speechRecognizer?.delegate = self
-        read()
+        AVSpeechSynthesisVoice.speechVoices()
         // Do any additional setup after loading the view.
+        
     }
     
     func startRecording() {
@@ -167,8 +177,18 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
 
 func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
     
+    let audioSession = AVAudioSession.sharedInstance()
+
+    do {
+        try audioSession.setCategory(.playback, mode: .default)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+    } catch {
+        print("Error setting audio session: \(error.localizedDescription)")
+    }
+    
     let utterance = AVSpeechUtterance(string: errorText)
     utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
     utterance.rate = 0.6
+    utterance.volume = 1.0
     synthesizer.speak(utterance)
 }

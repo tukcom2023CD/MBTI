@@ -47,6 +47,20 @@ class SelectViewController : UIViewController {
         self.present(mainViewController, animated: true, completion: nil)
     }
     @IBAction func QRButton(_ sender: Any) {
-        
+//
+//            let qrViewController = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView")
+//            as! QRViewController
+//            qrViewController.modalPresentationStyle = .fullScreen
+//            self.present(qrViewController,animated: true,completion: nil)
+        if let qrViewController = self.navigationController?.viewControllers.first(where: { $0 is QRViewController }) as? QRViewController {
+            // QRViewController가 navigationController 스택 안에 있다면 navigationController 스택에서 그것을 pop합니다.
+            self.navigationController?.popToViewController(qrViewController, animated: true)
+            qrViewController.modalPresentationStyle = .fullScreen
+        } else {
+            // QRViewController가 navigationController 스택 안에 없다면 present를 이용하여 그것을 보여줍니다.
+            let qrViewController = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView") as! QRViewController
+            qrViewController.modalPresentationStyle = .fullScreen
+            self.present(qrViewController, animated: true, completion: nil)
+        }
     }
 }
