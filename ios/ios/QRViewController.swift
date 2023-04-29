@@ -20,6 +20,7 @@ class QRViewController: UIViewController {
     var realm = try! Realm()
     var timeTrigger = true
     var realTime = Timer()
+    var result = true
     //    func moveresult(){
     ////        let resultview = self.storyboard?.instantiateViewController(withIdentifier: "QRCresult")
     ////        resultview?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
@@ -30,12 +31,36 @@ class QRViewController: UIViewController {
     //    }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         basicSetting()
+    }
+    func shouldShowAllergyView() -> Bool {
+        return result
+        // AllergyViewController를 보여줘야 하는 조건을 체크하는 코드 작성
+        // 조건에 따라 true/false 반환
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if shouldShowAllergyView() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let allergyVC = storyboard.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+                present(allergyVC, animated: true, completion: nil)
+            captureSession.stopRunning()
+            stopAction()
+            result = false
+            }
+        else {
+            captureSession.startRunning()
+            startAction()
+        }
     }
     
     @IBAction func back(_ sender: Any){
-        self.presentingViewController?.dismiss(animated: true)
+        let AllergyViewController = self.storyboard?.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+        AllergyViewController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
+        self.present(AllergyViewController, animated: true, completion: nil)
+        captureSession.stopRunning()
         stopAction()
     }
     

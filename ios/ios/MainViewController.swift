@@ -91,6 +91,16 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
         super.viewDidLoad()
         speechRecognizer?.delegate = self
         AVSpeechSynthesisVoice.speechVoices()
+        
+        if UserDefaults.standard.bool(forKey: "eggSwitchState") == false{
+            let bViewController = storyboard?.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+                        present(bViewController, animated: true, completion: nil)
+        }
+        else {
+            let QRViewController = storyboard?.instantiateViewController(withIdentifier: "QRReaderView") as!
+            QRViewController
+            present(QRViewController,animated: true,completion:  nil)
+        }
         // Do any additional setup after loading the view.
         
     }
@@ -175,20 +185,20 @@ class MainViewController: UIViewController,SFSpeechRecognizerDelegate, AVSpeechS
     }
 }
 
-func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
-    
-    let audioSession = AVAudioSession.sharedInstance()
-
-    do {
-        try audioSession.setCategory(.playback, mode: .default)
-        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-    } catch {
-        print("Error setting audio session: \(error.localizedDescription)")
-    }
-    
-    let utterance = AVSpeechUtterance(string: errorText)
-    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-    utterance.rate = 0.6
-    utterance.volume = 1.0
-    synthesizer.speak(utterance)
-}
+//func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
+//
+//    let audioSession = AVAudioSession.sharedInstance()
+//
+//    do {
+//        try audioSession.setCategory(.playback, mode: .default)
+//        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+//    } catch {
+//        print("Error setting audio session: \(error.localizedDescription)")
+//    }
+//
+//    let utterance = AVSpeechUtterance(string: errorText)
+//    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+//    utterance.rate = 0.6
+//    utterance.volume = 1.0
+//    synthesizer.speak(utterance)
+//}
