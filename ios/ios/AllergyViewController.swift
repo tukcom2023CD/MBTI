@@ -10,6 +10,9 @@ import Speech
 
 class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var MilkSwitch: UISwitch!
     @IBOutlet weak var EggSwitch: UISwitch!
@@ -41,6 +44,7 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AVSpeechSynthesisVoice.speechVoices()
         speechRecognizer?.delegate = self
         UserDefaultState(EggSwitch, "eggSwitchState")
         UserDefaultState(MilkSwitch, "milkSwitchState")
@@ -262,3 +266,20 @@ class AllergyViewController: UITableViewController,SFSpeechRecognizerDelegate {
     }
 }
 
+func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
+    
+    let audioSession = AVAudioSession.sharedInstance()
+
+    do {
+        try audioSession.setCategory(.playback, mode: .default)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+    } catch {
+        print("Error setting audio session: \(error.localizedDescription)")
+    }
+    
+    let utterance = AVSpeechUtterance(string: errorText)
+    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+    utterance.rate = 0.6
+    utterance.volume = 1.0
+    synthesizer.speak(utterance)
+}

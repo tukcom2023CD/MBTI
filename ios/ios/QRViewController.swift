@@ -15,11 +15,12 @@ import RealmSwift
 class QRViewController: UIViewController {
     
     //실시간 캡처를 수행하기 위해서 AVCaptureSession 개체를 인스턴스화.
-    private let captureSession = AVCaptureSession()
-    let synthesizer = AVSpeechSynthesizer()
-    let realm = try! Realm()
+    private var captureSession = AVCaptureSession()
+    var synthesizer = AVSpeechSynthesizer()
+    var realm = try! Realm()
     var timeTrigger = true
     var realTime = Timer()
+    var result = true
     //    func moveresult(){
     ////        let resultview = self.storyboard?.instantiateViewController(withIdentifier: "QRCresult")
     ////        resultview?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
@@ -28,14 +29,38 @@ class QRViewController: UIViewController {
     //        let navigationController = UINavigationController(rootViewController: selectViewController)
     //        self.present(navigationController, animated: true, completion: nil)
     //    }
-    
+
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         basicSetting()
     }
+    func shouldShowAllergyView() -> Bool {
+        return result
+        // AllergyViewController를 보여줘야 하는 조건을 체크하는 코드 작성
+        // 조건에 따라 true/false 반환
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if shouldShowAllergyView() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let allergyVC = storyboard.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+                present(allergyVC, animated: true, completion: nil)
+            captureSession.stopRunning()
+            stopAction()
+            result = false
+            }
+        else {
+            captureSession.startRunning()
+            startAction()
+        }
+    }
+    
     @IBAction func back(_ sender: Any){
-        self.presentingViewController?.dismiss(animated: true)
+        let AllergyViewController = self.storyboard?.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+        AllergyViewController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
+        self.present(AllergyViewController, animated: true, completion: nil)
+        captureSession.stopRunning()
         stopAction()
     }
     
@@ -52,7 +77,6 @@ extension QRViewController {
             fatalError("No video device found")
         }
         do {
-            
             // 적절한 inputs 설정
             // AVCaptureDeviceInput : capture device 에서 capture session 으로 media 를 제공하는 capture input.
             // 즉, 특정 device 를 사용해서 input 를 초기화.
@@ -101,7 +125,7 @@ extension QRViewController {
     }
     @objc func updateCounter() {
         UIDevice.vibrate()
-        textToSpeech("QR 코드가 인식되지 않았습니다.", synthesizer)
+        textToSpeech("QR 코드가 인식되지 않았습니다.",synthesizer)
     }
     private func stopAction() {
         timeTrigger = true
