@@ -48,7 +48,7 @@ class testViewController: UIViewController {
     }
     func TextCheck(_ text : String) {
         var state = false
-        if text.contains("계란") {
+        if text.contains("계란") || text.contains("난류") || text.contains("난 류") || text.contains("난 유") {
             state = true
             let string = "계란"
             changeUserDefault(text: string)
@@ -210,34 +210,27 @@ class testViewController: UIViewController {
     func changeUserDefault(text : String) {
         
         var myString = UserDefaults.standard.string(forKey: "myStringKey") ?? ""
-        if text == "없음" {
-            myString = text
-            UserDefaults.standard.set(myString, forKey: "myStringKey")
-            textToSpeech(" 없음이 입력되어 모든 알레르기 설정이 삭제되었습니다.", synthesizer)
-        }
-        else {
-            myString = myString.replacingOccurrences(of: "없음", with: "")
-            if myString.contains(text) {
-                myString = myString.replacingOccurrences(of: text, with: "")
-                
-                if myString == "" {
-                    myString.append("없음")
-                    UserDefaults.standard.set(myString, forKey: "myStringKey")
-                    textToSpeech("모든 알레르기가 삭제되어 없음으로 설정됩니다.", synthesizer)
-                }
-                else {
-                    UserDefaults.standard.set(myString, forKey: "myStringKey")
-                    textToSpeech("\(text) 알레르기가 삭제되었습니다.", synthesizer)
-                }
+        if myString.contains(text) {
+            myString = myString.replacingOccurrences(of: text, with: "")
+            myString = myString.replacingOccurrences(of: ",,", with: ",")
+            if myString.hasSuffix(",") {
+                myString = String(myString.dropLast())
             }
-            else {
-                myString.append(text)
-                UserDefaults.standard.set(myString, forKey: "myStringKey")
-                textToSpeech("\(text) 알레르기가 추가되었습니다.", synthesizer)
+            if myString == "" {
+                myString = "없음"
+                textToSpeech("모든 알레르기가 삭제되어 없음으로 설정됩니다.", synthesizer)
+            } else {
+                textToSpeech("\(text) 알레르기가 삭제되었습니다.", synthesizer)
             }
+        } else {
+            if myString == "없음" {
+                myString = text
+            } else {
+                myString += ",\(text)"
+            }
+            textToSpeech("\(text) 알레르기가 추가되었습니다.", synthesizer)
         }
-        
-        
+        UserDefaults.standard.set(myString, forKey: "myStringKey")
         userDefaultText.text = myString
     }
     
