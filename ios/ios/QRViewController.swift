@@ -37,8 +37,8 @@ class QRViewController: UIViewController {
         basicSetting()
     }
     func shouldShowAllergyView() -> Bool {
-        var string = UserDefaults.standard.string(forKey: "MyStringKey")
-        if string == "" {
+        var string = UserDefaults.standard.string(forKey: "myStringKey")
+        if string == nil {
             return true
         }
         else {

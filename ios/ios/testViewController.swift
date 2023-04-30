@@ -11,7 +11,7 @@ import AVFoundation
 
 
 class testViewController: UIViewController {
-
+    
     @IBOutlet weak var speechText: UITextView!
     var text : String = ""
     let synthesizer = AVSpeechSynthesizer()
@@ -23,7 +23,7 @@ class testViewController: UIViewController {
     @IBOutlet weak var speechButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func backButton(_ sender: Any) {
@@ -126,6 +126,11 @@ class testViewController: UIViewController {
             let string = "잣"
             changeUserDefault(text: string)
         }
+        if text.contains("없음") {
+            state = true
+            let string = "없음"
+            changeUserDefault(text: string)
+        }
         if state == false {
             textToSpeech("해당 알레르기가 존재하지 않습니다.",synthesizer)
         }
@@ -202,40 +207,56 @@ class testViewController: UIViewController {
     func changeUserDefault(text : String) {
         
         var myString = UserDefaults.standard.string(forKey: "myStringKey") ?? ""
-        
-        if myString.contains(text) {
-            myString = myString.replacingOccurrences(of: text, with: "")
+        if text == "없음" {
+            myString = text
             UserDefaults.standard.set(myString, forKey: "myStringKey")
-            textToSpeech("\(text) 알레르기가 삭제되었습니다.", synthesizer)
+            textToSpeech(" 없음이 입력되어 모든 알레르기 설정이 삭제되었습니다.", synthesizer)
         }
         else {
-            myString.append(text)
-            UserDefaults.standard.set(myString, forKey: "myStringKey")
-            textToSpeech("\(text) 알레르기가 추가되었습니다.", synthesizer)
+            myString = myString.replacingOccurrences(of: "없음", with: "")
+            if myString.contains(text) {
+                myString = myString.replacingOccurrences(of: text, with: "")
+                
+                if myString == "" {
+                    myString.append("없음")
+                    UserDefaults.standard.set(myString, forKey: "myStringKey")
+                    textToSpeech("모든 알레르기가 삭제되어 없음으로 설정됩니다.", synthesizer)
+                }
+                else {
+                    UserDefaults.standard.set(myString, forKey: "myStringKey")
+                    textToSpeech("\(text) 알레르기가 삭제되었습니다.", synthesizer)
+                }
+            }
+            else {
+                myString.append(text)
+                UserDefaults.standard.set(myString, forKey: "myStringKey")
+                textToSpeech("\(text) 알레르기가 추가되었습니다.", synthesizer)
+            }
         }
+        
         
         userDefaultText.text = myString
     }
-
+    
     
 }
 
 
 
-//func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
-//
-//    let audioSession = AVAudioSession.sharedInstance()
-//
-//    do {
-//        try audioSession.setCategory(.playback, mode: .default)
-//        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-//    } catch {
-//        print("Error setting audio session: \(error.localizedDescription)")
-//    }
-//
-//    let utterance = AVSpeechUtterance(string: errorText)
-//    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-//    utterance.rate = 0.6
-//    utterance.volume = 1.0
-//    synthesizer.speak(utterance)
-//}
+func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
+    
+    let audioSession = AVAudioSession.sharedInstance()
+    
+    do {
+        try audioSession.setCategory(.playback, mode: .default)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+    } catch {
+        print("Error setting audio session: \(error.localizedDescription)")
+    }
+    
+    let utterance = AVSpeechUtterance(string: errorText)
+    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+    utterance.rate = 0.6
+    utterance.volume = 1.0
+    synthesizer.speak(utterance)
+}
