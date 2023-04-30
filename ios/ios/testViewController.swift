@@ -24,6 +24,9 @@ class testViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UserDefaults.standard.string(forKey: "myStringKey") != nil {
+            userDefaultText.text = UserDefaults.standard.string(forKey: "myStringKey")
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func backButton(_ sender: Any) {

@@ -29,7 +29,7 @@ class QRViewController: UIViewController {
     //        let navigationController = UINavigationController(rootViewController: selectViewController)
     //        self.present(navigationController, animated: true, completion: nil)
     //    }
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -48,12 +48,13 @@ class QRViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if shouldShowAllergyView() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let allergyVC = storyboard.instantiateViewController(withIdentifier: "testView") as! testViewController
+            let allergyVC = storyboard.instantiateViewController(withIdentifier: "testView") as! testViewController
             allergyVC.modalPresentationStyle = .fullScreen
-                present(allergyVC, animated: true, completion: nil)
+            textToSpeech("알레르기 설정을 하지 않아 알레르기 설정 화면으로 이동합니다.", synthesizer)
+            present(allergyVC, animated: true, completion: nil)
             captureSession.stopRunning()
             stopAction()
-            }
+        }
         else {
             captureSession.startRunning()
             startAction()
@@ -196,8 +197,8 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 let productId = Int(Prdno)!
                 //postTest(String(Prdno),stringValue)
                 let DBdata = realm.objects(DBProduct.self).filter("productId == %@",productId)
-
-
+                
+                
                 if DBdata.isEmpty {
                     print("데이터 DB에 존재하지 않음.")
                     getTest(prdno: String(Prdno)){ product in
@@ -213,11 +214,11 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                             try! realm.write {
                                 realm.add(dbProduct)
                             }
-                            } catch {
-                                print("Error initialising new realm \(error)")
-
-
-                            }
+                        } catch {
+                            print("Error initialising new realm \(error)")
+                            
+                            
+                        }
                         DispatchQueue.main.async {
                             let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
                             selectViewController.selectedProduct = product
@@ -229,7 +230,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                                     self.navigationController?.viewControllers.remove(at: index)
                                 }
                             })
-                           }
+                        }
                     }
                 }
                 else {
@@ -288,39 +289,39 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
     //            }
     //        }
     //    }
-//    func getTest(prdno : String){
-//        var components = URLComponents(string: "https://1e7cd63b-50a6-42ee-98b4-84991cb7b775.mock.pstmn.io")
-//        //도메인 뒤에 API 주소 삽입
-//        components?.path = "/api/product/\(prdno)"
-//        //파라미터 추가할거 있으면 작성
-//        //URL 생성
-//        guard let url = components?.url else { return }
-//        //리퀘스트 생성
-//        var request: URLRequest = URLRequest(url: url)
-//        //통신 방법 지정
-//        request.httpMethod = "GET"
-//        //태스크 생성
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            //여기서 에러 체크 및 받은 데이터 가공하여 사용
-//            guard let data,
-//                  let str = String(data: data, encoding:.utf8) else { return }
-//            do {
-//                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-//                guard let productId = json?["productId"] as? Int,
-//                      let allergy = json?["allergy"] as? String,
-//                      let productName = json?["productname"] as? String,
-//                      let manufacturer = json?["manufacturer"] as? String else { return }
-//                let product = Product(productId: productId, allergy: allergy, productName: productName, manufacturer: manufacturer)
-//            } catch let error {
-//                print(error.localizedDescription)
-//            }
-//
-//
-//        }
-//        //실행
-//        task.resume()
-//
-//    }
+    //    func getTest(prdno : String){
+    //        var components = URLComponents(string: "https://1e7cd63b-50a6-42ee-98b4-84991cb7b775.mock.pstmn.io")
+    //        //도메인 뒤에 API 주소 삽입
+    //        components?.path = "/api/product/\(prdno)"
+    //        //파라미터 추가할거 있으면 작성
+    //        //URL 생성
+    //        guard let url = components?.url else { return }
+    //        //리퀘스트 생성
+    //        var request: URLRequest = URLRequest(url: url)
+    //        //통신 방법 지정
+    //        request.httpMethod = "GET"
+    //        //태스크 생성
+    //        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+    //            //여기서 에러 체크 및 받은 데이터 가공하여 사용
+    //            guard let data,
+    //                  let str = String(data: data, encoding:.utf8) else { return }
+    //            do {
+    //                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+    //                guard let productId = json?["productId"] as? Int,
+    //                      let allergy = json?["allergy"] as? String,
+    //                      let productName = json?["productname"] as? String,
+    //                      let manufacturer = json?["manufacturer"] as? String else { return }
+    //                let product = Product(productId: productId, allergy: allergy, productName: productName, manufacturer: manufacturer)
+    //            } catch let error {
+    //                print(error.localizedDescription)
+    //            }
+    //
+    //
+    //        }
+    //        //실행
+    //        task.resume()
+    //
+    //    }
     func getTest(prdno : String, completion: @escaping (Product?) -> Void) {
         var components = URLComponents(string: "https://88d105cd-2761-4ece-a593-39b7760fc167.mock.pstmn.io")
         components?.path = "/api/product/\(prdno)"
