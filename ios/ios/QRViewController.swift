@@ -37,18 +37,22 @@ class QRViewController: UIViewController {
         basicSetting()
     }
     func shouldShowAllergyView() -> Bool {
-        return result
-        // AllergyViewController를 보여줘야 하는 조건을 체크하는 코드 작성
-        // 조건에 따라 true/false 반환
+        var string = UserDefaults.standard.string(forKey: "MyStringKey")
+        if string == "" {
+            return true
+        }
+        else {
+            return false
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         if shouldShowAllergyView() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let allergyVC = storyboard.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+                let allergyVC = storyboard.instantiateViewController(withIdentifier: "testView") as! testViewController
+            allergyVC.modalPresentationStyle = .fullScreen
                 present(allergyVC, animated: true, completion: nil)
             captureSession.stopRunning()
             stopAction()
-            result = false
             }
         else {
             captureSession.startRunning()
@@ -57,7 +61,7 @@ class QRViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any){
-        let AllergyViewController = self.storyboard?.instantiateViewController(withIdentifier: "allergySetting") as! AllergyViewController
+        let AllergyViewController = self.storyboard?.instantiateViewController(withIdentifier: "testView") as! testViewController
         AllergyViewController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
         self.present(AllergyViewController, animated: true, completion: nil)
         captureSession.stopRunning()
