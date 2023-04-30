@@ -188,19 +188,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-J7-Dcd">
-                                <rect key="frame" x="20" y="560" width="353" height="100"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="VVr-iJ-hN1"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="메인 화면으로 이동"/>
-                                <connections>
-                                    <action selector="mainButton:" destination="VLl-PV-OwB" eventType="touchUpInside" id="Nd5-kD-qlY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08M-Wq-gWJ">
                                 <rect key="frame" x="20" y="410" width="353" height="100"/>
                                 <color key="backgroundColor" name="AccentColor"/>
@@ -275,18 +262,15 @@
                         <viewLayoutGuide key="safeArea" id="DWo-f6-l1w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VvG-J7-Dcd" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="2JO-Cj-UZ3"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="pd8-z3-cY5" secondAttribute="trailing" constant="20" id="5WI-J4-9ur"/>
                             <constraint firstItem="CGG-Fh-VZR" firstAttribute="top" secondItem="qXs-gy-aj6" secondAttribute="bottom" constant="40" id="CDS-DF-IaE"/>
                             <constraint firstItem="CGG-Fh-VZR" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="INS-W4-GSA"/>
                             <constraint firstItem="pd8-z3-cY5" firstAttribute="top" secondItem="DWo-f6-l1w" secondAttribute="top" constant="20" id="L3Y-Pf-9Nj"/>
-                            <constraint firstItem="VvG-J7-Dcd" firstAttribute="top" secondItem="08M-Wq-gWJ" secondAttribute="bottom" constant="50" id="N32-v9-t6q"/>
                             <constraint firstItem="08M-Wq-gWJ" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="NPe-wf-yTK"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="66e-h0-cRk" secondAttribute="trailing" constant="20" id="XqR-3k-wFr"/>
                             <constraint firstItem="o5x-eZ-WUa" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="Z1u-Ym-1KK"/>
                             <constraint firstItem="qXs-gy-aj6" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="bk0-z2-iOx"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="08M-Wq-gWJ" secondAttribute="trailing" constant="20" id="bqj-Yn-Cmg"/>
-                            <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="VvG-J7-Dcd" secondAttribute="trailing" constant="20" id="d8w-aU-d2w"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="qXs-gy-aj6" secondAttribute="trailing" constant="20" id="e4v-iX-gJn"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="CGG-Fh-VZR" secondAttribute="trailing" constant="20" id="kkT-Yb-kfj"/>
                             <constraint firstItem="o5x-eZ-WUa" firstAttribute="top" secondItem="66e-h0-cRk" secondAttribute="bottom" constant="20" id="muE-Kq-RJD"/>
