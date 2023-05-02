@@ -11,7 +11,7 @@ import AVFoundation
 
 
 class testViewController: UIViewController {
-
+    
     @IBOutlet weak var speechText: UITextView!
     var text : String = ""
     let synthesizer = AVSpeechSynthesizer()
@@ -23,7 +23,10 @@ class testViewController: UIViewController {
     @IBOutlet weak var speechButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if UserDefaults.standard.string(forKey: "myStringKey") != nil {
+            userDefaultText.text = UserDefaults.standard.string(forKey: "myStringKey")
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func backButton(_ sender: Any) {
@@ -45,7 +48,7 @@ class testViewController: UIViewController {
     }
     func TextCheck(_ text : String) {
         var state = false
-        if text.contains("계란") {
+        if text.contains("계란") || text.contains("난류") || text.contains("난 류") || text.contains("난 유") {
             state = true
             let string = "계란"
             changeUserDefault(text: string)
@@ -126,6 +129,11 @@ class testViewController: UIViewController {
             let string = "잣"
             changeUserDefault(text: string)
         }
+        if text.contains("없음") {
+            state = true
+            let string = "없음"
+            changeUserDefault(text: string)
+        }
         if state == false {
             textToSpeech("해당 알레르기가 존재하지 않습니다.",synthesizer)
         }
@@ -202,40 +210,49 @@ class testViewController: UIViewController {
     func changeUserDefault(text : String) {
         
         var myString = UserDefaults.standard.string(forKey: "myStringKey") ?? ""
-        
         if myString.contains(text) {
             myString = myString.replacingOccurrences(of: text, with: "")
-            UserDefaults.standard.set(myString, forKey: "myStringKey")
-            textToSpeech("\(text) 알레르기가 삭제되었습니다.", synthesizer)
-        }
-        else {
-            myString.append(text)
-            UserDefaults.standard.set(myString, forKey: "myStringKey")
+            myString = myString.replacingOccurrences(of: ",,", with: ",")
+            if myString.hasSuffix(",") {
+                myString = String(myString.dropLast())
+            }
+            if myString == "" {
+                myString = "없음"
+                textToSpeech("모든 알레르기가 삭제되어 없음으로 설정됩니다.", synthesizer)
+            } else {
+                textToSpeech("\(text) 알레르기가 삭제되었습니다.", synthesizer)
+            }
+        } else {
+            if myString == "없음" {
+                myString = text
+            } else {
+                myString += ",\(text)"
+            }
             textToSpeech("\(text) 알레르기가 추가되었습니다.", synthesizer)
         }
-        
+        UserDefaults.standard.set(myString, forKey: "myStringKey")
         userDefaultText.text = myString
     }
-
+    
     
 }
 
 
 
-//func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
-//
-//    let audioSession = AVAudioSession.sharedInstance()
-//
-//    do {
-//        try audioSession.setCategory(.playback, mode: .default)
-//        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-//    } catch {
-//        print("Error setting audio session: \(error.localizedDescription)")
-//    }
-//
-//    let utterance = AVSpeechUtterance(string: errorText)
-//    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
-//    utterance.rate = 0.6
-//    utterance.volume = 1.0
-//    synthesizer.speak(utterance)
-//}
+func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
+    
+    let audioSession = AVAudioSession.sharedInstance()
+    
+    do {
+        try audioSession.setCategory(.playback, mode: .default)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+    } catch {
+        print("Error setting audio session: \(error.localizedDescription)")
+    }
+    
+    let utterance = AVSpeechUtterance(string: errorText)
+    utterance.voice = AVSpeechSynthesisVoice(language:"ko-KR")
+    utterance.rate = 0.6
+    utterance.volume = 1.0
+    synthesizer.speak(utterance)
+}
