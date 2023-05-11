@@ -5,14 +5,14 @@
 //  Created by 장지수 on 2023/04/02.
 //
 
-import Foundation
+import AVFoundation
 import UIKit
 
 class SelectViewController : UIViewController {
     
     var selectedProduct: Product?
     var selectedDBProduct : [Product]?
-    
+    let synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var productName: UILabel!
     
     @IBOutlet weak var manufacturer: UILabel!
@@ -30,7 +30,6 @@ class SelectViewController : UIViewController {
             manufacturer.text = selectedProduct?.manufacturer ?? "Unknown"
             allergy.text = selectedProduct?.allergy ?? "Unknown"
             DBTest.text = "DB에 없는 내용"
-            
         }
         else {
             let firstProduct = selectedDBProduct?.first
@@ -39,29 +38,29 @@ class SelectViewController : UIViewController {
             manufacturer.text = firstProduct?.manufacturer ?? "Unknown"
             DBTest.text = "DB에 있는 내용"
         }
-        
+        let productAllergy = allergy.text ?? ""
+        let userDefaultAllergy = UserDefaults.standard.string(forKey: "myStringKey") ?? ""
+        let productArray = productAllergy.components(separatedBy: ",")
+        let userArray = userDefaultAllergy.components(separatedBy: ",")
+        print(productArray)
+        print(userArray)
+
+        var checkAllergy = [String]()
+        for allergy in productArray {
+            let trimmedAllergy = allergy.trimmingCharacters(in: .whitespacesAndNewlines)
+            if userArray.contains(trimmedAllergy) {
+                checkAllergy.append(trimmedAllergy)
+            }
+        }
+
+        let finalCheckAllergy = checkAllergy.joined(separator: ",")
+        print(finalCheckAllergy)
+
+        if !checkAllergy.isEmpty {
+            textToSpeech("\(finalCheckAllergy) 알레르기를 유발하는 제품입니다. 주의하세요", synthesizer)
+        }
     }
-//    @IBAction func mainButton(_ sender: Any) {
-//        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-//        mainViewController.modalPresentationStyle = .fullScreen // 화면이 사라지지 않는 문제가 계속 발생할 경우 추가해주세요.
-//        self.present(mainViewController, animated: true, completion: nil)
-//    }
     @IBAction func QRButton(_ sender: Any) {
-//
-//            let qrViewController = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView")
-//            as! QRViewController
-//            qrViewController.modalPresentationStyle = .fullScreen
-//            self.present(qrViewController,animated: true,completion: nil)
-//        if let qrViewController = self.navigationController?.viewControllers.first(where: { $0 is QRViewController }) as? QRViewController {
-//            // QRViewController가 navigationController 스택 안에 있다면 navigationController 스택에서 그것을 pop합니다.
-//            self.navigationController?.popToViewController(qrViewController, animated: true)
-//            qrViewController.modalPresentationStyle = .fullScreen
-//        } else {
-//            // QRViewController가 navigationController 스택 안에 없다면 present를 이용하여 그것을 보여줍니다.
-//            let qrViewController = self.storyboard?.instantiateViewController(withIdentifier: "QRReaderView") as! QRViewController
-//            qrViewController.modalPresentationStyle = .fullScreen
-//            self.present(qrViewController, animated: true, completion: nil)
-//        }
         self.dismiss(animated: true)
     }
 }
