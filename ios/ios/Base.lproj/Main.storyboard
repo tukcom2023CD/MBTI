@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yVf-Nv-DkS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AiW-aE-xz1">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -293,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="1131" y="1"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial Viewcontroller-->
         <scene sceneID="rDy-cR-utx">
             <objects>
-                <viewController id="yVf-Nv-DkS" sceneMemberID="viewController">
+                <viewController restorationIdentifier="tutorialView" storyboardIdentifier="tutorialView" id="yVf-Nv-DkS" customClass="TutorialViewcontroller" customModule="ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a15-9N-xm4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,15 +308,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmB-MZ-djj">
-                                <rect key="frame" x="16" y="659" width="361" height="159"/>
+                                <rect key="frame" x="20" y="650" width="360" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="checkmark.rectangle.fill" catalog="system" title="앱의 전반적인 진행 상황을 확인했습니다.">
+                                <buttonConfiguration key="configuration" style="plain" title="앱의 전반적인 진행 상황을 확인했습니다.">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" name="AccentColor"/>
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="opaqueSeparatorColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="TutorialCheck:" destination="yVf-Nv-DkS" eventType="touchUpInside" id="ZQT-bG-PoU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yl3-ZY-ZQa"/>
@@ -418,6 +421,7 @@
                             <constraint firstItem="i7y-vM-HcO" firstAttribute="leading" secondItem="8f3-84-EXc" secondAttribute="leading" constant="20" id="s20-J8-sk6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8WJ-K9-jhM"/>
                     <connections>
                         <outlet property="speechButton" destination="U6C-Hf-DsT" id="EVE-8g-pwi"/>
                         <outlet property="speechText" destination="3mM-u4-CIt" id="rUD-aH-EIw"/>
@@ -430,7 +434,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.rectangle.fill" catalog="system" width="128" height="93"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -45,9 +45,28 @@ class QRViewController: UIViewController {
             return false
         }
     }
+    func shouldShowTutorialView() -> Bool {
+        var initialcheck = UserDefaults.standard.bool(forKey: "tutorialcheckkey")
+        if initialcheck == false {
+            return true
+        }
+        else {
+            return false
+        }
+    }
     override func viewDidAppear(_ animated: Bool) {
+        if shouldShowTutorialView() {
+            let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
+            let tutorialVC = storyboard.instantiateViewController(withIdentifier: "tutorialView") as! TutorialViewcontroller
+            tutorialVC.modalPresentationStyle = .fullScreen
+            textToSpeech("초기 실행으로 튜토리얼 화면으로 이동합니다.", synthesizer)
+            present(tutorialVC, animated: true, completion: nil)
+            captureSession.stopRunning()
+            stopAction()
+        }
+        
         if shouldShowAllergyView() {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Allergy", bundle: nil)
             let allergyVC = storyboard.instantiateViewController(withIdentifier: "testView") as! testViewController
             allergyVC.modalPresentationStyle = .fullScreen
             textToSpeech("알레르기 설정을 하지 않아 알레르기 설정 화면으로 이동합니다.", synthesizer)
