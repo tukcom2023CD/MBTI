@@ -17,6 +17,7 @@
 		A906B42129D4670D006CB7F7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A906B42029D4670D006CB7F7 /* Product.swift */; };
 		A9C407D529FC750E004088C1 /* DBProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C407D429FC750E004088C1 /* DBProduct.swift */; };
 		A9C407DD2A0D0DB8004088C1 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C407DC2A0D0DB8004088C1 /* testViewController.swift */; };
+		A9C407E12A1B38B2004088C1 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C407E02A1B38B2004088C1 /* TutorialViewController.swift */; };
 		A9D88F9229DEC218003D4BA0 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D88F9129DEC218003D4BA0 /* SelectViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		A906B42029D4670D006CB7F7 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A9C407D429FC750E004088C1 /* DBProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBProduct.swift; sourceTree = "<group>"; };
 		A9C407DC2A0D0DB8004088C1 /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
+		A9C407E02A1B38B2004088C1 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		A9D88F9129DEC218003D4BA0 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				A9C407DC2A0D0DB8004088C1 /* testViewController.swift */,
 				9A83B3DF296BD69900DB1945 /* LaunchScreen.storyboard */,
 				9A83B3E2296BD69900DB1945 /* Info.plist */,
+				A9C407E02A1B38B2004088C1 /* TutorialViewController.swift */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				A9C407D529FC750E004088C1 /* DBProduct.swift in Sources */,
 				A9C407DD2A0D0DB8004088C1 /* testViewController.swift in Sources */,
+				A9C407E12A1B38B2004088C1 /* TutorialViewController.swift in Sources */,
 				9A83B3D5296BD69800DB1945 /* AppDelegate.swift in Sources */,
 				A9D88F9229DEC218003D4BA0 /* SelectViewController.swift in Sources */,
 				9A83B3D7296BD69800DB1945 /* SceneDelegate.swift in Sources */,
