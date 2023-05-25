@@ -210,6 +210,9 @@ class testViewController: UIViewController {
     func changeUserDefault(text : String) {
         
         var myString = UserDefaults.standard.string(forKey: "myStringKey") ?? ""
+        if text == "없음" {
+            myString = "없음"
+        }
         if myString.contains(text) {
             myString = myString.replacingOccurrences(of: text, with: "")
             myString = myString.replacingOccurrences(of: ",,", with: ",")
