@@ -26,4 +26,7 @@ public class Product {
 
     @Column
     private String manufacturer;
+
+    @Column
+    private String nutrient;
 }
