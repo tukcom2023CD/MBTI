@@ -38,10 +38,9 @@ class testViewController: UIViewController {
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
             speechButton.setTitle("Start Recording", for: .normal)
-            TextCheck(text)
-            
         } else {
             startRecording()
+            self.text = ""
             speechButton.setTitle("Stop Recording", for: .normal)
         }
     }
