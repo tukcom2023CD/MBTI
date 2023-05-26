@@ -37,11 +37,12 @@ class testViewController: UIViewController {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
-            speechButton.setTitle("Start Recording", for: .normal)
+            speechButton.setTitle("알레르기 음성 인식 버튼", for: .normal)
+            
         } else {
             startRecording()
             self.text = ""
-            speechButton.setTitle("Stop Recording", for: .normal)
+            speechButton.setTitle("음성 녹음 진행중", for: .normal)
         }
     }
     func TextCheck(_ text : String) {
