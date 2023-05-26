@@ -196,7 +196,13 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="QR 리더기로 이동"/>
+                                <buttonConfiguration key="configuration" style="plain" title="QR 리더기로 이동">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <color key="baseForegroundColor" systemColor="tintColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="QRButton:" destination="VLl-PV-OwB" eventType="touchUpInside" id="uK3-6O-MQU"/>
                                 </connections>
@@ -339,29 +345,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6C-Hf-DsT">
-                                <rect key="frame" x="20" y="139.33333333333334" width="353" height="130.00000000000003"/>
+                                <rect key="frame" x="20" y="99" width="353" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="icI-Qs-eQN"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start Recoding">
+                                <buttonConfiguration key="configuration" style="plain" title="알레르기 음성 인식 버튼">
                                     <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </backgroundConfiguration>
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <fontDescription key="titleFontDescription" name="BMJUAOTF" family="BM Jua" pointSize="30"/>
+                                    <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="SpeechTotext:" destination="dWn-p5-uv9" eventType="touchUpInside" id="T2a-qf-nrG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음성으로 알레르기 설정 시 아래 버튼을 눌러 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvE-UI-kfd">
-                                <rect key="frame" x="20" y="89" width="353" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="버튼을 누르고 말하면 이 화면에 결과물이 나타납니다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3mM-u4-CIt">
-                                <rect key="frame" x="20" y="299.33333333333331" width="353" height="100"/>
+                                <rect key="frame" x="20" y="259" width="353" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="2Ab-Df-24v"/>
@@ -371,14 +372,18 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxK-0Q-cc0">
-                                <rect key="frame" x="20" y="550" width="353" height="100"/>
+                                <rect key="frame" x="20" y="509.66666666666674" width="353" height="100"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Ozh-Bx-ZTX"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="메인 화면으로 이동하기">
-                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <color key="baseForegroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="back:" destination="AiW-aE-xz1" eventType="touchUpInside" id="ZYG-ee-H3O"/>
@@ -386,13 +391,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 설정하신 알레르기는 아래에서 확인 가능합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7y-vM-HcO">
-                                <rect key="frame" x="20" y="429.33333333333331" width="353" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="389" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정하신 알레르기는 여기에 출력됩니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u97-6l-q5M">
-                                <rect key="frame" x="20" y="479.66666666666669" width="353" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="439.33333333333331" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -401,20 +406,17 @@
                         <viewLayoutGuide key="safeArea" id="8f3-84-EXc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8f3-84-EXc" firstAttribute="trailing" secondItem="JvE-UI-kfd" secondAttribute="trailing" constant="20" id="CEm-5L-WH3"/>
                             <constraint firstItem="u97-6l-q5M" firstAttribute="leading" secondItem="8f3-84-EXc" secondAttribute="leading" constant="20" id="Cfw-fM-Bgp"/>
                             <constraint firstItem="8f3-84-EXc" firstAttribute="trailing" secondItem="u97-6l-q5M" secondAttribute="trailing" constant="20" id="Ehw-OD-HxO"/>
                             <constraint firstItem="3mM-u4-CIt" firstAttribute="top" secondItem="U6C-Hf-DsT" secondAttribute="bottom" constant="30" id="GyS-Tc-Cd8"/>
                             <constraint firstItem="u97-6l-q5M" firstAttribute="top" secondItem="i7y-vM-HcO" secondAttribute="bottom" constant="30" id="HE5-Jg-q8H"/>
                             <constraint firstItem="8f3-84-EXc" firstAttribute="trailing" secondItem="U6C-Hf-DsT" secondAttribute="trailing" constant="20" id="LEB-Kt-mAz"/>
-                            <constraint firstItem="JvE-UI-kfd" firstAttribute="leading" secondItem="8f3-84-EXc" secondAttribute="leading" constant="20" id="Ntr-aJ-oqG"/>
                             <constraint firstItem="rxK-0Q-cc0" firstAttribute="top" secondItem="u97-6l-q5M" secondAttribute="bottom" constant="50" id="O9S-6O-WBT"/>
-                            <constraint firstItem="JvE-UI-kfd" firstAttribute="top" secondItem="8f3-84-EXc" secondAttribute="top" constant="30" id="Pk3-Dw-WeT"/>
+                            <constraint firstItem="U6C-Hf-DsT" firstAttribute="top" secondItem="8f3-84-EXc" secondAttribute="top" constant="40" id="Rl4-8S-ndO"/>
                             <constraint firstItem="rxK-0Q-cc0" firstAttribute="leading" secondItem="8f3-84-EXc" secondAttribute="leading" constant="20" id="Zox-nS-2pc"/>
                             <constraint firstItem="3mM-u4-CIt" firstAttribute="leading" secondItem="8f3-84-EXc" secondAttribute="leading" constant="20" id="bew-mB-rm3"/>
                             <constraint firstItem="8f3-84-EXc" firstAttribute="trailing" secondItem="3mM-u4-CIt" secondAttribute="trailing" constant="20" id="cgB-hT-tKM"/>
                             <constraint firstItem="8f3-84-EXc" firstAttribute="trailing" secondItem="rxK-0Q-cc0" secondAttribute="trailing" constant="20" id="hpS-RX-MVi"/>
-                            <constraint firstItem="U6C-Hf-DsT" firstAttribute="top" secondItem="JvE-UI-kfd" secondAttribute="bottom" constant="30" id="jRm-yp-c2o"/>
                             <constraint firstItem="U6C-Hf-DsT" firstAttribute="leading" secondItem="8f3-84-EXc" secondAttribute="leading" constant="20" id="nE4-ll-Z73"/>
                             <constraint firstItem="8f3-84-EXc" firstAttribute="trailing" secondItem="i7y-vM-HcO" secondAttribute="trailing" constant="20" id="r06-vV-9y5"/>
                             <constraint firstItem="i7y-vM-HcO" firstAttribute="top" secondItem="3mM-u4-CIt" secondAttribute="bottom" constant="30" id="rGh-wf-Pzy"/>
@@ -440,14 +442,14 @@
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -457,6 +459,12 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

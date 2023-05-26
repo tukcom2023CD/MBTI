@@ -38,9 +38,8 @@ class testViewController: UIViewController {
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
             speechButton.setTitle("Start Recording", for: .normal)
-            if !text.contains("QR") && !text.contains("알레르기"){
-                TextCheck(text)
-            }
+            TextCheck(text)
+            
         } else {
             startRecording()
             speechButton.setTitle("Stop Recording", for: .normal)
@@ -166,25 +165,27 @@ class testViewController: UIViewController {
         recognitionRequest.shouldReportPartialResults = true
         
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
-            
             var isFinal = false
-            
-            
+
             if result != nil {
-                
                 self.speechText.text = result?.bestTranscription.formattedString
                 self.text = self.speechText.text
-                
+
                 isFinal = (result?.isFinal)!
+
+                // TextCheck 메서드 호출
+                if isFinal {
+                    self.TextCheck(self.text)
+                }
             }
-            
+
             if error != nil || isFinal {
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
-                
+
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
-                
+
                 self.speechButton.isEnabled = true
             }
         })
