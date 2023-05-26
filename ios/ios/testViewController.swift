@@ -210,29 +210,28 @@ class testViewController: UIViewController {
     func changeUserDefault(text : String) {
         
         var myString = UserDefaults.standard.string(forKey: "myStringKey") ?? ""
+        var speechText = ""
         if text == "없음" {
             myString = "없음"
+            speechText = "알레르기 없음으로 설정되었습니다."
         }
         if myString.contains(text) {
             myString = myString.replacingOccurrences(of: text, with: "")
-            myString = myString.replacingOccurrences(of: ",,", with: ",")
-            if myString.hasSuffix(",") {
-                myString = String(myString.dropLast())
-            }
             if myString == "" {
                 myString = "없음"
-                textToSpeech("모든 알레르기가 삭제되어 없음으로 설정됩니다.", synthesizer)
+                speechText = "알레르기를 모두 삭제하여 없음으로 설정됩니다."
             } else {
-                textToSpeech("\(text) 알레르기가 삭제되었습니다.", synthesizer)
+               speechText = "\(text) 알레르기가 삭제되었습니다."
             }
         } else {
             if myString == "없음" {
                 myString = text
             } else {
-                myString += ",\(text)"
+                myString += "\(text)"
             }
-            textToSpeech("\(text) 알레르기가 추가되었습니다.", synthesizer)
+            speechText = "\(text) 알레르기가 추가되었습니다."
         }
+        textToSpeech(speechText, synthesizer)
         UserDefaults.standard.set(myString, forKey: "myStringKey")
         userDefaultText.text = myString
     }
