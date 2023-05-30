@@ -24,6 +24,7 @@ class testViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        speechText.isUserInteractionEnabled = false
         if UserDefaults.standard.string(forKey: "myStringKey") != nil {
             userDefaultText.text = UserDefaults.standard.string(forKey: "myStringKey")
         }
@@ -38,11 +39,14 @@ class testViewController: UIViewController {
             recognitionRequest?.endAudio()
             speechButton.isEnabled = false
             speechButton.setTitle("알레르기 음성 인식 버튼", for: .normal)
-            
+            speechButton.titleLabel?.font = UIFont.systemFont(ofSize: 30) // 폰트 크기 설정
+            speechButton.sizeToFit()
         } else {
             startRecording()
             self.text = ""
             speechButton.setTitle("음성 녹음 진행중", for: .normal)
+            speechButton.titleLabel?.font = UIFont.systemFont(ofSize: 30) // 폰트 크기 설정
+            speechButton.sizeToFit()
         }
     }
     func TextCheck(_ text : String) {
