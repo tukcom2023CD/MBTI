@@ -354,6 +354,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="AllergyTutorial:" destination="yVf-Nv-DkS" eventType="touchUpInside" id="vCI-tL-xBT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJa-lB-QVV">
                                 <rect key="frame" x="18" y="308" width="357" height="56"/>
@@ -365,6 +368,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="QRViewTutorial:" destination="yVf-Nv-DkS" eventType="touchUpInside" id="Sf5-fa-QNc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g0-Pb-Wap">
                                 <rect key="frame" x="20" y="467" width="357" height="67"/>
@@ -376,6 +382,9 @@
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="ResultTutorial:" destination="yVf-Nv-DkS" eventType="touchUpInside" id="jia-9n-l1W"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yl3-ZY-ZQa"/>
