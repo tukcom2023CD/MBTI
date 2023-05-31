@@ -25,6 +25,6 @@ class TutorialViewcontroller : UIViewController{
         textToSpeech("제품에 있는 QR을 인식할 수 있는 화면입니다. 화면에 QR이 인식 되지 않으면 진동이나 음성 메세지로 안내합니다. QR 인식 성공 시 결과 화면으로 이동합니다.", synthesizer)
     }
     @IBAction func ResultTutorial(_ sender: Any) {
-        textToSpeech("인식된 제품의 정보를 보여주는 화면으로 위에서 부터 상품 정보, 제조원, 알레르기 순으로 표시됩니다. 설정된 알레르기가 인식된 제품의 성분에 있으면 음성 메세지로 안내합니다.", synthesizer)
+        textToSpeech("인식된 제품의 정보를 보여주는 화면으로 위에서 부터 상품 정보, 제조원, 알레르기 순으로 표시됩니다. 설정된 알레르기가 인식된 제품의 성분에 있으면 음성 메세지로 안내합니다. 화면 하단의 버튼을 누르면 제품 인식을 할 수 있는 화면으로 돌아갑니다.", synthesizer)
     }
 }
