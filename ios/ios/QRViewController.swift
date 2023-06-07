@@ -147,7 +147,6 @@ extension QRViewController {
         timeTrigger = false
     }
     @objc func updateCounter() {
-        UIDevice.vibrate()
         textToSpeech("QR 코드가 인식되지 않았습니다.",synthesizer)
     }
     private func stopAction() {
@@ -208,6 +207,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             // qr코드가 가진 문자열이 URL 형태를 띈다면 출력.(아무런 qr코드나 찍는다고 출력시키면 안되니까 여기서 분기처리 가능. )
             if stringValue.hasPrefix("http://www.foodqr.kr") || stringValue.hasPrefix("https://www.foodqr.kr/foodqr?")  {
                 //                UIApplication.shared.open(URL(string:stringValue)!,options: [:])
+                UIDevice.vibrate()
                 stopAction()
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
@@ -366,7 +366,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             } catch let error {
                 print(error.localizedDescription)
                 completion(nil)
-            }
+            }#imageLiteral(resourceName: "스크린샷 2023-06-07 오후 12.16.53.png")
         }
         task.resume()
     }
