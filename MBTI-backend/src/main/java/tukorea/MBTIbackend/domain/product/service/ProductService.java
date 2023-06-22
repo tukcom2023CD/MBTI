@@ -55,6 +55,7 @@ public class ProductService {
         String pre_allergen = null;
         String prdlst_nm = null;
         String bssh_nm = null;
+        String nutrient = null;
 
         Document doc = Jsoup.connect(PRODUCT_DATA_URL+productId).get();
         Elements scriptElements = doc.getElementsByTag("script");
@@ -92,6 +93,16 @@ public class ProductService {
                     System.err.println("No math found!");
                 }
 
+                //영양소 정보 크롤링
+                Pattern pattern_nutrient = Pattern.compile("\"NUTRIENT\":\"[^\"]+\",\"FRMLC_MTRQLT\"");
+                Matcher matcher_nutrient = pattern_nutrient.matcher(element.data());
+
+                if (matcher_nutrient.find()) {
+                    nutrient = matcher_nutrient.group(0);
+                } else {
+                    System.err.println("No math found!");
+                }
+
                 break;
             }
         }
@@ -122,11 +133,20 @@ public class ProductService {
         JSONObject bnjsonObject = (JSONObject) parser.parse("{"+jsonmanufacturer+"}");
         String manufacturer = (String)bnjsonObject.get("BSSH_NM");
 
+        //영양소 정보 문자열 정리 후 parser
+        int nulength = nutrient.length();
+        StringBuilder nusb = new StringBuilder(nutrient);
+        nusb.delete(nulength - 15, nulength);
+        String nutrient1 = nusb.toString();
+        JSONObject nujsonObject = (JSONObject) parser.parse("{"+nutrient1+"}");
+        String nutrientname = (String)nujsonObject.get("NUTRIENT");
+
         Product product = Product.builder()
                 .productId(productId)
                 .allergy(allergen)
                 .productname(productname)
                 .manufacturer(manufacturer)
+                .nutrient(nutrientname)
                 .build();
 
         return productRepository.save(product);

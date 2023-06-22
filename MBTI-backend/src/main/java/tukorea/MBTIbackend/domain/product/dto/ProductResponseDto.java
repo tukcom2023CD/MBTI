@@ -9,12 +9,14 @@ public class ProductResponseDto {
     private String allergy;
     private String productname;
     private String manufacturer;
+    private String nutrient;
 
     public ProductResponseDto(Product product) {
         productId = product.getProductId();
         allergy = product.getAllergy();
         productname = product.getProductname();
         manufacturer = product.getManufacturer();
+        nutrient = product.getNutrient();
     }
 
 }
