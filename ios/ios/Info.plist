@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>STT 사용을 위해 허용이 필요합니다.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>STT 사용을 위해 허용이 필요합니다.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>QR 리더기 사용을 위해 허용이 필요합니다.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,7 +34,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>카메라 접근 권한을 설정해주세요</string>
 </dict>
 </plist>
