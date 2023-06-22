@@ -59,6 +59,7 @@ class SelectViewController : UIViewController {
 
         if !checkAllergy.isEmpty {
             textToSpeech("\(finalCheckAllergy) 알레르기를 유발하는 제품입니다. 주의하세요", synthesizer)
+            DBTest.text = finalCheckAllergy
         }
     }
     @IBAction func QRButton(_ sender: Any) {

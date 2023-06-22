@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -150,7 +150,7 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="메인 화면으로 이동하기">
+                                <buttonConfiguration key="configuration" style="plain" title="알레르기 설정 화면으로 이동하기">
                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -259,12 +259,23 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-eZ-WUa">
-                                <rect key="frame" x="20" y="330" width="353" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="187" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-A2-5cG">
+                                <rect key="frame" x="20" y="330" width="355" height="20.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알레르기 유발 성분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErZ-Bm-tnd">
+                                        <rect key="frame" x="0.0" y="0.0" width="126.66666666666667" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-eZ-WUa">
+                                        <rect key="frame" x="313.66666666666669" y="0.0" width="41.333333333333314" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DWo-f6-l1w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -275,15 +286,13 @@
                             <constraint firstItem="pd8-z3-cY5" firstAttribute="top" secondItem="DWo-f6-l1w" secondAttribute="top" constant="20" id="L3Y-Pf-9Nj"/>
                             <constraint firstItem="08M-Wq-gWJ" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="NPe-wf-yTK"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="66e-h0-cRk" secondAttribute="trailing" constant="20" id="XqR-3k-wFr"/>
-                            <constraint firstItem="o5x-eZ-WUa" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="Z1u-Ym-1KK"/>
                             <constraint firstItem="qXs-gy-aj6" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="bk0-z2-iOx"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="08M-Wq-gWJ" secondAttribute="trailing" constant="20" id="bqj-Yn-Cmg"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="qXs-gy-aj6" secondAttribute="trailing" constant="20" id="e4v-iX-gJn"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="CGG-Fh-VZR" secondAttribute="trailing" constant="20" id="kkT-Yb-kfj"/>
-                            <constraint firstItem="o5x-eZ-WUa" firstAttribute="top" secondItem="66e-h0-cRk" secondAttribute="bottom" constant="20" id="muE-Kq-RJD"/>
+                            <constraint firstItem="MfE-A2-5cG" firstAttribute="top" secondItem="66e-h0-cRk" secondAttribute="bottom" constant="20" id="mhf-GR-wZC"/>
                             <constraint firstItem="qXs-gy-aj6" firstAttribute="top" secondItem="pd8-z3-cY5" secondAttribute="bottom" constant="30" id="qWz-9x-9ka"/>
                             <constraint firstItem="66e-h0-cRk" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="qe1-z6-Xup"/>
-                            <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="o5x-eZ-WUa" secondAttribute="trailing" constant="20" id="rDH-ur-OP4"/>
                             <constraint firstItem="pd8-z3-cY5" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="uzB-IR-q16"/>
                             <constraint firstItem="08M-Wq-gWJ" firstAttribute="top" secondItem="66e-h0-cRk" secondAttribute="bottom" constant="100" id="z8u-eO-iIQ"/>
                             <constraint firstItem="66e-h0-cRk" firstAttribute="top" secondItem="CGG-Fh-VZR" secondAttribute="bottom" constant="40" id="zie-Cj-Oet"/>
@@ -298,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k6M-iV-uJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1131" y="1"/>
+            <point key="canvasLocation" x="1130.534351145038" y="0.70422535211267612"/>
         </scene>
         <!--Tutorial Viewcontroller-->
         <scene sceneID="rDy-cR-utx">
