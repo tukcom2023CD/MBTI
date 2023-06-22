@@ -22,8 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
  
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func requestMicrophonePermission() {
+        AVAudioSession.sharedInstance().requestRecordPermission { granted in
+            if granted {
+                // 마이크 권한이 허용된 경우에 대한 처리
+                print("Microphone permission granted")
+            } else {
+                // 마이크 권한이 거부된 경우에 대한 처리
+                print("Microphone permission denied")
+            }
+        }
+    }
     
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        requestMicrophonePermission()
         // Override point for customization after application launch
         //
        return true
