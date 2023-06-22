@@ -2,17 +2,14 @@
 //  Product.swift
 //  ios
 //
-//  Created by 장지수 on 2023/03/07.
+//  Created by 장지수 on 2023/04/27.
 //
-import Foundation
-import RealmSwift
 
-class Product: Object {
-    @objc dynamic var prdno:Int = 0
-    @objc dynamic var allergy:String = ""
-    @objc dynamic var num:Int = 0
-    
-    override static func primaryKey() -> String? {
-         return "num"
-       }
+import Foundation
+
+struct Product:Codable {
+    var productId: Int
+    var allergy: String
+    var productName: String
+    var manufacturer: String
 }
