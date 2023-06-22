@@ -208,6 +208,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             if stringValue.hasPrefix("http://www.foodqr.kr") || stringValue.hasPrefix("https://www.foodqr.kr/foodqr?")  {
                 //                UIApplication.shared.open(URL(string:stringValue)!,options: [:])
                 UIDevice.vibrate()
+                stopSpeech(synthesizer)
                 stopAction()
                 let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
                 let range = startIndex...
@@ -366,7 +367,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
             } catch let error {
                 print(error.localizedDescription)
                 completion(nil)
-            }#imageLiteral(resourceName: "스크린샷 2023-06-07 오후 12.16.53.png")
+            }
         }
         task.resume()
     }

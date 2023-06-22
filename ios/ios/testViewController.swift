@@ -42,6 +42,7 @@ class testViewController: UIViewController {
             speechButton.titleLabel?.font = UIFont.systemFont(ofSize: 30) // 폰트 크기 설정
             speechButton.sizeToFit()
         } else {
+            stopSpeech(synthesizer)
             startRecording()
             self.text = ""
             speechButton.setTitle("음성 녹음 진행중", for: .normal)
@@ -262,4 +263,9 @@ func textToSpeech(_ errorText:String, _ synthesizer:AVSpeechSynthesizer) {
     utterance.rate = 0.6
     utterance.volume = 1.0
     synthesizer.speak(utterance)
+}
+func stopSpeech(_ synthesizer: AVSpeechSynthesizer) {
+    if synthesizer.isSpeaking {
+        synthesizer.stopSpeaking(at: .immediate)
+    }
 }
