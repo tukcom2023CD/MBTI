@@ -210,17 +210,23 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 UIDevice.vibrate()
                 stopSpeech(synthesizer)
                 stopAction()
-                let startIndex = stringValue.index(stringValue.startIndex,offsetBy: 35)
-                let range = startIndex...
-                let Prdno = stringValue[range]
-                let productId = Int(Prdno)!
+                var prdno = ""
+                if let range = stringValue.range(of: "PRD_NO=") {
+                    let startIndex = range.upperBound
+                    let remainingString = stringValue[startIndex...]
+                    let components = remainingString.components(separatedBy: CharacterSet.decimalDigits.inverted)
+                    if let prd = components.first, !prd.isEmpty {
+                       prdno = prd
+                    }
+                }
+                let productId = Int(prdno)!
                 //postTest(String(Prdno),stringValue)
                 let DBdata = realm.objects(DBProduct.self).filter("productId == %@",productId)
                 
                 
                 if DBdata.isEmpty {
                     print("데이터 DB에 존재하지 않음.")
-                    getTest(prdno: String(Prdno)){ product in
+                    getTest(prdno: String(prdno)){ product in
                         // product를 다루는 코드 블록
                         guard let product = product else { return }
                         let dbProduct = DBProduct()

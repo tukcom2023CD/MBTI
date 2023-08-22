@@ -28,7 +28,6 @@ class SelectViewController : UIViewController {
             productName.text = selectedProduct?.productName ?? "Unknown"
             manufacturer.text = selectedProduct?.manufacturer ?? "Unknown"
             allergy.text = selectedProduct?.allergy ?? "Unknown"
-            DBTest.text = "DB에 없는 내용"
             textToSpeech("인식된 제품의 이름은 \(productName.text!)입니다.", synthesizer)
         }
         else {
@@ -36,7 +35,6 @@ class SelectViewController : UIViewController {
             allergy.text = firstProduct?.allergy ?? "Unknown"
             productName.text = firstProduct?.productName ?? "Unknown"
             manufacturer.text = firstProduct?.manufacturer ?? "Unknown"
-            DBTest.text = "DB에 있는 내용"
             textToSpeech("인식된 제품의 이름은 \(productName.text!)입니다.", synthesizer)
         }
         let productAllergy = allergy.text ?? ""
@@ -61,6 +59,11 @@ class SelectViewController : UIViewController {
             textToSpeech("\(finalCheckAllergy) 알레르기를 유발하는 제품입니다. 주의하세요", synthesizer)
             DBTest.text = finalCheckAllergy
         }
+        else {
+            textToSpeech("\(finalCheckAllergy) 알레르기를 유발하지 않는 제품입니다.", synthesizer)
+            DBTest.text = "유발 물질 없음"
+        }
+        
     }
     @IBAction func QRButton(_ sender: Any) {
         self.dismiss(animated: true)
