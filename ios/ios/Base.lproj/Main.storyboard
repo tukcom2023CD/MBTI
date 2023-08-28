@@ -251,7 +251,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-l1-P0j">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-l1-P0j">
                                         <rect key="frame" x="191.66666666666663" y="0.0" width="161.33333333333337" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -262,14 +262,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="185" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-A2-5cG">
                                 <rect key="frame" x="20" y="350" width="353" height="20.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알레르기 유발 성분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErZ-Bm-tnd">
-                                        <rect key="frame" x="0.0" y="0.0" width="126.66666666666667" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유발 성분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErZ-Bm-tnd">
+                                        <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-eZ-WUa">
-                                        <rect key="frame" x="311.66666666666669" y="0.0" width="41.333333333333314" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-eZ-WUa">
+                                        <rect key="frame" x="248.33333333333329" y="0.0" width="104.66666666666666" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -283,7 +283,6 @@
                             <constraint firstItem="08M-Wq-gWJ" firstAttribute="top" secondItem="MfE-A2-5cG" secondAttribute="bottom" constant="39.666666666666686" id="4Po-zR-GA1"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="pd8-z3-cY5" secondAttribute="trailing" constant="20" id="5WI-J4-9ur"/>
                             <constraint firstItem="CGG-Fh-VZR" firstAttribute="top" secondItem="qXs-gy-aj6" secondAttribute="bottom" constant="40" id="CDS-DF-IaE"/>
-                            <constraint firstItem="08M-Wq-gWJ" firstAttribute="leading" secondItem="MfE-A2-5cG" secondAttribute="leading" id="FZt-Jt-7gD"/>
                             <constraint firstItem="CGG-Fh-VZR" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="INS-W4-GSA"/>
                             <constraint firstItem="pd8-z3-cY5" firstAttribute="top" secondItem="DWo-f6-l1w" secondAttribute="top" constant="20" id="L3Y-Pf-9Nj"/>
                             <constraint firstItem="08M-Wq-gWJ" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="NPe-wf-yTK"/>
@@ -293,6 +292,8 @@
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="08M-Wq-gWJ" secondAttribute="trailing" constant="20" id="bqj-Yn-Cmg"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="qXs-gy-aj6" secondAttribute="trailing" constant="20" id="e4v-iX-gJn"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="CGG-Fh-VZR" secondAttribute="trailing" constant="20" id="kkT-Yb-kfj"/>
+                            <constraint firstItem="MfE-A2-5cG" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="oGQ-0K-qnU"/>
+                            <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="MfE-A2-5cG" secondAttribute="trailing" constant="20" id="ozB-c6-xc2"/>
                             <constraint firstItem="qXs-gy-aj6" firstAttribute="top" secondItem="pd8-z3-cY5" secondAttribute="bottom" constant="30" id="qWz-9x-9ka"/>
                             <constraint firstItem="66e-h0-cRk" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="qe1-z6-Xup"/>
                             <constraint firstItem="pd8-z3-cY5" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="uzB-IR-q16"/>

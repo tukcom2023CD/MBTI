@@ -232,7 +232,7 @@ class testViewController: UIViewController {
             if myString == "없음" {
                 myString = text
             } else {
-                myString += "\(text)"
+                myString += " \(text)"
             }
             speechText = "\(text) 알레르기가 추가되었습니다."
         }
