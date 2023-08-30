@@ -12,4 +12,5 @@ struct Product:Codable {
     var allergy: String
     var productName: String
     var manufacturer: String
+    var nutrient : String
 }

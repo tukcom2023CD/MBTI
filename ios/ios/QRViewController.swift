@@ -21,6 +21,7 @@ class QRViewController: UIViewController {
     var timeTrigger = true
     var realTime = Timer()
     var result = true
+    
     //    func moveresult(){
     ////        let resultview = self.storyboard?.instantiateViewController(withIdentifier: "QRCresult")
     ////        resultview?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
@@ -234,6 +235,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                         dbProduct.allergy = product.allergy
                         dbProduct.manufacturer = product.manufacturer
                         dbProduct.productname = product.productName
+                        dbProduct.nutrient = product.nutrient
                         do {
                             let realm = try! Realm()
                             try! realm.write {
@@ -262,11 +264,12 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                     let products : [Product] = DBdata.compactMap { dbProduct in
                         guard !dbProduct.allergy.isEmpty,
                               !dbProduct.productname.isEmpty,
-                              !dbProduct.manufacturer.isEmpty
+                              !dbProduct.manufacturer.isEmpty,
+                              !dbProduct.nutrient.isEmpty
                         else {
                             return nil
                         }
-                        return Product(productId: dbProduct.productId, allergy: dbProduct.allergy, productName: dbProduct.productname, manufacturer: dbProduct.manufacturer)
+                        return Product(productId: dbProduct.productId, allergy: dbProduct.allergy, productName: dbProduct.productname, manufacturer: dbProduct.manufacturer, nutrient : dbProduct.nutrient)
                     }
                     
                     let selectViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectViewController") as! SelectViewController
@@ -348,7 +351,7 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
     //
     //    }
     func getTest(prdno : String, completion: @escaping (Product?) -> Void) {
-        var components = URLComponents(string: "https://88d105cd-2761-4ece-a593-39b7760fc167.mock.pstmn.io")
+        var components = URLComponents(string: "https://afc069ea-8230-4e8d-a766-02542f95d2e6.mock.pstmn.io")
         components?.path = "/api/product/\(prdno)"
         guard let url = components?.url else { return }
         var request: URLRequest = URLRequest(url: url)
@@ -364,11 +367,12 @@ extension QRViewController: AVCaptureMetadataOutputObjectsDelegate {
                 guard let productId = json?["productId"] as? Int,
                       let allergy = json?["allergy"] as? String,
                       let productName = json?["productname"] as? String,
-                      let manufacturer = json?["manufacturer"] as? String else {
+                      let manufacturer = json?["manufacturer"] as? String,
+                      let nutrient = json?["nutrient"] as? String else {
                     completion(nil)
                     return
                 }
-                let product = Product(productId: productId, allergy: allergy, productName: productName, manufacturer: manufacturer)
+                let product = Product(productId: productId, allergy: allergy, productName: productName, manufacturer: manufacturer, nutrient : nutrient)
                 completion(product)
             } catch let error {
                 print(error.localizedDescription)

@@ -151,6 +151,7 @@
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="알레르기 설정 화면으로 이동하기">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -180,34 +181,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR 인식을 통해 가져온 정보를 안내해주는 화면입니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd8-z3-cY5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR 인식을 통해 가져온 정보입니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd8-z3-cY5">
                                 <rect key="frame" x="20" y="79" width="353" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Euj-jU-Me5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08M-Wq-gWJ">
-                                <rect key="frame" x="20" y="410" width="353" height="100"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Czu-pH-F4x"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="QR 리더기로 이동">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
-                                    <color key="baseForegroundColor" systemColor="systemBlueColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="QRButton:" destination="VLl-PV-OwB" eventType="touchUpInside" id="uK3-6O-MQU"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="qXs-gy-aj6">
                                 <rect key="frame" x="20" y="169" width="353" height="20.333333333333343"/>
                                 <subviews>
@@ -268,7 +250,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-eZ-WUa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-Nr-zOc">
                                         <rect key="frame" x="248.33333333333329" y="0.0" width="104.66666666666666" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -276,34 +258,72 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08M-Wq-gWJ">
+                                <rect key="frame" x="20" y="534.66666666666663" width="353" height="100"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Czu-pH-F4x"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="QR 리더기로 이동">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                    <color key="baseForegroundColor" systemColor="systemBlueColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="QRButton:" destination="VLl-PV-OwB" eventType="touchUpInside" id="uK3-6O-MQU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guy-dq-7gB">
+                                <rect key="frame" x="20" y="474.33333333333331" width="353" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 제품의 영양 정보입니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glg-vf-7bh">
+                                <rect key="frame" x="20" y="410.33333333333331" width="353" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DWo-f6-l1w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="08M-Wq-gWJ" firstAttribute="top" secondItem="MfE-A2-5cG" secondAttribute="bottom" constant="39.666666666666686" id="4Po-zR-GA1"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="pd8-z3-cY5" secondAttribute="trailing" constant="20" id="5WI-J4-9ur"/>
+                            <constraint firstItem="Glg-vf-7bh" firstAttribute="top" secondItem="MfE-A2-5cG" secondAttribute="bottom" constant="40" id="8j0-pS-kp8"/>
                             <constraint firstItem="CGG-Fh-VZR" firstAttribute="top" secondItem="qXs-gy-aj6" secondAttribute="bottom" constant="40" id="CDS-DF-IaE"/>
                             <constraint firstItem="CGG-Fh-VZR" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="INS-W4-GSA"/>
+                            <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="guy-dq-7gB" secondAttribute="trailing" constant="20" id="IOt-lq-7Xv"/>
                             <constraint firstItem="pd8-z3-cY5" firstAttribute="top" secondItem="DWo-f6-l1w" secondAttribute="top" constant="20" id="L3Y-Pf-9Nj"/>
-                            <constraint firstItem="08M-Wq-gWJ" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="NPe-wf-yTK"/>
+                            <constraint firstItem="08M-Wq-gWJ" firstAttribute="top" secondItem="guy-dq-7gB" secondAttribute="bottom" constant="40" id="M9v-ei-gAO"/>
                             <constraint firstItem="MfE-A2-5cG" firstAttribute="top" secondItem="66e-h0-cRk" secondAttribute="bottom" constant="40" id="ULP-wg-r0C"/>
+                            <constraint firstItem="Glg-vf-7bh" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="XCw-1e-LxE"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="66e-h0-cRk" secondAttribute="trailing" constant="20" id="XqR-3k-wFr"/>
                             <constraint firstItem="qXs-gy-aj6" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="bk0-z2-iOx"/>
-                            <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="08M-Wq-gWJ" secondAttribute="trailing" constant="20" id="bqj-Yn-Cmg"/>
+                            <constraint firstItem="guy-dq-7gB" firstAttribute="top" secondItem="Glg-vf-7bh" secondAttribute="bottom" constant="40" id="cge-kr-Dac"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="qXs-gy-aj6" secondAttribute="trailing" constant="20" id="e4v-iX-gJn"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="CGG-Fh-VZR" secondAttribute="trailing" constant="20" id="kkT-Yb-kfj"/>
+                            <constraint firstItem="08M-Wq-gWJ" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="kmT-bw-YjM"/>
+                            <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="08M-Wq-gWJ" secondAttribute="trailing" constant="20" id="m9m-Mv-RO3"/>
                             <constraint firstItem="MfE-A2-5cG" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="oGQ-0K-qnU"/>
                             <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="MfE-A2-5cG" secondAttribute="trailing" constant="20" id="ozB-c6-xc2"/>
                             <constraint firstItem="qXs-gy-aj6" firstAttribute="top" secondItem="pd8-z3-cY5" secondAttribute="bottom" constant="30" id="qWz-9x-9ka"/>
                             <constraint firstItem="66e-h0-cRk" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="qe1-z6-Xup"/>
                             <constraint firstItem="pd8-z3-cY5" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="uzB-IR-q16"/>
+                            <constraint firstItem="guy-dq-7gB" firstAttribute="leading" secondItem="DWo-f6-l1w" secondAttribute="leading" constant="20" id="vgL-3w-xMw"/>
+                            <constraint firstItem="DWo-f6-l1w" firstAttribute="trailing" secondItem="Glg-vf-7bh" secondAttribute="trailing" constant="20" id="xPb-Sw-qX0"/>
                             <constraint firstItem="66e-h0-cRk" firstAttribute="top" secondItem="CGG-Fh-VZR" secondAttribute="bottom" constant="40" id="zie-Cj-Oet"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="DBTest" destination="o5x-eZ-WUa" id="UPw-5j-T1Q"/>
                         <outlet property="allergy" destination="4ZL-l1-P0j" id="EIa-KU-mTC"/>
+                        <outlet property="checkAllergyState" destination="DuI-Nr-zOc" id="ga8-Nc-gfH"/>
                         <outlet property="manufacturer" destination="G9u-m2-oSm" id="HIZ-2Z-Ou8"/>
+                        <outlet property="nutrient" destination="guy-dq-7gB" id="Ved-p3-Vpd"/>
                         <outlet property="productName" destination="qpY-7q-NuB" id="4wC-wk-3NP"/>
                     </connections>
                 </viewController>
@@ -327,7 +347,7 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="45"/>
                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -363,6 +383,7 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -377,6 +398,7 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -391,6 +413,7 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -424,7 +447,7 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="BMJUAOTF" family="BM Jua" pointSize="30"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="33"/>
                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -452,7 +475,7 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="33"/>
                                     <color key="baseForegroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
                                 <connections>

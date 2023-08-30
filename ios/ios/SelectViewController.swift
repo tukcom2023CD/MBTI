@@ -19,7 +19,11 @@ class SelectViewController : UIViewController {
     
     @IBOutlet weak var allergy: UILabel!
     
-    @IBOutlet weak var DBTest: UILabel!
+    @IBOutlet weak var checkAllergyState: UILabel!
+    
+    @IBOutlet weak var nutrient: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.frame = UIScreen.main.bounds
@@ -28,6 +32,7 @@ class SelectViewController : UIViewController {
             productName.text = selectedProduct?.productName ?? "Unknown"
             manufacturer.text = selectedProduct?.manufacturer ?? "Unknown"
             allergy.text = selectedProduct?.allergy ?? "Unknown"
+            nutrient.text = selectedProduct?.nutrient ?? "Unknown"
             textToSpeech("인식된 제품의 이름은 \(productName.text!)입니다.", synthesizer)
         }
         else {
@@ -35,12 +40,13 @@ class SelectViewController : UIViewController {
             allergy.text = firstProduct?.allergy ?? "Unknown"
             productName.text = firstProduct?.productName ?? "Unknown"
             manufacturer.text = firstProduct?.manufacturer ?? "Unknown"
+            nutrient.text = firstProduct?.nutrient ?? "Unknown"
             textToSpeech("인식된 제품의 이름은 \(productName.text!)입니다.", synthesizer)
         }
         let productAllergy = allergy.text ?? ""
         let userDefaultAllergy = UserDefaults.standard.string(forKey: "myStringKey") ?? ""
         let productArray = productAllergy.components(separatedBy: ",")
-        let userArray = userDefaultAllergy.components(separatedBy: ",")
+        let userArray = userDefaultAllergy.components(separatedBy: " ")
         print(productArray)
         print(userArray)
 
@@ -57,11 +63,11 @@ class SelectViewController : UIViewController {
 
         if !checkAllergy.isEmpty {
             textToSpeech("\(finalCheckAllergy) 알레르기를 유발하는 제품입니다. 주의하세요", synthesizer)
-            DBTest.text = finalCheckAllergy
+            checkAllergyState.text = finalCheckAllergy
         }
         else {
             textToSpeech("\(finalCheckAllergy) 알레르기를 유발하지 않는 제품입니다.", synthesizer)
-            DBTest.text = "유발 물질 없음"
+            checkAllergyState.text = "유발 물질 없음"
         }
         
     }
