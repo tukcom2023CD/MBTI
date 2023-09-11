@@ -61,12 +61,13 @@ class testViewController: UIViewController {
             let string = "우유"
             changeUserDefault(text: string)
         }
-        if text.contains("곡류") {
+        if text.contains("곡류") || text.contains("곡유") || text.contains("곡 유") || text.contains("공유") ||
+            text.contains("공류") || text.contains("공 류") {
             state = true
             let string = "곡류"
             changeUserDefault(text: string)
         }
-        if text.contains("게") {
+        if text.contains("게") || text.contains("개") || text.contains("꽃게") || text.contains("계"){
             state = true
             let string = "게"
             changeUserDefault(text: string)
@@ -92,12 +93,12 @@ class testViewController: UIViewController {
             let string = "고등어"
             changeUserDefault(text: string)
         }
-        if text.contains("조개류") {
+        if text.contains("조개류") || text.contains("조개") || text.contains("조개 류"){
             state = true
             let string = "조개류"
             changeUserDefault(text: string)
         }
-        if text.contains("아산황류") {
+        if text.contains("아산황류") || text.contains("아산 확률") || text.contains("아산 완료") {
             state = true
             let string = "아산황류"
             changeUserDefault(text: string)
@@ -107,17 +108,17 @@ class testViewController: UIViewController {
             let string = "오징어"
             changeUserDefault(text: string)
         }
-        if text.contains("돼지고기") {
+        if text.contains("돼지고기") || text.contains("돼지"){
             state = true
             let string = "돼지고기"
             changeUserDefault(text: string)
         }
-        if text.contains("닭고기") {
+        if text.contains("닭고기") || text.contains("닭"){
             state = true
             let string = "닭고기"
             changeUserDefault(text: string)
         }
-        if text.contains("쇠고기") {
+        if text.contains("쇠고기") || text.contains("소고기") || text.contains("소") {
             state = true
             let string = "쇠고기"
             changeUserDefault(text: string)
@@ -127,7 +128,7 @@ class testViewController: UIViewController {
             let string = "토마토"
             changeUserDefault(text: string)
         }
-        if text.contains("잣") {
+        if text.contains("잣") || text.contains("잡") || text.contains("잗"){
             state = true
             let string = "잣"
             changeUserDefault(text: string)
@@ -232,7 +233,7 @@ class testViewController: UIViewController {
             if myString == "없음" {
                 myString = text
             } else {
-                myString += "\(text)"
+                myString += " \(text)"
             }
             speechText = "\(text) 알레르기가 추가되었습니다."
         }

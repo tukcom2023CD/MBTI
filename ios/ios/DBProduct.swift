@@ -12,6 +12,7 @@ class DBProduct: Object {
     @objc dynamic var allergy:String = ""
     @objc dynamic var productname:String = ""
     @objc dynamic var manufacturer:String = ""
+    @objc dynamic var nutrient:String = ""
     
     override static func primaryKey() -> String? {
          return "productId"
